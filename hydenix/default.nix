@@ -70,12 +70,12 @@ in
       enable = true;
       settings = {
         "org/gnome/desktop/interface" = {
-          icon-theme = activeTheme.arcs.icon.name or "Tela-circle-dracula";
-          gtk-theme = activeTheme.arcs.gtk.name or "Wallbash-Gtk";
+          icon-theme = config.gtk.iconTheme.name or activeTheme.arcs.icon.name or "Tela-circle-dracula";
+          gtk-theme = config.gtk.theme.name or activeTheme.arcs.gtk.name or "Wallbash-Gtk";
           color-scheme = "prefer-dark";
           font-name = activeTheme.arcs.font.name or "Cantarell 10";
-          cursor-theme = activeTheme.arcs.cursor.name or "Bibata-Modern-Ice";
-          cursor-size = "20";
+          cursor-theme = config.pointerCursor.name or activeTheme.arcs.cursor.name or "Bibata-Modern-Ice";
+          cursor-size = config.pointerCursor.size or "20";
           document-font-name = activeTheme.arcs.font.name or "Cantarell 10";
           monospace-font-name = "JetBrains Mono 9";
           font-antialiasing = "rgba";
