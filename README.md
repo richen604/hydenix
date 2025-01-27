@@ -1,19 +1,18 @@
-###### *<div align="right"><sub>// design by t2</sub></div>*
+###### _<div align="right"><sub>// design by t2</sub></div>_
 
 <div align="center">
 
 [![NixOS Unstable](https://img.shields.io/badge/NixOS-unstable-blue.svg?style=flat-square&logo=NixOS&logoColor=white)](https://nixos.org)
 [![Release](https://img.shields.io/github/v/release/richen604/hydenix?style=flat-square)](https://github.com/richen604/hydenix/releases)
 [![Last Commit](https://img.shields.io/github/last-commit/richen604/hydenix/main?style=flat-square)](https://github.com/richen604/hydenix/commits/main)
-
 [![Nix Flake Check](https://github.com/richen604/hydenix/actions/workflows/flake-check.yml/badge.svg?style=flat-square)](https://github.com/richen604/hydenix/actions/workflows/flake-check.yml)
 
 </div>
 
 <div align = center>
-    <a href="https://discord.gg/AYbJ9MJez7">
-<img alt="Dynamic JSON Badge" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fdiscordapp.com%2Fapi%2Finvites%2FmT5YqjaJFh%3Fwith_counts%3Dtrue&query=%24.approximate_member_count&suffix=%20members&style=for-the-badge&logo=discord&logoSize=auto&label=The%20HyDe%20Project&labelColor=ebbcba&color=c79bf0">
-    </a>
+  <a href="https://discord.gg/AYbJ9MJez7">
+    <img alt="Dynamic JSON Badge" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fdiscordapp.com%2Fapi%2Finvites%2FmT5YqjaJFh%3Fwith_counts%3Dtrue&query=%24.approximate_member_count&suffix=%20members&style=for-the-badge&logo=discord&logoSize=auto&label=The%20HyDe%20Project&labelColor=ebbcba&color=c79bf0">
+  </a>
 </div>
 
 <!--
@@ -24,37 +23,38 @@
 
 <div align="center">
 
- ![hyde_banner](https://raw.githubusercontent.com/prasanthrangan/hyprdots/main/Source/assets/hyde_banner.png)
-
+![hyde_banner](https://raw.githubusercontent.com/HyDE-Project/HyDE/main/Source/assets/hyde_banner.png)
 <br>
 
-  <a href="#installation-options"><kbd> <br> Installation <br> </kbd></a>&ensp;
-  <a href="#upgrading"><kbd> <br> Upgrading <br> </kbd></a>&ensp;
-    <a href="#troubleshooting--issues"><kbd> <br> Issues <br> </kbd></a>&ensp;
-      <a href="#faq"><kbd> <br> FAQ <br> </kbd></a>&ensp;
-        <a href="#contributing"><kbd> <br> Contributing <br> </kbd></a>&ensp;
-  <a href="https://www.youtube.com/watch?v=2rWqdKU1vu8&list=PLt8rU_ebLsc5yEHUVsAQTqokIBMtx3RFY&index=1"><kbd> <br> Youtube <br> </kbd></a>&ensp;
-  <a href="https://discord.gg/qWehcFJxPa"><kbd> <br> Discord <br> </kbd></a>
+<a href="#installation-options"><kbd> <br> Installation <br> </kbd></a>&ensp;
+<a href="#upgrading"><kbd> <br> Upgrading <br> </kbd></a>&ensp;
+<a href="#troubleshooting--issues"><kbd> <br> Issues <br> </kbd></a>&ensp;
+<a href="#faq"><kbd> <br> FAQ <br> </kbd></a>&ensp;
+<a href="#contributing"><kbd> <br> Contributing <br> </kbd></a>&ensp;
+<a href="https://www.youtube.com/watch?v=2rWqdKU1vu8&list=PLt8rU_ebLsc5yEHUVsAQTqokIBMtx3RFY&index=1"><kbd> <br> Youtube <br> </kbd></a>&ensp;
+<a href="https://discord.gg/qWehcFJxPa"><kbd> <br> Discord <br> </kbd></a>
 
 </div><br><br>
 
 <video controls src="https://private-user-images.githubusercontent.com/106020512/324331744-7f8fadc8-e293-4482-a851-e9c6464f5265.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzAxNzIwODEsIm5iZiI6MTczMDE3MTc4MSwicGF0aCI6Ii8xMDYwMjA1MTIvMzI0MzMxNzQ0LTdmOGZhZGM4LWUyOTMtNDQ4Mi1hODUxLWU5YzY0NjRmNTI2NS5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQxMDI5JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MTAyOVQwMzE2MjFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT03YTBiNDVjZThhZjU4NmY1MTc4NTRjYzEyZTBmYjRmZjI0YTY0ZTIyNWU2NTlhMTBkZmIxOWFlOWQ0YzQ5YTAyJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.cTLUInzudFw4tmHUS1K32e6hx3umv84Ka2sDCuzrUig" title="https://github.com/prasanthrangan/hyprdots/assets/106020512/7f8fadc8-e293-4482-a851-e9c6464f5265"></video>
 
-<br><div align="center"><img width="18%" src="https://raw.githubusercontent.com/prasanthrangan/hyprdots/main/Source/assets/arch.png"/> <img style="margin-right: 10px" width="16%" src="https://em-content.zobj.net/source/apple/391/handshake_1f91d.png">&ensp;&ensp;&ensp;<img width="16.5%" src="https://github.com/NixOS/nixos-artwork/raw/refs/heads/master/logo/nix-snowflake-colours.svg"/></div>
+<br><div align="center"><img width="18%" src="https://raw.githubusercontent.com/HyDE-Project/HyDE/main/Source/assets/arch.png"/> <img style="margin-right: 10px" width="16%" src="https://em-content.zobj.net/source/apple/391/handshake_1f91d.png">&ensp;&ensp;&ensp;<img width="16.5%" src="https://github.com/NixOS/nixos-artwork/raw/refs/heads/master/logo/nix-snowflake-colours.svg"/></div>
 
 # Hydenix
 
-Hydenix is a Nix & home-manager configuration for [HyDE](https://github.com/prasanthrangan/hyprdots). 
-The nix ecosystem brings a reproducable environment to the HyDE experience; allowing for build-time configuration options, easy updates, and more.
+Hydenix is a Nix & home-manager configuration for [HyDE](https://github.com/HyDE-Project/HyDE).
+The nix ecosystem brings a reproducible environment to the HyDE experience; allowing for build-time configuration options, easy updates, and more.
 
 Features:
+
 - Includes [HyDE-cli](https://github.com/HyDE-Project/Hyde-cli) by default
 - NixOS VM that can be run with any supported distro
 - Themes are fetched at build-time, for faster setup
 - `config.nix` for easy configuration
-- Includes **beta cross-distro** support using home-manager, more on that [here](#installation-options). 
+- Includes **beta cross-distro** support using home-manager, more on that [here](#installation-options).
 
 Why Nix?:
+
 - Reproducible environment
 - Easy to manage packages, dependencies, and configurations
 - changes in configuration can be rolled back easily
@@ -87,8 +87,6 @@ Why Nix?:
 
 ## Installation Options
 
-
-
 ---
 
 > [!CAUTION]
@@ -101,12 +99,12 @@ Why Nix?:
 3. run `sudo nixos-generate-config --show-hardware-config > hardware-configuration.nix`
 4. `git init && git add .` (flakes have to be managed via git)
 5. run any of the packages in your new `flake.nix`
-    - for vm `nix run .`
-    - for rebuild `sudo nixos-rebuild switch/test/boot --flake .`
+   - for vm `nix run .`
+   - for rebuild `sudo nixos-rebuild switch/test/boot --flake .`
 
 #### 2. Running as a nixos VM
 
-If your system supports it, the NixOS VM is the quickest way to get up and running. 
+If your system supports it, the NixOS VM is the quickest way to get up and running.
 If you have issues running the VM, see the [virtio faq](#vm-virtio-guide)
 
 ```bash
@@ -133,18 +131,20 @@ nix run github:richen604/hydenix/#run-fedora-vm # or #run-arch-vm
 Hydenix can be upgraded, downgraded, or version locked easy.
 
 in your template flake folder, update hydenix to main using
+
 ```bash
 nix flake update hydenix
 ```
 
 or define a specific version in your `flake.nix` template
+
 ```nix
 inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     hydenix = {
       # Available inputs:
       # Main: github:richen604/hydenix
-      # Dev: github:richen604/hydenix/dev 
+      # Dev: github:richen604/hydenix/dev
       # Commit: github:richen604/hydenix/<commit-hash>
       # Version: github:richen604/hydenix/v1.0.0
       url = "github:richen604/hydenix";
@@ -159,25 +159,32 @@ run `nix flake update hydenix` again to apply the changes
 Below is a brief reference of the directory structure to hydenix:
 
 ## `/hosts`
+
 Contains host-specific configurations and settings.
 
 ### `/hosts/nixos`
+
 NixOS-specific configurations:
+
 - `configuration.nix` - main nixos system configuration, anything that cannot be done in home-manager
 - `default.nix` - nixos configuration function used in `lib/mkConfig.nix`
 - `drivers.nix` - Hardware driver config - used in `config.nix`
 - `home.nix` - base home-manager config
 
 ### `/hosts/vm`
+
 Virtual machine related configurations:
+
 - `arch-vm.nix` - Arch Linux VM configuration
 - `fedora-vm.nix` - Fedora VM configuration
 - `nix-vm.nix` - NixOS VM configuration
-- `vm-utils.nix` - Shared VM utilities for non-nixos 
+- `vm-utils.nix` - Shared VM utilities for non-nixos
 - `/scripts` - VM management scripts
 
 ## `/hydenix`
+
 home-manager module containing most of hydenix's configurations:
+
 - `/hm` - Home-manager specific configurations
 - `/packages` - Custom package definitions
 - `/programs` - Program-specific configurations
@@ -185,12 +192,15 @@ home-manager module containing most of hydenix's configurations:
 - `default.nix` - Main configuration entry point
 
 ## `/lib`
+
 Shared libraries and utilities:
+
 - `dev-shell.nix` - Development shell configuration for pre-commit hook
 - `gen-config.sh` - Configuration generation script
 - `mkConfig.nix` - Configuration builder, takes `config.nix` and returns hydenix
 
 ## `/template`
+
 Template for creating your own flake.
 
 ## Troubleshooting & Issues
@@ -199,6 +209,7 @@ The following information is required when creating an issue, please provide as 
 It's also possible to diagnose issues yourself with the information provided.
 
 1. **System Logs**
+
 ```bash
 journalctl -b                                           # System logs
 journalctl --user -b                                   # User logs
@@ -206,11 +217,13 @@ sudo systemctl status home-manager-$HOSTNAME.service   # Home-manager status
 ```
 
 2. **System Information**
+
 ```bash
 nix-shell -p nix-info --run "nix-info -m"
 ```
 
 3. **Configuration**
+
 - Link to a github repo with your templated flake or fork
 
 > [!NOTE]
@@ -232,16 +245,19 @@ Best bet is to have virtio, opengl, and VT-x support
 Non-NixOS hosts should run with [nixGL](https://github.com/nix-community/nixGL) eg `nixGL nix run .`
 
 CPU
+
 - Intel CPU with VT-x or AMD CPU with AMD-V
 - Virtualization enabled in BIOS/UEFI
 
 GPU
+
 - NVIDIA: GTX 600+ series (proprietary drivers)
 - AMD: HD 7000+ series
 - Intel: HD 4000+ (Ivy Bridge)
 - OpenGL 3.3+ support required
 
 Install Drivers
+
 ```bash
 # Nvidia
 sudo apt install nvidia-driver nvidia-utils     # Debian/Ubuntu
@@ -273,6 +289,7 @@ lsmod | grep kvm                       # Check KVM modules
 # Host: Check OpenGL
 glxinfo | grep "OpenGL"
 ```
+
 <div align="right">
   <br>
   <a href="#"><kbd> <br> 🡅 <br> </kbd></a>
@@ -284,9 +301,10 @@ glxinfo | grep "OpenGL"
 > Nix is a powerful package manager and configuration system that can be overwhelming at first. Here are some resources to help you get started:
 
 General Resources
+
 - [Nix Packages](https://search.nixos.org/packages)
 - [Nix Options](https://search.nixos.org/options)
-- [Home Manager Options](https://nix-community.github.io/home-manager/options.html) *hint: use control + f to search*
+- [Home Manager Options](https://nix-community.github.io/home-manager/options.html) _hint: use control + f to search_
 - [NixOS Wiki](https://nixos.wiki)
 - [Nixpkgs Discussions](https://discourse.nixos.org)
 - [Nixpkgs Issues](https://github.com/NixOS/nixpkgs/issues)
@@ -319,7 +337,9 @@ type(optional-scope): subject
 ```
 
 Where:
+
 - **type** must be one of:
+
   - `feat`: A new feature
   - `fix`: A bug fix
   - `docs`: Documentation changes
@@ -330,6 +350,7 @@ Where:
   - `chore`: Maintenance tasks
 
 - **scope** is optional but if used:
+
   - must be lowercase
   - should be descriptive of the area of change
   - examples: vm, themes, home, cli, docs, etc.
@@ -340,6 +361,7 @@ Where:
   - be descriptive
 
 Examples:
+
 - `feat(vm): add support for fedora vm configuration`
 - `fix: correct wallpaper path in material theme`
 - `docs: update installation instructions`
