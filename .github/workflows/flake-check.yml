@@ -5,9 +5,11 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+    types: [opened, synchronize, ready_for_review]
 
 jobs:
   check:
+    if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
