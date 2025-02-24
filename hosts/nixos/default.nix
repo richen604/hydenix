@@ -32,8 +32,7 @@ inputs.hydenix-nixpkgs.lib.nixosSystem {
           ] ++ userConfig.homeModules;
         };
       home-manager.extraSpecialArgs = {
-        inherit userConfig;
-        inherit inputs;
+        inherit userConfig inputs userPkgs;
       };
     }
   ] ++ userConfig.nixModules;

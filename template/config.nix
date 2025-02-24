@@ -42,13 +42,17 @@
   nixModules = [
     # (toString ./my-module.nix)
     # in my-module.nix you can reference this userConfig
-    # ({ userConfig, pkgs, ... }: {
+    # ({ userConfig, pkgs, userPkgs, ... }: {
     #   environment.systemPackages = [ pkgs.git ];
     # })
   ];
   # List of nix modules to import in ./lib/mkConfig.nix
   homeModules = [
     # (toString ./my-module.nix)
+    # in my-module.nix you can reference this userConfig
+    # ({ userConfig, pkgs, userPkgs, ... }: {
+    #   home.packages = [ userPkgs.git ];
+    # })
   ];
 
   hyde = rec {
