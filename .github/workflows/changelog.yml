@@ -27,9 +27,15 @@ jobs:
 
       - name: Install release tools
         run: |
-          npm install -g semantic-release @semantic-release/changelog @semantic-release/git conventional-changelog-cli
+          npm install -g semantic-release @semantic-release/changelog @semantic-release/git @semantic-release/commit-analyzer conventional-changelog-cli
+
+      - name: Debug - Show configuration
+        run: |
+          cat .releaserc.json
+          echo "Current tags:"
+          git tag -l
 
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx semantic-release
+        run: npx semantic-release --debug
