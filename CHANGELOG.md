@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/richen604/hydenix/compare/v1.4.0...v1.4.1) (2025-03-22)
+
+
+### Bug Fixes
+
+* semantic release major fix ([472fbd6](https://github.com/richen604/hydenix/commit/472fbd6bfa56960da5c928475aaf84eb6d3a4be2))
+
 # [1.4.0](https://github.com/richen604/hydenix/compare/v1.3.2...v1.4.0) (2025-03-22)
 
 
