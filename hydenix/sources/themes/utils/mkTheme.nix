@@ -6,108 +6,137 @@
   arcs,
 }:
 let
+  # Process arc configurations
+  gtkName = arcs.gtk or null;
+  iconName = arcs.icon or null;
+  cursorName = arcs.cursor or null;
+  fontName = arcs.font or null;
 
-  arcStore = import ./arcStore.nix { inherit pkgs; };
-
-  # Get theme configuration from themes.json
-  themeConfig = {
-    gtk = arcs.gtk or null;
-    icon = arcs.icon or null;
-    cursor = arcs.cursor or null;
-    font = arcs.font or null;
-  };
-
-  # Fetch arc packages if defined in theme config
-  themeArcs =
-    if themeConfig != null then
-      {
-        gtk =
-          if themeConfig.gtk != null then
-            {
-              name = themeConfig.gtk;
-              pkg = arcStore.gtk.${themeConfig.gtk} or null;
-            }
-          else
-            null;
-
-        icon =
-          if themeConfig.icon != null then
-            {
-              name = themeConfig.icon;
-              pkg = arcStore.icon.${themeConfig.icon} or null;
-            }
-          else
-            null;
-
-        cursor =
-          if themeConfig.cursor != null then
-            {
-              name = themeConfig.cursor;
-              pkg = arcStore.cursor.${themeConfig.cursor} or null;
-            }
-          else
-            null;
-
-        font =
-          if themeConfig.font != null then
-            {
-              name = themeConfig.font;
-              pkg = arcStore.font.${themeConfig.font} or null;
-            }
-          else
-            null;
-      }
-    else
-      { };
-
-  # TODO: perf: swwwallcache.sh and wallbash.sh should run at buildtime
-  # mkTheme is a wrapper around the hyde theme package that:
-  # - Creates a derivation for the theme package at build time
-  # - Parses the hypr.theme file to extract theme values
-  # - Sets up GTK, icon, cursor and font theme packages if extracted from hypr.theme
-  # - Handles installation of theme files and wallpapers
+  # Combined theme package that includes all arcs
   pkg = pkgs.stdenv.mkDerivation {
     inherit name src;
+    pname = name;
+
+    version = "1.0.0";
+
+    nativeBuildInputs = with pkgs; [
+      jdupes
+      gnutar
+    ];
 
     dontConfigure = true;
     dontBuild = true;
+    dontPatchELF = true;
+    dontRewriteSymlinks = true;
+    dontDropIconThemeCache = true;
 
     installPhase = ''
-        mkdir -p $out/share/hyde/themes
+      runHook preInstall
 
-      # scripts need to use dconf instead of gsettings
-      #  find . -type f -not -name 'themepatcher.sh' -exec sed -i \
-      #    -e 's/gsettings set/dconf write/g' \
-      #    -e 's/gsettings get/dconf read/g' \
-      #    -e 's/org\.gnome\.desktop\.interface \([^ ]*\)/\/org\/gnome\/desktop\/interface\/\1/g' \
-      #    -e 's/org\.gnome\.desktop\.gtk \([^ ]*\)/\/org\/gnome\/desktop\/gtk\/\1/g' \
-      #    -e 's/\(dconf write.*font-name\) '"'"'\([^'"'"']*\)'"'"'/\1 "'"'"'\2'"'"'"/' \
-      #    -e 's/\(dconf write.*cursor-theme\) '"'"'\([^'"'"']*\)'"'"'/\1 "'"'"'\2'"'"'"/' \
-      #    -e 's/\(dconf write.*color-scheme\) '"'"'\([^'"'"']*\)'"'"'/\1 "'"'"'\2'"'"'"/' \
-      #    -e 's/\(dconf write.*gtk-theme\) '"'"'\([^'"'"']*\)'"'"'/\1 "'"'"'\2'"'"'"/' \
-      #    -e 's/\(dconf write.*icon-theme\) '"'"'\([^'"'"']*\)'"'"'/\1 "'"'"'\2'"'"'"/' \
-      #    -e 's/\(dconf write.*[^ ]*\) '"'"'\(\$[A-Za-z_][A-Za-z0-9_]*\)'"'"'/\1 "\2"/g' \
-      #    -e 's/\(dconf write.*[^ ]*\) \(\$[A-Za-z_][A-Za-z0-9_]*\)/\1 "\2"/g' \
-      #    {} +
+      # Create theme directory structure
+      mkdir -p $out/share/hyde/themes/"${name}"
+      mkdir -p $out/share/themes
+      mkdir -p $out/share/icons
+      mkdir -p $out/share/fonts
 
-        cp -r Configs/.config/hyde/themes/"${name}"/. $out/share/hyde/themes/"${name}"
+      cp -r Configs/.config/hyde/themes/"${name}"/. $out/share/hyde/themes/"${name}"/
 
-        find ./Configs/ -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" -o -name "*.gif" \) -exec cp --no-preserve=mode {} $out/share/hyde/themes/"${name}"/wallpapers/ \;
+      # Install GTK theme if available
+      ${
+        if gtkName != null then
+          ''
+            echo "Installing GTK theme: ${gtkName}"
+            mkdir -p $out/share/themes
+
+            # Find and extract the GTK theme archive
+            for gtk_archive in ./Source/Gtk_*.tar*; do
+              if [ -f "$gtk_archive" ]; then
+                echo "Extracting GTK theme: ''${gtk_archive}"
+                tar -xf "$gtk_archive" -C $out/share/themes
+                break
+              fi
+            done
+          ''
+        else
+          ""
+      }
+
+      # Install icon theme if available
+      ${
+        if iconName != null then
+          ''
+            echo "Installing icon theme: ${iconName}"
+            mkdir -p $out/share/icons/"${iconName}"
+
+            # Find and extract the icon theme archive
+            for icon_archive in ./Source/Icon_*.tar*; do
+              if [ -f "$icon_archive" ]; then
+                tar -xf "$icon_archive" --strip-components=1 --skip-old-files -C $out/share/icons/"${iconName}"
+                
+                # Fix broken symlinks by removing them
+                find $out/share/icons/"${iconName}" -type l -exec sh -c 'test -e "$0" || rm "$0"' {} \;
+                
+                jdupes --recurse $out/share/icons/"${iconName}"
+                break
+              fi
+            done
+          ''
+        else
+          ""
+      }
+
+      # Install cursor theme if available
+      ${
+        if cursorName != null then
+          ''
+            echo "Installing cursor theme: ${cursorName}"
+            mkdir -p $out/share/icons/"${cursorName}"
+
+            # Find and extract the cursor theme archive
+            for cursor_archive in ./Source/Cursor_*.tar*; do
+              if [ -f "$cursor_archive" ]; then
+                tar -xf "$cursor_archive" -C $out/share/icons/"${cursorName}"
+                
+                # Fix broken symlinks by removing them
+                find $out/share/icons/"${cursorName}" -type l -exec sh -c 'test -e "$0" || rm "$0"' {} \;
+                
+                jdupes --recurse $out/share/icons/"${cursorName}"
+                break
+              fi
+            done
+          ''
+        else
+          ""
+      }
+
+      # Install font if available
+      ${
+        if fontName != null then
+          ''
+            echo "Installing font: ${fontName}"
+            mkdir -p $out/share/fonts/"${fontName}"
+
+            # Find and extract the font archive
+            for font_archive in Source/Font_*.tar*; do
+              if [ -f "$font_archive" ]; then
+                tar -xf "$font_archive" -C $out/share/fonts/"${fontName}"
+                break
+              fi
+            done
+          ''
+        else
+          ""
+      }
+      runHook postInstall
     '';
 
+    # Use theme priority to handle conflicts
     meta = with pkgs.lib; {
-      inherit (meta) description homepage;
+      inherit (meta) description homepage priority;
       license = licenses.mit;
       platforms = platforms.all;
     };
   };
 
-  # wallpapers are built into the theme package so they are available at build time
-  walls = pkg.outPath + "/share/hyde/themes/${name}/wallpapers";
-
 in
-{
-  inherit name pkg walls;
-  src = pkg.src;
-  arcs = themeArcs;
-}
+pkg

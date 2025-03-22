@@ -18,13 +18,3 @@ assignees: ''
 ## Alternatives Considered
 <!-- Have you considered any alternative solutions or workarounds? -->
 
-## Additional Context
-<!-- Add any other context, screenshots, or examples about the feature request here -->
-
-## Implementation Ideas (Optional)
-<!-- If you have specific ideas about how to implement this feature, share them here -->
-
-## Checklist
-- [ ] I have checked for existing feature requests
-- [ ] I have provided clear use cases
-- [ ] I have explained the value this feature would add

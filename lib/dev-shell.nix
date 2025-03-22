@@ -1,5 +1,11 @@
-{ pkgs }:
+{ hydenix-inputs }:
 
+let
+  pkgs = import hydenix-inputs.hydenix-nixpkgs {
+    inherit (hydenix-inputs.lib) system;
+    config.allowUnfree = true;
+  };
+in
 pkgs.mkShell {
   buildInputs = with pkgs; [
     nodejs

@@ -3,57 +3,56 @@
 
   inputs = {
     # Hydenix's nixpkgs
-    hydenix-nixpkgs.url = "github:nixos/nixpkgs/ecd26a469ac56357fd333946a99086e992452b6a";
+    hydenix-nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "hydenix-nixpkgs";
     };
-    hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-      inputs.nixpkgs.follows = "hydenix-nixpkgs";
-    };
-    nix-index-database.url = "github:nix-community/nix-index-database";
-    nix-index-database.inputs.nixpkgs.follows = "hydenix-nixpkgs";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
   outputs =
-    { ... }@inputs:
+    { ... }@hydenix-pre-inputs:
     let
+      # TODO: multi system support?
       system = "x86_64-linux";
 
-      # Hydenix's pkgs instance
-      pkgs = import inputs.hydenix-nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
+      hydenix-inputs = hydenix-pre-inputs // {
+        lib = {
+          overlays = import ./hydenix/sources/overlay.nix;
+          nixOsModules = import ./hydenix/modules/system;
+          homeModules = import ./hydenix/modules/hm;
+          iso = import ./lib/iso/default.nix;
+          mkTheme = import ./hydenix/sources/themes/utils/mkTheme.nix;
+          inherit system;
+        };
       };
 
-      mkConfig = import ./lib/mkConfig.nix {
-        inherit
-          inputs
-          pkgs
-          system
-          ;
+      defaultConfig = import ./lib/config {
+        inherit hydenix-inputs;
       };
 
-      defaultConfig = mkConfig {
-        userConfig = import ./config.nix;
-        extraInputs = { };
+      # Create VM variant of the NixOS configuration
+      vmConfig = import ./lib/vms/nixos-vm.nix {
+        nixosConfiguration = defaultConfig;
+        inherit hydenix-inputs;
       };
+
+      isoConfig = hydenix-inputs.lib.iso {
+        inherit hydenix-inputs;
+      };
+
     in
     {
-      # Main config builder
-      lib = {
-        inherit mkConfig;
-      };
+      lib = hydenix-inputs.lib;
 
       templates = {
         default = {
           path = ./template;
           description = "Hydenix template";
           welcomeText = ''
-            ```
-             _    _           _            _
+            ```             _    _           _            _
             | |  | |         | |          (_)
             | |__| |_   _  __| | ___ _ __  ___  __
             |  __  | | | |/ _` |/ _ \ '_ \| \ \/ /
@@ -62,43 +61,35 @@
                     __/ |
                     |___/       ❄️ Powered by Nix ❄️
             ```
-            1. edit `config.nix` with your preferences
+            1. edit `configuration.nix` with your preferences for hydenix
+              - visit https://github.com/richen604/hydenix for module documentation
             2. run `sudo nixos-generate-config --show-hardware-config > hardware-configuration.nix`
             3. `git init && git add .` (flakes have to be managed via git)
             4. run any of the packages in your new `flake.nix`
               - for rebuild, use `sudo nixos-rebuild switch --flake .`
-              - for vm, use `nix run .`
+            5. DON'T FORGET: change your password for all users with `passwd` from initialPassword set in `configuration.nix`
+            6. NOTE: After rebuild, the first boot may take a while depending on how many `hydenix.hm.themes` are enabled, as the system generates cache.
           '';
         };
       };
 
-      nixosConfigurations.nixos = defaultConfig.nixosConfiguration;
-      nixosConfigurations.${defaultConfig.userConfig.host} = defaultConfig.nixosConfiguration;
-
       packages.${system} = {
-        # generate-config script
-        gen-config = pkgs.writeShellScriptBin "gen-config" (builtins.readFile ./lib/gen-config.sh);
+        # Use the VM configuration as default
+        default = vmConfig.config.system.build.vm;
 
-        # defaults to nix-vm
-        default = defaultConfig.nix-vm.config.system.build.vm;
+        # Original NixOS configuration
+        nixos = defaultConfig.config.system.build.toplevel;
 
-        # NixOS activation packages
-        hydenix = defaultConfig.nixosConfiguration.config.system.build.toplevel;
+        # Explicitly named VM configuration
+        nixos-vm = vmConfig.config.system.build.vm;
 
-        # Home activation packages
-        hm = defaultConfig.homeConfigurations.${defaultConfig.userConfig.username}.activationPackage;
-        hm-generic =
-          defaultConfig.homeConfigurations."${defaultConfig.userConfig.username}-generic".activationPackage;
+        # ISO configuration
+        iso = isoConfig.build-iso;
 
-        # EXPERIMENTAL VM BUILDERS
-        arch-vm = defaultConfig.arch-vm;
-        fedora-vm = defaultConfig.fedora-vm;
-
-        # Add the ISO builder
-        iso = defaultConfig.installer.iso;
-        burn-iso = defaultConfig.installer.burn-iso;
+        # Add the burn-iso script as a package
+        burn-iso = isoConfig.burn-iso;
       };
 
-      devShells.${system}.default = import ./lib/dev-shell.nix { inherit pkgs; };
+      devShells.${system}.default = import ./lib/dev-shell.nix { inherit hydenix-inputs; };
     };
 }

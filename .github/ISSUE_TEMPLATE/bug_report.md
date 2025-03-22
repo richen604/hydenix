@@ -14,12 +14,6 @@ assignees: ''
 2. 
 3. 
 
-## Expected Behavior
-<!-- What did you expect to happen? -->
-
-## Actual Behavior
-<!-- What actually happened? -->
-
 ## System Information
 <details>
 <summary>System Details</summary>
@@ -36,25 +30,22 @@ nix-shell -p nix-info --run "nix-info -m"
 ```bash
 # Please paste relevant logs from:
 journalctl -b                                           # System logs
-journalctl --user -b                                   # User logs
 sudo systemctl status home-manager-$HOSTNAME.service   # Home-manager status
 ```
 </details>
 
-## Configuration
-<!-- Please provide a link to your templated flake or fork -->
-
-## Additional Context
-<!-- Add any other context about the problem here -->
-
 ## Environment
-- [ ] NixOS VM
-- [ ] Templated Flake
-- [ ] Cross-distro VM (specify: Arch/Fedora)
-- [ ] Other (please specify)
+
+- [ ] Templated Flake - No changes made
+- [ ] Custom Flake
+
+## Link to your flake (Required for a Custom Flake)
+<!-- Please provide a link to your custom templated flake -->
 
 ## Checklist
+
+- [ ] I have read the FAQ
 - [ ] I have checked for existing issues
 - [ ] I have included all relevant system information
 - [ ] I have included relevant logs
-- [ ] I have provided my configuration 
+- [ ] I have provided my configuration

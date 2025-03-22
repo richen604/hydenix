@@ -14,4 +14,4 @@
 
 - [ ] My commits follow conventional commit format
 - [ ] I have updated the documentation accordingly
-- [ ] My changes generate no new warnings 
+- [ ] My changes generate no new warnings

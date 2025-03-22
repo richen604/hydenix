@@ -104,8 +104,47 @@ main() {
   # Check requirements first
   check_requirements
   
+  echo -e "${RED}╔════════════════════════════════════════════════════════════════╗${NC}"
+  echo -e "${RED}║  STOP! READ CAREFULLY OR YOU MAY PERMANENTLY LOSE DATA!        ║${NC}"
+  echo -e "${RED}╚════════════════════════════════════════════════════════════════╝${NC}"
+  echo
+  
+  # Explain partitioning scheme and give option to exit
+  echo -e "${BLUE}This script will perform a simple automated NixOS installation with:${NC}"
+  echo "  • A two-partition layout (boot + root)"
+  echo "  • No separate partitions for /home, /var, etc."
+  echo "  • A swap file instead of a swap partition"
+  echo
+  echo -e "For UEFI systems (recommended):"
+  echo "  • GPT partition table"
+  echo "  • 512MiB EFI System Partition (ESP) formatted as FAT32"
+  echo "  • Remaining space as ext4 root partition"
+  echo
+  echo -e "For Legacy BIOS systems (fallback):"
+  echo "  • MBR partition table"
+  echo "  • 512MiB boot partition"
+  echo "  • Remaining space as ext4 root partition"
+  echo
+  
+  # Calculate and show swap size
+  local swap_size
+  swap_size=$(get_swap_size)
+  echo -e "${BLUE}Based on your system memory:${NC}"
+  echo "  • Swap file size: ${swap_size}GB"
+  echo
+  
+  echo -e "${RED}WARNING: THIS WILL COMPLETELY ERASE THE SELECTED DRIVE!${NC}"
+  echo -e "${BLUE}If you need a custom partition layout (separate /home, encryption, etc.),${NC}"
+  echo -e "${BLUE}please exit and follow the manual partitioning instructions at:${NC}"
+  echo -e "${GREEN}https://nixos.org/manual/nixos/stable/#ch-installation${NC}"
+  echo
+  read -p "Continue with automated partitioning? (y/N) " -n 1 -r
+  echo
+  if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+    exit 0
+  fi
+  
   # Select drive
-
   local selected_drive
   selected_drive="$(select_drive)"
   if [ ! -b "$selected_drive" ]; then
@@ -191,12 +230,54 @@ main() {
   # Generate NixOS config
   nixos-generate-config --root /mnt
 
-  echo -e "${GREEN}Basic system configuration complete!${NC}"
-  echo -e "${BLUE}Next steps:${NC}"
-  echo "1. Edit /mnt/etc/nixos/configuration.nix"
-  echo "2. Run nixos-install"
-  echo "3. Set root password"
-  echo "4. Reboot"
+  # Copy template to installation target
+  if [ -d "/home/nixos/hydenix" ]; then
+    echo -e "${GREEN}Hydenix configuration template found!${NC}"
+    echo -e "${BLUE}Copying Hydenix template to installation target...${NC}"
+    cp -r /home/nixos/hydenix /mnt/etc/
+    chmod -R u+w /mnt/etc/hydenix
+    
+    # Generate hardware configuration
+    echo -e "${BLUE}Generating hardware configuration...${NC}"
+    nixos-generate-config --root /mnt --show-hardware-config > /mnt/etc/hydenix/hardware-configuration.nix
+    
+    echo -e "${GREEN}Basic system configuration complete!${NC}"
+    
+    # Ask if user wants to edit configuration before installing
+    echo -e "${BLUE}Would you like to edit configuration.nix before installing? (y/N)${NC}"
+    read -r edit_config
+    
+    if [[ $edit_config =~ ^[Yy]$ ]]; then
+      # Determine which editor to use
+      if command -v nano >/dev/null 2>&1; then
+        EDITOR="nano"
+      else
+        EDITOR="vim"
+      fi
+      
+      echo -e "${BLUE}Opening configuration.nix with $EDITOR...${NC}"
+      $EDITOR /mnt/etc/hydenix/configuration.nix
+      
+      echo -e "${GREEN}Configuration saved!${NC}"
+    fi
+    
+    # Install with default hostname and prompt for root password
+    echo -e "${BLUE}Installing Hydenix using flake...${NC}"
+    echo -e "${BLUE}You will be prompted to set the root password during installation.${NC}"
+    nixos-install --root /mnt --flake "/mnt/etc/hydenix#nixos"
+    
+    echo -e "${GREEN}Hydenix installation complete!${NC}"
+    echo -e "${BLUE}You can now reboot into your new system.${NC}"
+    echo "Run: reboot"
+  else
+    echo -e "${RED}Hydenix template not found. Falling back to manual configuration.${NC}"
+    echo -e "${GREEN}Basic system configuration complete!${NC}"
+    echo -e "${BLUE}Next steps:${NC}"
+    echo "1. Edit /mnt/etc/nixos/configuration.nix"
+    echo "2. Run nixos-install"
+    echo "3. Set root password"
+    echo "4. Reboot"
+  fi
 }
 
 main "$@"
