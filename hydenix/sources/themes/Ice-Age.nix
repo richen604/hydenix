@@ -8,12 +8,6 @@ mkTheme rec {
     name = name;
     sha256 = "sha256-44l7UTHrCvvJL3TO6hk/SV2fxB9MXJtmSM5S56w8xVQ=";
   };
-
-  arcs = {
-    gtk = "VALYRIAN-Blue-Steel";
-    icon = "Breeze-Noir-White-Blue";
-  };
-
   meta = {
     description = "HyDE Theme: Ice Age";
     homepage = "https://github.com/saber-88/Ice-Age";

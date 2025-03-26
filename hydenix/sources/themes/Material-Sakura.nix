@@ -8,12 +8,6 @@ mkTheme rec {
     name = name;
     sha256 = "sha256-tdH7ok9dEmhx/SE01DeJdiLia4ulCxeSzRwU7tByL9M=";
   };
-
-  arcs = {
-    gtk = "Material-Sakura";
-    icon = "Tela-circle-black";
-  };
-
   meta = {
     description = "HyDE Theme: Material Sakura";
     homepage = "https://github.com/HyDE-Project/hyde-themes/tree/Material-Sakura";

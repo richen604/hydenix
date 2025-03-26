@@ -8,12 +8,6 @@ mkTheme rec {
     name = name;
     sha256 = "sha256-RtZQpL0ZzjsLOT812JCnhbW6aIya+6I9FO+fCxWIPRY=";
   };
-
-  arcs = {
-    gtk = "Rose-Pine";
-    icon = "Tela-circle-hotred";
-  };
-
   meta = {
     description = "HyDE Theme: Scarlet Night";
     homepage = "https://github.com/abenezerw/Scarlet-Night";

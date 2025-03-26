@@ -8,13 +8,6 @@ mkTheme rec {
     name = name;
     sha256 = "sha256-AaFFKyFasjGQuLtqJeZYWxrtAgqsW0FDVxB8KqZkkzM=";
   };
-
-  arcs = {
-    gtk = "Dracula";
-    icon = "Azure-Dark-Icons";
-    cursor = "Dracula-cursors";
-  };
-
   meta = {
     description = "HyDE Theme: Dracula";
     homepage = "https://github.com/RAprogramm/HyDe-Themes/tree/Dracula";

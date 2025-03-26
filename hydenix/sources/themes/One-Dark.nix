@@ -8,13 +8,6 @@ mkTheme rec {
     name = name;
     sha256 = "sha256-j4KXbLb7gvVNCrdqMscsIinhBZoBp4oIzEbwws4fstU=";
   };
-
-  arcs = {
-    gtk = "One-Dark";
-    icon = "One-Dark";
-    cursor = "onedark-cursor";
-  };
-
   meta = {
     description = "HyDE Theme: One Dark";
     homepage = "https://github.com/RAprogramm/HyDe-Themes/tree/One-Dark";

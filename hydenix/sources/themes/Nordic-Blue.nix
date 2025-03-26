@@ -8,12 +8,6 @@ mkTheme rec {
     name = name;
     sha256 = "sha256-kf1jFKVgx+7wOBTOH4iJNzQgOTGq8VK7SwWjDZHhjuo=";
   };
-
-  arcs = {
-    gtk = "Nordic-Blue";
-    icon = "Nordzy";
-  };
-
   meta = {
     description = "HyDE Theme: Nordic Blue";
     homepage = "https://github.com/HyDE-Project/hyde-themes/tree/Nordic-Blue";

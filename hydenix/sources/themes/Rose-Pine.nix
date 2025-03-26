@@ -8,12 +8,6 @@ mkTheme rec {
     name = name;
     sha256 = "sha256-C/DA1z8MHoeEa3REmYwTrKrueZp91A+siYMCorKaExE=";
   };
-
-  arcs = {
-    gtk = "Rose-Pine";
-    icon = "Tela-circle-pink";
-  };
-
   meta = {
     description = "HyDE Theme: Rosé Pine";
     homepage = "https://github.com/HyDE-Project/hyde-themes/tree/Rose-Pine";

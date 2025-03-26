@@ -8,13 +8,6 @@ mkTheme rec {
     rev = "1ee66b25ce7e8251e1af0556a9a486832bbef14c";
     sha256 = "sha256-RQ2M4CUQr9xziYRWHLM1zvA9OGZRc0kvfQwv+n4LX5Q=";
   };
-
-  arcs = {
-    gtk = "Catppuccin-Latte";
-    icon = "Papirus-Latte";
-    cursor = "Bibata-Modern-Classic";
-  };
-
   meta = {
     description = "Better Catppuccin-Latte that fixes the inconsistencies of the official theme";
     homepage = "https://github.com/rishav12s/Cat-Latte";

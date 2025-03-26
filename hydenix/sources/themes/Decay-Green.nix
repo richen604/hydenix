@@ -8,12 +8,6 @@ mkTheme rec {
     name = name;
     sha256 = "sha256-Vg9WsRPrkpkQMtOT+8rjf7CKiCvTQ12XZYX6hfUU0h0=";
   };
-
-  arcs = {
-    gtk = "Decay-Green";
-    icon = "Tela-circle-green";
-  };
-
   meta = {
     description = "HyDE Theme: Decay Green";
     homepage = "https://github.com/HyDE-Project/hyde-themes/tree/Decay-Green";

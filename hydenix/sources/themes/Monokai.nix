@@ -8,12 +8,6 @@ mkTheme rec {
     name = name;
     sha256 = "sha256-vxIm5Gasnv8xooGnFNFVmZJd7o2YkOORJD2pIQFZrhA=";
   };
-
-  arcs = {
-    gtk = "Monokai";
-    icon = "Monokai";
-  };
-
   meta = {
     description = "HyDE Theme: Monokai";
     homepage = "https://github.com/mahaveergurjar/Theme-Gallery/tree/Monokai";

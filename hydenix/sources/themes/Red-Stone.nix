@@ -8,12 +8,6 @@ mkTheme rec {
     name = name;
     sha256 = "sha256-BNvAQ8TulTCex0cF8cvaM2NJc5zeKARTYJLO3nQD1n4=";
   };
-
-  arcs = {
-    gtk = "Red-Stone";
-    icon = "Tela-circle-red";
-  };
-
   meta = {
     description = "HyDE Theme: Red Stone";
     homepage = "https://github.com/mahaveergurjar/Theme-Gallery/tree/Red-Stone";

@@ -8,16 +8,9 @@ mkTheme rec {
     name = name;
     sha256 = "sha256-gnAvPuHBfH+PspSxkzOA2jIIHox2Fi+nMSsoZAJHGlw=";
   };
-
-  arcs = {
-    gtk = "Sci-fi";
-    icon = "cyberpunk-technotronic-icon-theme";
-    cursor = "Bibata-Modern-Classic";
-  };
-
   meta = {
     description = "HyDE Theme: Sci-fi";
     homepage = "https://github.com/KaranRaval123/Sci-fi";
-    priority = 10;
+    priority = 20;
   };
 }

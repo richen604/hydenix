@@ -8,13 +8,6 @@ mkTheme rec {
     name = name;
     sha256 = "sha256-PGE4H7hhaFnxv5TUyEO86bg3BM2A1nDsnBifpMxTBNY=";
   };
-
-  arcs = {
-    gtk = "Kripton";
-    icon = "Colorful-Dark-Icons";
-    cursor = "Future-cyan-cursors";
-  };
-
   meta = {
     description = "HyDE Theme: A striking fusion of sharp elegance, cutting through the darkness with bold hues.";
     homepage = "https://github.com/cyb3rgh0u1/Crimson-Blade";

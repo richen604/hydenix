@@ -8,12 +8,6 @@ mkTheme rec {
     name = name;
     sha256 = "sha256-YL91+Q7CIGT+Ams9FOdw343OgQ19NWz6GJZEG37Gg9A=";
   };
-
-  arcs = {
-    gtk = "Tokyo-Night";
-    icon = "Tela-circle-purple";
-  };
-
   meta = {
     description = "HyDE Theme: Tokyo Night";
     homepage = "https://github.com/HyDE-Project/hyde-themes/tree/Tokyo-Night";

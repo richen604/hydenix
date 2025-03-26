@@ -8,14 +8,6 @@ mkTheme rec {
     name = name;
     sha256 = "sha256-vPtWjTWHttUPJBtxcJY9jiBrP6jH/r0IIwGmmoINQyw=";
   };
-
-  arcs = {
-    gtk = "Pixel-Dream";
-    icon = "pixel-dream";
-    cursor = "pixel-dream-cursor";
-    font = "Monocraft Nerd Font Book";
-  };
-
   meta = {
     description = "Pixel Art inspired theme";
     homepage = "https://github.com/rishav12s/Pixel-Dream";

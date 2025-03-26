@@ -8,12 +8,6 @@ mkTheme rec {
     name = name;
     sha256 = "sha256-2qkR61CaUyHry/clQb7WVMSt4rV+4c4yElRxqSwF73Y=";
   };
-
-  arcs = {
-    gtk = "Synth-Wave";
-    icon = "BeautyLine";
-  };
-
   meta = {
     description = "HyDE Theme: Synth Wave";
     homepage = "https://github.com/HyDE-Project/hyde-themes/tree/Synth-Wave";

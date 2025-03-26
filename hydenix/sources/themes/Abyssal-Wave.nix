@@ -9,12 +9,6 @@ mkTheme rec {
     name = name;
     sha256 = "sha256-VpKPKgRQMQhDWmlrFignZ1tN69MB/cd8KBsAARMIKIo=";
   };
-
-  arcs = {
-    gtk = "Abyssal-Wave";
-    icon = "Papirus-kanagawa";
-  };
-
   meta = {
     name = name;
     description = "HyDE Theme: Abyssal-Wave";

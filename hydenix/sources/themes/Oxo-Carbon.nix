@@ -8,13 +8,6 @@ mkTheme rec {
     name = name;
     sha256 = "sha256-qxqdP5rInvHy2Irm6pxlujhSPaVm+i4YoQ2/4dS4vhw=";
   };
-
-  arcs = {
-    gtk = "Oxo-Carbon";
-    icon = "Tela-circle-pink";
-    cursor = "Capitaine-Cursors";
-  };
-
   meta = {
     description = "HyDE Theme: Oxo Carbon";
     homepage = "https://github.com/rishav12s/Oxo-Carbon";

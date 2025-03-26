@@ -8,12 +8,6 @@ mkTheme rec {
     name = name;
     sha256 = "sha256-rqgdiddv3WjMmb7uOfUBjCde+T5oYHT41Zc08RSDK3s=";
   };
-
-  arcs = {
-    gtk = "Tokyo-Night";
-    icon = "Colorful";
-  };
-
   meta = {
     description = "HyDE Theme: Moonlight";
     homepage = "https://github.com/Maroc02/Moonlight";

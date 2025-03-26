@@ -8,13 +8,6 @@ mkTheme rec {
     name = name;
     sha256 = "sha256-0FhznHsg2ov4XYVvhY0y5Uy45s2nWMi8JZMQPBUvpPg=";
   };
-
-  arcs = {
-    gtk = "Sweet-Dark";
-    icon = "candy-icons";
-    cursor = "Sweet-cursors";
-  };
-
   meta = {
     description = "HyDE Theme: Paranoid Sweet";
     homepage = "https://github.com/rishav12s/Paranoid-Sweet";

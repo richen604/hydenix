@@ -8,12 +8,6 @@ mkTheme rec {
     name = name;
     sha256 = "sha256-WwEjLynHrLLB91MMTPZKsCMk7OAdKPw4Do7DjbpjQbo=";
   };
-
-  arcs = {
-    gtk = "Graphite-Mono";
-    icon = "Tela-circle-grey";
-  };
-
   meta = {
     description = "HyDE Theme: Graphite Mono";
     homepage = "https://github.com/HyDE-Project/hyde-themes/tree/Graphite-Mono";

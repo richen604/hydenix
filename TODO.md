@@ -3,11 +3,9 @@
 
 ## priority
 
-- [x] fix: home-manager service complaining about files #74
 - [ ] docs: fix some docs related to options and related to #73
-- [ ] fix: some theme arcs don't install correctly
-  - in fact, theme arcs don't need to be defined if we are using the extensions Gtk_ etc properly
 - [ ] fix: hyprlock supposed to have a background?
+  - [ ] still doesnt work on rebuild/first boot (tied to hyde-shell reload)
 - [ ] fix: boot module grub is not working?
 - [ ] fix: hyde-shell compgen is not working, limits hyde usage
 
@@ -25,6 +23,7 @@
 
 - [ ] feat: hyde config.toml module and options in hyde.nix
 - [ ] feat: other program configuration should determine hyde config.toml options
+- [ ] feat: extend hyde config.toml options for more nix integration
 
 ## hyprland.conf
 
@@ -46,7 +45,6 @@
 - [ ] feat: cleanupOnDisable activation script and option
 - [ ] fix: slight flashing on rebuild
 
-
 ## CI
 
 - [ ] ci: fix iso builder release flake check
@@ -55,8 +53,8 @@
 
 - [ ] Ecosystem
   - [ ] feat: Add spicetify support via declarative flatpak
+  
   - [ ] feat: Create sddm-hyprland
-  - [ ] feat: Develop hyprpanel
   - [ ] feat: Integrate hydepanel from rubin
   - [ ] feat: Add telegram theme support
   - [ ] feat: Add zed theme support
@@ -64,7 +62,13 @@
   - [ ] feat: Add terminal-emulators support
   - [ ] feat: Add updated HyDE/code-wallbash nix support
 - [ ] feat: full nixos config & full home-manager config
+- [ ] feat: Set NIX-PATH to template flake location
+
+## Hyde repo
+
+- [ ] hyde-shell reload requires display, unable to run in activation scripts
+- [ ] caffiene mode resets on hyde-shell reload
+
 - [ ] hyde themes should precache things, there is no reason each user should have to build cache
 This will heavily improve performance of first boot, as swwwallcache is not built
 This feature would be outside of hydenix, most likely a PR to both theme maintainers and hyde
-- [ ] feat: Set NIX-PATH to template flake location

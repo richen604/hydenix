@@ -8,13 +8,6 @@ mkTheme rec {
     name = name;
     sha256 = "sha256-ww7LoUVHlJhYUE2VSguhE7OZblx0hbQp6IaWAJSLcy4=";
   };
-
-  arcs = {
-    gtk = "Hackthebox";
-    icon = "Papirus";
-    cursor = "HackCursor";
-  };
-
   meta = {
     description = "HyDE Theme: Hack the Box";
     homepage = "https://github.com/HyDE-Project/hyde-gallery/tree/Hack-the-Box";

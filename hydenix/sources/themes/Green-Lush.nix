@@ -8,12 +8,6 @@ mkTheme rec {
     name = name;
     sha256 = "sha256-Z0TdPlk5sPIAVZvoZeEbzs61XhTx5p6q9vm3hhhhY0o=";
   };
-
-  arcs = {
-    gtk = "Decay-Green";
-    icon = "Tela-circle-green";
-  };
-
   meta = {
     description = "HyDE Theme: Green Lush";
     homepage = "https://github.com/abenezerw/Green-Lush";

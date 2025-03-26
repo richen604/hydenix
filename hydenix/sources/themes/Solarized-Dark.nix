@@ -8,13 +8,6 @@ mkTheme rec {
     name = name;
     sha256 = "sha256-hZb94uJt5XuTJToL+ljQTXOBBKBCkrytD7jwV8Ck7ug=";
   };
-
-  arcs = {
-    gtk = "Solarized Dark";
-    icon = "Tela-circle-solarized";
-    cursor = "Capitaine-Cursors-White";
-  };
-
   meta = {
     description = "HyDE Theme: Solarized Dark";
     homepage = "https://github.com/rishav12s/Solarized-Dark";

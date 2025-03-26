@@ -8,14 +8,6 @@ mkTheme rec {
     name = name;
     sha256 = "sha256-II0UBeqTK2TPeXvY4HuTsmqRkGMrjq5jSSVWvR/hm8M=";
   };
-
-  arcs = {
-    gtk = "WhiteSur-Dark";
-    icon = "WhiteSur";
-    cursor = "macOS-Black";
-    font = "SF Pro Rounded Regular 10.​5";
-  };
-
   meta = {
     description = "Mac-OS inspired dark theme";
     homepage = "https://github.com/rishav12s/Monterey-Frost";
