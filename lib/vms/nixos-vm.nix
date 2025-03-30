@@ -5,6 +5,13 @@ nixosConfiguration.extendModules {
       { config, pkgs, ... }:
       {
         virtualisation.vmVariant = {
+          virtualisation.forwardPorts = [
+            {
+              from = "host";
+              host.port = 2222;
+              guest.port = 22;
+            }
+          ];
           imports = [
             hydenix-inputs.nixos-hardware.nixosModules.common-gpu-amd
             hydenix-inputs.nixos-hardware.nixosModules.common-cpu-intel
@@ -37,6 +44,15 @@ nixosConfiguration.extendModules {
             videoDrivers = [
               "virtio"
             ];
+          };
+        };
+
+        # Enable SSH server
+        services.openssh = {
+          enable = true;
+          settings = {
+            PermitRootLogin = "no";
+            PasswordAuthentication = true;
           };
         };
 
