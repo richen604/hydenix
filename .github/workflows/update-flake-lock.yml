@@ -14,8 +14,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: DeterminateSystems/nix-installer-action@main
-      - uses: DeterminateSystems/magic-nix-cache-action@main
+
+      - uses: cachix/install-nix-action@v24
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+      
       - name: Update nixpkgs input to unstable
         run: |
           sed -i 's|hydenix-nixpkgs.url = "github:nixos/nixpkgs/.*"|hydenix-nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable"|' flake.nix
@@ -33,10 +36,22 @@ jobs:
       - name: Verify flake.nix
         run: |
           grep -q "hydenix-nixpkgs.url" flake.nix || (echo "Failed to update flake.nix" && exit 1)
-      - name: Check flake
-        id: check
+      
+      - name: Check Root Flake
+        id: check_root
         continue-on-error: true
         run: nix flake check
+
+      - name: Check Template Flake
+        id: check_template
+        continue-on-error: true
+        run: |
+          cd template
+          sed -i 's|url = "github:richen604/hydenix"|url = "path:../"|' flake.nix
+          nix flake check
+          git checkout flake.nix
+          rm -f flake.lock
+      
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
@@ -47,4 +62,5 @@ jobs:
           body: |
             Updated flake.lock file.
 
-            Flake check status: ${{ steps.check.outcome == 'success' && '✅ Passed' || '❌ Failed' }}
+            Root Flake check: ${{ steps.check_root.outcome == 'success' && '✅ Passed' || '❌ Failed' }}
+            Template Flake check: ${{ steps.check_template.outcome == 'success' && '✅ Passed' || '❌ Failed' }}
