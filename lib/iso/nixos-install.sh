@@ -138,9 +138,13 @@ main() {
   echo -e "${BLUE}please exit and follow the manual partitioning instructions at:${NC}"
   echo -e "${GREEN}https://nixos.org/manual/nixos/stable/#ch-installation${NC}"
   echo
-  read -p "Continue with automated partitioning? (y/N) " -n 1 -r
+
+  # SECTION 1: PARTITIONING
+  echo -e "${BLUE}=== SECTION 1: DRIVE SELECTION AND PARTITIONING ===${NC}"
+  read -p "Continue with drive selection and partitioning? (y/N) " -n 1 -r
   echo
   if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+    echo -e "${GREEN}Exiting installation. No changes were made.${NC}"
     exit 0
   fi
   
@@ -157,6 +161,7 @@ main() {
   read -p "This will ERASE ALL DATA on $selected_drive. Continue? (y/N) " -n 1 -r
   echo
   if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+    echo -e "${GREEN}Exiting installation. No changes were made.${NC}"
     exit 1
   fi
 
@@ -171,22 +176,22 @@ main() {
   echo -e "${BLUE}Calculated swap size: ${swap_size}GB${NC}"
 
   # Wipe existing signatures
-   wipefs -a "$selected_drive"
+  wipefs -a "$selected_drive"
 
   # Partition drive
   if [ "$boot_mode" = "uefi" ]; then
     # GPT/UEFI partitioning (preferred)
-     parted "$selected_drive" -- mklabel gpt
-     parted "$selected_drive" -- mkpart ESP fat32 1MiB 512MiB
-     parted "$selected_drive" -- set 1 esp on
-     parted "$selected_drive" -- mkpart primary 512MiB 100%
+    parted "$selected_drive" -- mklabel gpt
+    parted "$selected_drive" -- mkpart ESP fat32 1MiB 512MiB
+    parted "$selected_drive" -- set 1 esp on
+    parted "$selected_drive" -- mkpart primary 512MiB 100%
   else
     # MBR/BIOS partitioning (fallback)
     echo -e "${RED}Warning: Using legacy BIOS boot mode. Some NixOS features may not work correctly.${NC}"
-     parted "$selected_drive" -- mklabel msdos
-     parted "$selected_drive" -- mkpart primary 1MiB 512MiB
-     parted "$selected_drive" -- set 1 boot on
-     parted "$selected_drive" -- mkpart primary 512MiB 100%
+    parted "$selected_drive" -- mklabel msdos
+    parted "$selected_drive" -- mkpart primary 1MiB 512MiB
+    parted "$selected_drive" -- set 1 boot on
+    parted "$selected_drive" -- mkpart primary 512MiB 100%
   fi
 
   # Format partitions
@@ -204,6 +209,17 @@ main() {
 
   mkfs.fat -F 32 -n NIXBOOT "$boot_partition"
   mkfs.ext4 -L NIXROOT "$root_partition"
+  
+  echo -e "${GREEN}Partitioning and formatting complete!${NC}"
+  
+  # SECTION 2: MOUNTING AND SWAP
+  echo -e "${BLUE}=== SECTION 2: MOUNTING PARTITIONS AND CREATING SWAP ===${NC}"
+  read -p "Continue with mounting partitions and creating swap? (y/N) " -n 1 -r
+  echo
+  if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+    echo -e "${GREEN}Partitioning completed but installation aborted. Your drive has been partitioned but no files were copied.${NC}"
+    exit 0
+  fi
 
   # Mount partitions
   if [ -e "/dev/disk/by-label/NIXROOT" ] && [ -e "/dev/disk/by-label/NIXBOOT" ]; then
@@ -238,6 +254,19 @@ main() {
 
   # Generate NixOS config
   nixos-generate-config --root /mnt
+  
+  echo -e "${GREEN}Partitions mounted and swap file created!${NC}"
+  
+  # SECTION 3: HYDENIX TEMPLATING AND INSTALLATION
+  echo -e "${BLUE}=== SECTION 3: CONFIGURATION AND INSTALLATION ===${NC}"
+  read -p "Continue with configuration and installation? (y/N) " -n 1 -r
+  echo
+  if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+    echo -e "${GREEN}Partitioning and mounting completed but installation aborted.${NC}"
+    echo -e "${BLUE}Your drive has been partitioned and mounted at /mnt.${NC}"
+    echo -e "${BLUE}You can continue with manual installation if desired.${NC}"
+    exit 0
+  fi
 
   # Copy template to installation target
   if [ -d "/home/nixos/hydenix" ]; then
@@ -268,6 +297,17 @@ main() {
       $EDITOR /mnt/etc/hydenix/configuration.nix
       
       echo -e "${GREEN}Configuration saved!${NC}"
+    fi
+    
+    # Final confirmation before installation
+    echo -e "${BLUE}Ready to install NixOS. This is the final step.${NC}"
+    read -p "Proceed with installation? (y/N) " -n 1 -r
+    echo
+    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+      echo -e "${GREEN}Configuration completed but installation aborted.${NC}"
+      echo -e "${BLUE}Your drive has been partitioned, mounted, and configured at /mnt.${NC}"
+      echo -e "${BLUE}You can continue with manual installation by running: nixos-install --root /mnt --flake \"/mnt/etc/hydenix#nixos\"${NC}"
+      exit 0
     fi
     
     # Install with default hostname and prompt for root password
