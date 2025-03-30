@@ -11,12 +11,12 @@ let
     config.allowUnfree = true;
     overlays = [
       inputs.hydenix.lib.overlays
+      (final: prev: {
+        userPkgs = inputs.nixpkgs {
+          config.allowUnfree = true;
+        };
+      })
     ];
-
-    # Include your own package set to be used eg. pkgs.userPkgs.bash
-    userPkgs = inputs.nixpkgs {
-      config.allowUnfree = true;
-    };
   };
 in
 {
