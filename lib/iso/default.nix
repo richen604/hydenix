@@ -1,5 +1,6 @@
 {
   hydenix-inputs,
+  flakePath ? null,
   ...
 }:
 let
@@ -127,7 +128,7 @@ let
         system.activationScripts.copyTemplate =
           let
             # This allows us to use this script for both the default ISO and user template flake
-            configPath = if builtins.pathExists ../../template then ../../template else ../..;
+            configPath = if flakePath == null then ../../template else flakePath;
           in
           ''
             mkdir -p /home/nixos
