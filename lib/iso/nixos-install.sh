@@ -190,11 +190,20 @@ main() {
   fi
 
   # Format partitions
-  local boot_partition="${selected_drive}1"
-  local root_partition="${selected_drive}2"
+  local boot_partition
+  local root_partition
+  
+  # Handle different drive naming schemes (NVME vs SATA/IDE)
+  if [[ "$selected_drive" == *"nvme"* ]]; then
+    boot_partition="${selected_drive}p1"
+    root_partition="${selected_drive}p2"
+  else
+    boot_partition="${selected_drive}1"
+    root_partition="${selected_drive}2"
+  fi
 
-   mkfs.fat -F 32 -n NIXBOOT "$boot_partition"
-   mkfs.ext4 -L NIXROOT "$root_partition"
+  mkfs.fat -F 32 -n NIXBOOT "$boot_partition"
+  mkfs.ext4 -L NIXROOT "$root_partition"
 
   # Mount partitions
   if [ -e "/dev/disk/by-label/NIXROOT" ] && [ -e "/dev/disk/by-label/NIXBOOT" ]; then
