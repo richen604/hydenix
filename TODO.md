@@ -15,10 +15,10 @@
 
 - [ ] feat: iso builder should give a copy of the iso to the user on install
 - [ ] feat: iso builder automated install should have more clear options, not just configuration.nix
-- [ ] feat: iso builder should handle nvme drives (breaks on setting partitions because 1)
-- [ ] feat: iso builder should handle grub and systemd
 - [ ] feat: iso builder should tell user exact steps of auto installer, reflect that in the readme
 - [ ] fix: iso builder should prompt to edit hostname in flake.nix
+- [ ] refactor: expand iso installer sections to be more clear and concise
+- [ ] feat: iso installer section option to clone your own personal flake from github and use that instead of the hyde template
 - [ ] feat: Completed iso builder
 
 ## config.toml integration
@@ -30,11 +30,12 @@
 ## hyprland.conf
 
 - [ ] feat: more options in hyprland.nix
-- [ ] feat: other program configuration should determine hyprland.conf options
+- [ ] feat: other program configuration should determine hyprland.conf options eg
 
 ## hypridle
 
 - [ ] feat: hypridle module and options
+- [ ] feat: use dpms-off instead of hyprctl dispatch dpms off in hypridle
 
 ## hyprlock
 
@@ -68,6 +69,7 @@
 
 - [ ] hyde-shell reload requires display, unable to run in activation scripts
 - [ ] caffiene mode resets on hyde-shell reload
+- [ ] some yubikey touch detection for hyprlock and waybar <https://github.com/maximbaz/yubikey-touch-detector>
 
 - [ ] hyde themes should precache things, there is no reason each user should have to build cache
 This will heavily improve performance of first boot, as swwwallcache is not built
