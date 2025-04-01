@@ -92,6 +92,7 @@ NixOS hydenix options:
       grubExtraConfig = ""; # additional GRUB configuration
       kernelPackages = pkgs.linuxPackages_zen; # default zen kernel
     };
+    gaming.enable = true; # enable gaming module
     hardware.enable = true; # enable hardware module
     network.enable = true; # enable network module
     nix.enable = true; # enable nix module
@@ -118,32 +119,32 @@ NixOS hydenix options:
 
     #! Below are defaults
     comma.enable = true; # useful nix tool to run software without installing it first
-      dolphin.enable = true; # file manager
-      editors = {
-        enable = true; # enable editors module
-        neovim.enable = true; # enable neovim module
-        vscode = {
-          enable = true; # enable vscode module
-          wallbash = true; # enable wallbash extension for vscode
-        };
-        vim.enable = true; # enable vim module
-        default = "vim"; # default text editor
+    dolphin.enable = true; # file manager
+    editors = {
+      enable = true; # enable editors module
+      neovim.enable = true; # enable neovim module
+      vscode = {
+        enable = true; # enable vscode module
+        wallbash = true; # enable wallbash extension for vscode
       };
-      fastfetch.enable = true; # fastfetch configuration
-      firefox = {
-        enable = true; # enable firefox module
-        useHydeConfig = false; # use hyde firefox configuration and extensions
-        useUserChrome = true; # if useHydeConfig is true, apply hyde userChrome CSS customizations
-        useUserJs = true; # if useHydeConfig is true, apply hyde user.js preferences
-        useExtensions = true; # if useHydeConfig is true, install hyde firefox extensions
-      };
-      gaming.enable = true; # enable gaming module
-      git = {
-        enable = true; # enable git module
-        name = null; # git user name eg "John Doe"
-        email = null; # git user email eg "john.doe@example.com"
-      };
-      hyde.enable = true; # enable hyde module
+      vim.enable = true; # enable vim module
+      default = "vim"; # default text editor
+    };
+    fastfetch.enable = true; # fastfetch configuration
+    firefox = {
+      enable = true; # enable firefox module
+      useHydeConfig = false; # use hyde firefox configuration and extensions
+      useUserChrome = true; # if useHydeConfig is true, apply hyde userChrome CSS customizations
+      useUserJs = true; # if useHydeConfig is true, apply hyde user.js preferences
+      useExtensions = true; # if useHydeConfig is true, install hyde firefox extensions
+    };
+    gaming.enable = true; # enable gaming module
+    git = {
+      enable = true; # enable git module
+      name = null; # git user name eg "John Doe"
+      email = null; # git user email eg "john.doe@example.com"
+    };
+    hyde.enable = true; # enable hyde module
     hyprland.enable = true; # enable hyprland module
     lockscreen = {
       enable = true; # enable lockscreen module
@@ -179,8 +180,10 @@ NixOS hydenix options:
     swww.enable = true; # enable swww wallpaper daemon
     terminals = {
       enable = true; # enable terminals module
-      kitty.enable = true; # enable kitty terminal
-      configText = ""; # kitty config text
+      kitty = {
+        enable = true; # enable kitty terminal
+        configText = ""; # kitty config text
+      };
     };
     theme = {
       enable = true; # enable theme module

@@ -39,7 +39,6 @@
         useUserJs = true; # if useHydeConfig is true, apply hyde user.js preferences
         useExtensions = true; # if useHydeConfig is true, install hyde firefox extensions
       };
-      gaming.enable = true; # enable gaming module
       git = {
         enable = true; # enable git module
         name = null; # git user name eg "John Doe"
@@ -80,8 +79,10 @@
       swww.enable = true; # enable swww wallpaper daemon
       terminals = {
         enable = true; # enable terminals module
-        kitty.enable = true; # enable kitty terminal
-        kitty.configText = ""; # kitty config text
+        kitty = {
+          enable = true; # enable kitty terminal
+          configText = ""; # kitty config text
+        };
       };
       theme = {
         enable = true; # enable theme module

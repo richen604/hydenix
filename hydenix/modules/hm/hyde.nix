@@ -64,7 +64,9 @@ in
         force = true;
         mutable = true;
       };
-
+      ".config/MangoHud/MangoHud.conf" = {
+        source = "${pkgs.hydenix.hyde}/Configs/.config/MangoHud/MangoHud.conf";
+      };
       ".local/share/kio/servicemenus/hydewallpaper.desktop" = {
         source = "${pkgs.hydenix.hyde}/Configs/.local/share/kio/servicemenus/hydewallpaper.desktop";
       };

@@ -12,6 +12,7 @@ in
     ./nix.nix
     ./sddm.nix
     ./system.nix
+    ./gaming.nix
   ];
 
   options.hydenix = {

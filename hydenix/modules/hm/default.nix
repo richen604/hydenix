@@ -11,7 +11,6 @@
     ./editors.nix
     ./fastfetch.nix
     ./firefox.nix
-    ./gaming.nix
     ./gtk.nix
     ./git.nix
     ./hyde.nix
