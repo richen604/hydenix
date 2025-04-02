@@ -26,6 +26,7 @@ in
       Bibata-Modern-Ice
       Tela-circle-dracula
       hydenix.hyde
+      kdePackages.kconfig # needed for toml_write in hyde
     ];
 
     fonts.fontconfig.enable = true;

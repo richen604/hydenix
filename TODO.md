@@ -41,7 +41,8 @@
 
 ## uncategorized
 
-- [ ] feat: is code the default EDITOR?
+- [ ] feat: is code the default EDITOR? change editors.nix
+   yes, code-oss though, not code
 - [ ] feat: cleanupOnDisable activation script and option
 
 ## CI

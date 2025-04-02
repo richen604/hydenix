@@ -20,9 +20,9 @@ in
   config = lib.mkIf cfg.enable {
 
     #! we are using libsForQt5 because dolphin likes to break things like icons on qt6
-    home.packages = with pkgs.libsForQt5; [
+    home.packages = with pkgs.kdePackages; [
       dolphin # KDE file manager
-      qt5.qtimageformats # Image format support for Qt5
+      qtimageformats # Image format support for Qt5
       ffmpegthumbs # Video thumbnail support
       kde-cli-tools # KDE command line utilities
       kdegraphics-thumbnailers # KDE graphics thumbnails
@@ -38,7 +38,6 @@ in
         "inode/directory" = [ "org.kde.dolphin.desktop" ];
         "x-scheme-handler/file" = [ "org.kde.dolphin.desktop" ];
         "x-scheme-handler/about" = [ "org.kde.dolphin.desktop" ];
-
       };
     };
 
@@ -54,7 +53,7 @@ in
       };
 
       # stateful file for themes
-      ".config/kdeglobals" = lib.mkDefault {
+      ".config/kdeglobals" = {
         source = "${pkgs.hydenix.hyde}/Configs/.config/kdeglobals";
         force = true;
         mutable = true;
