@@ -3,10 +3,6 @@
 
 ## priority
 
-- [ ] fix: hyprlock supposed to have a background?
-  - [ ] still doesnt work on rebuild/first boot (tied to hyde-shell reload)
-- [ ] fix: rebuild properly changes theme during runtime
-- [ ] fix: slight flashing on rebuild
 - [ ] fix: boot module grub is not working?
 
 ## iso builder

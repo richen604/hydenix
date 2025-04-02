@@ -92,11 +92,15 @@ in
       # Set up logging
       LOG_FILE="$HOME/.local/state/hyde/theme-switch.log"
       mkdir -p $HOME/.local/state/hyde
+      # Clear the log file before writing
+      : > "$LOG_FILE"
+      chmod 644 $LOG_FILE
 
       echo "Setting theme to ${cfg.active}..." | tee -a "$LOG_FILE"
 
       # Run the theme switch commands with the custom runtime dir
-      $HOME/.local/lib/hyde/swwwallcache.sh -t "${cfg.active}" >> "$LOG_FILE" 2>&1
+      # $HOME/.local/lib/hyde/swwwallcache.sh -t "${cfg.active}" >> "$LOG_FILE" 2>&1
+      $HOME/.local/lib/hyde/theme.switch.sh -s "${cfg.active}" >> "$LOG_FILE" 2>&1
       $HOME/.local/lib/hyde/theme.switch.sh -s "${cfg.active}" >> "$LOG_FILE" 2>&1
 
       echo "Theme switch completed. Log saved to $LOG_FILE" | tee -a "$LOG_FILE"

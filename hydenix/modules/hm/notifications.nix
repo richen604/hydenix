@@ -23,7 +23,7 @@ in
     ];
 
     home.file = {
-      # stateful file for themes
+      # # stateful file for themes
       ".config/dunst/dunstrc" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.config/dunst/dunstrc";
         force = true;

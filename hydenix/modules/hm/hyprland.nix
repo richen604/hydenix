@@ -27,6 +27,21 @@ in
       hypridle
     ];
 
+    home.activation.createHyprConfigs = lib.hm.dag.entryAfter [ "mutableGeneration" ] ''
+      mkdir -p "$HOME/.config/hypr/animations"
+      mkdir -p "$HOME/.config/hypr/themes"
+
+      touch "$HOME/.config/hypr/animations/theme.conf"
+      touch "$HOME/.config/hypr/themes/colors.conf"
+      touch "$HOME/.config/hypr/themes/theme.conf"
+      touch "$HOME/.config/hypr/themes/wallbash.conf"
+
+      chmod 644 "$HOME/.config/hypr/animations/theme.conf"
+      chmod 644 "$HOME/.config/hypr/themes/colors.conf"
+      chmod 644 "$HOME/.config/hypr/themes/theme.conf"
+      chmod 644 "$HOME/.config/hypr/themes/wallbash.conf"
+    '';
+
     home.file = {
       ".config/hypr/hyprland.conf" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.config/hypr/hyprland.conf";
@@ -104,27 +119,6 @@ in
 
       ".config/hypr/hypridle.conf" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.config/hypr/hypridle.conf";
-      };
-
-      ".config/hypr/animations/theme.conf" = lib.mkDefault {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/hypr/animations/theme.conf";
-        force = true;
-        mutable = true;
-      };
-      ".config/hypr/themes/colors.conf" = lib.mkDefault {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/hypr/themes/colors.conf";
-        force = true;
-        mutable = true;
-      };
-      ".config/hypr/themes/theme.conf" = lib.mkDefault {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/hypr/themes/theme.conf";
-        force = true;
-        mutable = true;
-      };
-      ".config/hypr/themes/wallbash.conf" = lib.mkDefault {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/hypr/themes/wallbash.conf";
-        force = true;
-        mutable = true;
       };
 
     };
