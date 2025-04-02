@@ -35,28 +35,28 @@ in
     home.file = {
 
       # icons
-      ".config/wlogout/icons/" =  {
+      ".config/wlogout/icons/" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.config/wlogout/icons/";
         recursive = true;
       };
 
       # Stateful files with themes
-      ".config/wlogout/layout_1" =  {
+      ".config/wlogout/layout_1" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.config/wlogout/layout_1";
         force = true;
         mutable = true;
       };
-      ".config/wlogout/style_1.css" =  {
+      ".config/wlogout/style_1.css" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.config/wlogout/style_1.css";
         force = true;
         mutable = true;
       };
-      ".config/wlogout/layout_2" =  {
+      ".config/wlogout/layout_2" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.config/wlogout/layout_2";
         force = true;
         mutable = true;
       };
-      ".config/wlogout/style_2.css" =  {
+      ".config/wlogout/style_2.css" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.config/wlogout/style_2.css";
         force = true;
         mutable = true;

@@ -23,10 +23,10 @@ in
     ];
 
     home.file = {
-      ".config/spotify-flags.conf" =  {
+      ".config/spotify-flags.conf" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.config/spotify-flags.conf";
       };
-      ".config/electron-flags.conf" =  {
+      ".config/electron-flags.conf" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.config/electron-flags.conf";
       };
     };

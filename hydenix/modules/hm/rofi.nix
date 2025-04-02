@@ -25,7 +25,7 @@ in
     home.file = {
       # stateful file, written by wallbash
       # .local/share/hyde/wallbash/theme/rofi.dcol
-      ".config/rofi/theme.rasi" =  {
+      ".config/rofi/theme.rasi" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.config/rofi/theme.rasi";
         force = true;
         mutable = true;

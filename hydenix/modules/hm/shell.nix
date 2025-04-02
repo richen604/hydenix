@@ -103,12 +103,12 @@ in
     home.file = lib.mkMerge [
       (lib.mkIf cfg.zsh.enable {
         # Shell configs
-        ".zshrc".text = ''
+        ".zshrc".text = lib.mkDefault ''
           ${cfg.zsh.configText}
         '';
 
         # we are writing our own .zshenv file to ensure that its properly sourcing nix paths, and removes all the arch nonsense
-        ".zshenv".text = ''
+        ".zshenv".text = lib.mkDefault ''
           #!/usr/bin/env zsh
           # HyDE's ZSH env configuration
           # This file is sourced by ZSH on startup
@@ -160,7 +160,7 @@ in
                   mkdir='mkdir -p' # Always mkdir a path (this doesn't inhibit functionality to make a single dir)
           fi
         '';
-        ".p10k.zsh".source = "${pkgs.hydenix.hyde}/Configs/.p10k.zsh";
+        ".p10k.zsh".source = lib.mkDefault "${pkgs.hydenix.hyde}/Configs/.p10k.zsh";
       })
 
       (lib.mkIf cfg.fish.enable {

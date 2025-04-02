@@ -35,43 +35,43 @@ in
     ];
 
     home.file = {
-      ".config/qt5ct/qt5ct.conf" = {
+      ".config/qt5ct/qt5ct.conf" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.config/qt5ct/qt5ct.conf";
       };
-      ".config/qt6ct/qt6ct.conf" = {
+      ".config/qt6ct/qt6ct.conf" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.config/qt6ct/qt6ct.conf";
       };
-      ".config/menus/applications.menu" = {
+      ".config/menus/applications.menu" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.config/menus/applications.menu";
       };
 
-      ".config/Kvantum/wallbash/wallbash.kvconfig" = {
+      ".config/Kvantum/wallbash/wallbash.kvconfig" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.config/Kvantum/wallbash/wallbash.kvconfig";
         force = true;
         mutable = true;
       };
-      ".config/Kvantum/wallbash/wallbash.svg" = {
+      ".config/Kvantum/wallbash/wallbash.svg" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.config/Kvantum/wallbash/wallbash.svg";
         force = true;
         mutable = true;
       };
-      ".config/Kvantum/kvantum.kvconfig" = {
+      ".config/Kvantum/kvantum.kvconfig" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.config/Kvantum/kvantum.kvconfig";
         force = true;
         mutable = true;
       };
       # stateful files
-      ".config/kdeglobals" = {
+      ".config/kdeglobals" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.config/kdeglobals";
         force = true;
         mutable = true;
       };
-      ".config/qt5ct/colors.conf" = {
+      ".config/qt5ct/colors.conf" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.config/qt5ct/colors.conf";
         force = true;
         mutable = true;
       };
-      ".config/qt6ct/colors.conf" = {
+      ".config/qt6ct/colors.conf" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.config/qt6ct/colors.conf";
         force = true;
         mutable = true;

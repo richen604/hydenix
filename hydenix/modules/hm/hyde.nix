@@ -32,53 +32,53 @@ in
 
     home.file = {
       # Regular files (processed first)
-      ".config/hyde/wallbash" = {
+      ".config/hyde/wallbash" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.config/hyde/wallbash";
         recursive = true;
       };
 
-      ".local/bin/hyde-shell" = {
+      ".local/bin/hyde-shell" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.local/bin/hyde-shell";
         executable = true;
       };
 
-      ".local/lib/hyde" = {
+      ".local/lib/hyde" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.local/lib/hyde";
         recursive = true;
         executable = true;
       };
 
-      ".local/lib/hyde/globalcontrol.sh" = {
+      ".local/lib/hyde/globalcontrol.sh" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.local/lib/hyde/globalcontrol.sh";
         executable = true;
       };
 
-      ".local/share/fastfetch/presets/hyde" = {
+      ".local/share/fastfetch/presets/hyde" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.local/share/fastfetch/presets/hyde";
         recursive = true;
       };
-      ".local/share/hyde" = {
+      ".local/share/hyde" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.local/share/hyde";
         recursive = true;
         executable = true;
         force = true;
         mutable = true;
       };
-      ".config/MangoHud/MangoHud.conf" = {
+      ".config/MangoHud/MangoHud.conf" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.config/MangoHud/MangoHud.conf";
       };
-      ".local/share/kio/servicemenus/hydewallpaper.desktop" = {
+      ".local/share/kio/servicemenus/hydewallpaper.desktop" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.local/share/kio/servicemenus/hydewallpaper.desktop";
       };
-      ".local/share/kxmlgui5/dolphin/dolphinui.rc" = {
+      ".local/share/kxmlgui5/dolphin/dolphinui.rc" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.local/share/kxmlgui5/dolphin/dolphinui.rc";
       };
 
-      ".config/electron-flags.conf" = {
+      ".config/electron-flags.conf" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.config/electron-flags.conf";
       };
 
-      ".local/share/icons/Wallbash-Icon" = {
+      ".local/share/icons/Wallbash-Icon" = lib.mkDefault {
         source = "${pkgs.hydenix.wallbash-icons}/Wallbash-Icon";
         force = true;
         recursive = true;
@@ -86,22 +86,22 @@ in
       };
 
       # stateful files
-      ".config/hyde/config.toml" = {
+      ".config/hyde/config.toml" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.config/hyde/config.toml";
         force = true;
         mutable = true;
       };
-      ".local/share/dolphin/view_properties/global/.directory" = {
+      ".local/share/dolphin/view_properties/global/.directory" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.local/share/dolphin/view_properties/global/.directory";
         force = true;
         mutable = true;
       };
-      ".local/share/icons/default" = {
+      ".local/share/icons/default" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.local/share/icons/default/index.theme";
         force = true;
         mutable = true;
       };
-      ".local/share/themes/Wallbash-Gtk" = {
+      ".local/share/themes/Wallbash-Gtk" = lib.mkDefault {
         source = "${pkgs.hydenix.wallbash-gtk}/share/themes/Wallbash-Gtk";
         recursive = true;
         force = true;

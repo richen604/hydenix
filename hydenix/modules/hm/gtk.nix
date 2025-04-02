@@ -31,23 +31,23 @@ in
       emote
     ];
     home.file = {
-      ".config/nwg-look/config" =  {
+      ".config/nwg-look/config" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.config/nwg-look/config";
       };
 
       # stateful files
       # TODO: might flash on initial theme change, unnecessary?
-      ".config/gtk-3.0/settings.ini" =  {
+      ".config/gtk-3.0/settings.ini" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.config/gtk-3.0/settings.ini";
         force = true;
         mutable = true;
       };
-      ".gtkrc-2.0" =  {
+      ".gtkrc-2.0" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.gtkrc-2.0";
         force = true;
         mutable = true;
       };
-      ".config/xsettingsd/xsettingsd.conf" =  {
+      ".config/xsettingsd/xsettingsd.conf" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.config/xsettingsd/xsettingsd.conf";
         force = true;
         mutable = true;

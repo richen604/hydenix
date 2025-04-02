@@ -55,7 +55,7 @@ in
       in
       lib.mkMerge (
         map (theme: {
-          ".config/hyde/themes/${theme.name}" = {
+          ".config/hyde/themes/${theme.name}" = lib.mkDefault {
             source = "${theme.pkg}/share/hyde/themes/${theme.name}";
             force = true;
             recursive = true;

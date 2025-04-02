@@ -24,12 +24,12 @@ in
 
     home.file = {
       # stateful file for themes
-      ".config/dunst/dunstrc" =  {
+      ".config/dunst/dunstrc" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.config/dunst/dunstrc";
         force = true;
         mutable = true;
       };
-      ".config/dunst/dunst.conf" =  {
+      ".config/dunst/dunst.conf" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.config/dunst/dunst.conf";
         force = true;
         mutable = true;

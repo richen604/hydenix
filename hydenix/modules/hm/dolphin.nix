@@ -43,19 +43,18 @@ in
     };
 
     home.file = {
-      ".config/dolphinrc" = {
+      ".config/dolphinrc" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.config/dolphinrc";
       };
-      ".config/baloofilerc" = {
+      ".config/baloofilerc" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.config/baloofilerc";
       };
-      ".config/menus/applications.menu" = {
+      ".config/menus/applications.menu" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.config/menus/applications.menu";
       };
 
       # stateful file for themes
-
-      ".config/kdeglobals" = {
+      ".config/kdeglobals" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.config/kdeglobals";
         force = true;
         mutable = true;

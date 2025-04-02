@@ -18,25 +18,25 @@ in
 
     discord = {
       enable = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-      description = "Enable discord module";
+        type = lib.types.bool;
+        default = true;
+        description = "Enable discord module";
       };
     };
 
     webcord = {
       enable = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-      description = "Enable webcord module";
+        type = lib.types.bool;
+        default = true;
+        description = "Enable webcord module";
       };
     };
 
     vesktop = {
       enable = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-      description = "Enable vesktop module";
+        type = lib.types.bool;
+        default = true;
+        description = "Enable vesktop module";
       };
     };
   };
@@ -49,7 +49,7 @@ in
     ];
 
     home.file = {
-      ".config/electron-flags.conf" = {
+      ".config/electron-flags.conf" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.config/electron-flags.conf";
       };
     };

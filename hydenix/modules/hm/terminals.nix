@@ -36,10 +36,10 @@ in
     ];
 
     home.file = {
-      ".config/kitty/hyde.conf" = {
+      ".config/kitty/hyde.conf" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.config/kitty/hyde.conf";
       };
-      ".config/kitty/kitty.conf" = {
+      ".config/kitty/kitty.conf" = lib.mkDefault {
         text = ''
           include hyde.conf
 
@@ -53,7 +53,7 @@ in
       # Kitty
       # stateful file for kitty wallbash
 
-      ".config/kitty/theme.conf" = {
+      ".config/kitty/theme.conf" = lib.mkDefault {
         source = "${pkgs.hydenix.hyde}/Configs/.config/kitty/theme.conf";
         force = true;
         mutable = true;
