@@ -18,7 +18,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = with pkgs; [
+    environment.systemPackages = with pkgs; [
       mangohud # Performance monitoring overlay for games
       lutris # Game manager for Linux
     ];
