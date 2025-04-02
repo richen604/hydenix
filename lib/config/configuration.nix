@@ -19,31 +19,7 @@ in
     hydenix-inputs.home-manager.nixosModules.home-manager
     ./hardware-configuration.nix
     hydenix-inputs.lib.nixOsModules
-
-    # === GPU-specific configurations ===
-
-    /*
-      For drivers, we are leveraging nixos-hardware
-      Most common drivers are below, but you can see more options here: https://github.com/NixOS/nixos-hardware
-    */
-
-    #! EDIT THIS SECTION
-    # For NVIDIA setups
-    # hydenix-inputs.nixos-hardware.nixosModules.common-gpu-nvidia
-    # hydenix-inputs.nixos-hardware.nixosModules.common-gpu-nvidia-nonmodeset
-
-    # For AMD setups
-    # hydenix-inputs.nixos-hardware.nixosModules.common-gpu-amd
-
-    # === CPU-specific configurations ===
-    # For AMD CPUs
-    # hydenix-inputs.nixos-hardware.nixosModules.common-cpu-amd
-    # hydenix-inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate
-
-    # For Intel CPUs
     hydenix-inputs.nixos-hardware.nixosModules.common-cpu-intel
-
-    # === Other common modules ===
     hydenix-inputs.nixos-hardware.nixosModules.common-pc
     hydenix-inputs.nixos-hardware.nixosModules.common-pc-ssd
   ];
