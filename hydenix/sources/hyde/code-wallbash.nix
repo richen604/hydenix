@@ -1,6 +1,7 @@
 { pkgs, commit }:
 pkgs.vscode-utils.buildVscodeExtension {
   name = "wallbash";
+  pname = "wallbash";
   vscodeExtPublisher = "prasanthrangan";
   vscodeExtName = "wallbash";
   vscodeExtUniqueId = "prasanthrangan.wallbash";
