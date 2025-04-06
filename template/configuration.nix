@@ -119,4 +119,6 @@ in
     ];
     shell = pkgs.zsh; # Change if you prefer a different shell
   };
+
+  system.stateVersion = "25.05";
 }

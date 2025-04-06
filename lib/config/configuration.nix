@@ -58,4 +58,6 @@ in
     ];
     shell = hydenix-pkgs.zsh;
   };
+
+  system.stateVersion = "25.05";
 }

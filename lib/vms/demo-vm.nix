@@ -1,5 +1,6 @@
-{ hydenix-inputs, nixosConfiguration, ... }:
-nixosConfiguration.extendModules {
+{ hydenix-inputs, ... }:
+hydenix-inputs.hydenix-nixpkgs.lib.nixosSystem {
+  system = "x86_64-linux";
   modules = [
     (
       { config, pkgs, ... }:
@@ -12,14 +13,10 @@ nixosConfiguration.extendModules {
               guest.port = 22;
             }
           ];
-          imports = [
-            hydenix-inputs.nixos-hardware.nixosModules.common-gpu-amd
-            hydenix-inputs.nixos-hardware.nixosModules.common-cpu-intel
-          ];
           virtualisation = {
             memorySize = 8192;
             cores = 6;
-            diskSize = 20480;
+            diskSize = 102400;
             qemu = {
               options = [
                 "-device virtio-vga-gl"
@@ -27,26 +24,29 @@ nixosConfiguration.extendModules {
                 "-usb -device usb-tablet"
                 "-cpu host"
                 "-enable-kvm"
-                "-machine q35,accel=kvm"
-                "-device intel-iommu"
-                "-device ich9-intel-hda"
-                "-device hda-output"
                 "-vga none"
               ];
             };
           };
-          #! you can set this to skip login for sddm
-          # services.displayManager.autoLogin = {
-          #   enable = true;
-          #   user = "hydenix";
-          # };
           services.xserver = {
-            videoDrivers = [
-              "virtio"
-            ];
+            videoDrivers = [ "virtio" ];
           };
 
           system.stateVersion = "25.05";
+        };
+
+        # Create nixos user with password
+        users.users.nixos = {
+          isNormalUser = true;
+          description = "NixOS User";
+          extraGroups = [
+            "wheel"
+            "networkmanager"
+            "video"
+          ];
+          # To set a password, run: mkpasswd -m sha-512
+          # Or use this temporary password (change on first login)
+          initialPassword = "nixos";
         };
 
         # Enable SSH server
@@ -58,21 +58,29 @@ nixosConfiguration.extendModules {
           };
         };
 
-        virtualisation.libvirtd.enable = true;
+        # Enable flakes
+        nix = {
+          extraOptions = ''
+            experimental-features = nix-command flakes
+          '';
+          settings = {
+            trusted-users = [
+              "root"
+              "@wheel"
+            ];
+            auto-optimise-store = true;
+          };
+        };
+
         environment.systemPackages = with pkgs; [
           open-vm-tools
           spice-gtk
           spice-vdagent
-          spice
+          git # Required for flakes
         ];
         services.qemuGuest.enable = true;
-        services.spice-vdagentd = {
-          enable = true;
-        };
+        services.spice-vdagentd.enable = true;
         hardware.graphics.enable = true;
-
-        # Enable verbose logging for home-manager
-        # home-manager.verbose = true;
       }
     )
   ];

@@ -37,8 +37,12 @@ let
         isoImage.squashfsCompression = "zstd -Xcompression-level 6"; # Better compression ratio and speed
 
         # ISO-specific configuration
-        isoImage.edition = hydenix-pkgs.lib.mkForce "hydenix";
-        isoImage.isoName = hydenix-pkgs.lib.mkForce "hydenix-${hydenix-inputs.hydenix-nixpkgs.lib.version}.iso";
+        isoImage = {
+          edition = hydenix-pkgs.lib.mkForce "hydenix";
+          isoBaseName = hydenix-pkgs.lib.mkForce "hydenix";
+          isoName = hydenix-pkgs.lib.mkForce "hydenix.iso";
+          volumeID = hydenix-pkgs.lib.mkForce "HYDENIX";
+        };
 
         # Improve boot experience
         boot.kernelParams = [
@@ -318,4 +322,5 @@ in
       echo "4. Save and exit"
     fi
   '';
+  isoSystem = isoSystem;
 }
