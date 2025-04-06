@@ -7,9 +7,12 @@
     - [Why should I use NixOS?](#why-should-i-use-nixos)
     - [How do I learn more about Nix?](#how-do-i-learn-more-about-nix)
   - [Hydenix FAQ](#hydenix-faq)
+    - [How do I upgrade Hydenix?](#how-do-i-upgrade-hydenix)
+    - [When should I upgrade?](#when-should-i-upgrade)
     - [How do I fix (Nix error / system error / bug / etc)?](#how-do-i-fix-nix-error--system-error--bug--etc)
     - [What are the module options?](#what-are-the-module-options)
     - [What if I want to customize hydenix?](#what-if-i-want-to-customize-hydenix)
+    - [What are some example configurations?](#what-are-some-example-configurations)
     - [How do I persist changes on reboot/rebuild/etc?](#how-do-i-persist-changes-on-rebootrebuildetc)
     - [How do I add a new theme?](#how-do-i-add-a-new-theme)
     - [What is mutable.nix?](#what-is-mutablenix)
@@ -58,6 +61,57 @@ General Resources
 </div>
 
 ## Hydenix FAQ
+
+### How do I upgrade Hydenix?
+
+Hydenix can be upgraded, downgraded, or version locked easy.
+in your template flake folder, update hydenix to main using
+
+```bash
+nix flake update hydenix
+```
+
+or define a specific version in your `flake.nix` template
+
+```nix
+inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    hydenix = {
+      # Available inputs:
+      # Main: github:richen604/hydenix
+      # Dev: github:richen604/hydenix/dev 
+      # Commit: github:richen604/hydenix/<commit-hash>
+      # Version: github:richen604/hydenix/v1.0.0
+      url = "github:richen604/hydenix";
+    };
+  };
+```
+
+run `nix flake update hydenix` again to load the update, then rebuild your system to apply the changes
+
+### When should I upgrade?
+
+```mermaid
+graph TD
+    A[v2.3.1] --> B[MAJOR]
+    A --> C[MINOR]
+    A --> D[PATCH]
+    B --> E[Breaking Changes<br>Review Release Notes for API Changes]
+    C --> F[New Features<br>Safe to Update]
+    D --> G[Bug Fixes<br>Safe to Update]
+
+    style A fill:#c79bf0,stroke:#ebbcba,stroke-width:2px,color:#000
+    style B fill:#ebbcba,stroke:#c79bf0,stroke-width:2px,color:#000
+    style C fill:#ebbcba,stroke:#c79bf0,stroke-width:2px,color:#000
+    style D fill:#ebbcba,stroke:#c79bf0,stroke-width:2px,color:#000
+    style E fill:#f6f6f6,stroke:#c79bf0,stroke-width:2px,color:#000
+    style F fill:#f6f6f6,stroke:#c79bf0,stroke-width:2px,color:#000
+    style G fill:#f6f6f6,stroke:#c79bf0,stroke-width:2px,color:#000
+```
+
+- **Always review [release notes](https://github.com/richen604/hydenix/releases) for major updates (API changes)**
+- Keep up with patches for stability
+- Update to minor versions for new features
 
 ### How do I fix (Nix error / system error / bug / etc)?
 
@@ -219,7 +273,17 @@ Note however, it's very easy to overwrite hydenix defaults this way and may lead
   </a>
 </div>
 
+### What are some example configurations?
+
+Here's a list, feel free to make a PR to add your own!
+
+- [richen604/richendots](https://github.com/richen604/richendots)
+
 ### How do I persist changes on reboot/rebuild/etc?
+
+> [!IMPORTANT]
+> Do not edit any mutable files at runtime as they will be overwritten on rebuild <br>
+> All edits must be done in your flake via nixos & home-manager options
 
 Some state files in HyDE are mutable by design. This allows certain theme changes during runtime.
 
@@ -255,21 +319,17 @@ home-managers `home.file` allows you to do this
     # cp ~/.config/kitty/kitty.conf ~/path/to/flake/kitty.conf
     ".config/kitty/kitty.conf" = {
       source = ./kitty.conf; # path to your kitty config in your template flake
-      force = true;
-      mutable = true;
     };
     # copy waybar position state to your template flake
     # cp ~/.config/waybar/config.ctl ~/path/to/flake/config.ctl
     ".config/waybar/config.ctl" = {
       source = ./config.ctl; # path to your waybar config in your template flake
-      force = true;
-      mutable = true;
     };
   };
 }
 ```
 
-The [mutable](#what-is-mutablenix) part is important as it allows the file to copy at the right time.
+see [home.file options](https://home-manager-options.extranix.com/?query=home.file&release=master) for more information
 
 <div align="right">
   <a href="#faq">
@@ -283,18 +343,18 @@ The [mutable](#what-is-mutablenix) part is important as it allows the file to co
 
 ### What is mutable.nix?
 
-The `mutable.nix` file is a custom NixOS module that extends the `home.file`, `xdg.configFile`, and `xdg.dataFile` options with the `mutable` option.
+> [!IMPORTANT]
+> Do not edit any mutable files at runtime as they will be overwritten on rebuild <br>
+> All edits must be done in your flake via nixos & home-manager options
 
-This option allows you to copy the file without the read-only attribute instead of symlinking. If you set this option to `true`, you must also set the `force` option to `true`.
+`mutable.nix` is a custom module that allows certain files to be copied instead of symlinked during system builds, making them writable at runtime. Key points:
 
-Mutable files are not removed when you remove them from your configuration. They are copied every rebuild so changes made to state will persist. This option is useful for programs that don't have good support for read-only configurations or need runtime changes.
+- Extends `home.file`, `xdg.configFile`, and `xdg.dataFile` with a `mutable` option
+- Files marked as `mutable = true` (and `force = true`) will be writable
+- Changes persist across rebuilds
+- Useful for programs that need runtime configuration changes
 
-Is this anti-pattern / impure? Yes. However, state files are common in linux systems. I chose to declaratively manage state files rather than remove functionality from HyDE.
-
-When does this generation happen? During the `home.activation` `mutableGeneration` entry.
-If you need access to stateful files that hydenix generates, make sure the script runs after `mutableGeneration`.
-
-eg.
+Example usage in scripts:
 
 ```nix
 home.activation = {
@@ -304,7 +364,7 @@ home.activation = {
 }
 ```
 
-credit to @piousdeer for the [implementation](https://gist.github.com/piousdeer/b29c272eaeba398b864da6abf6cb5daa)
+Credit: [@piousdeer](https://gist.github.com/piousdeer/b29c272eaeba398b864da6abf6cb5daa)
 
 <div align="right">
   <a href="#faq">

@@ -4,6 +4,13 @@
 ## priority
 
 - [ ] fix: boot module grub is not working?
+- [ ] feat: spicetify theme support with declarative flatpak
+- [ ] feat: add Code Garden theme
+- [ ] chore: review bug template
+- [ ] docs: better documented drivers in template flake, plus nvidia default settings
+- [ ] feat: hyprland via home-manager
+  - support plugins
+  - use hyprland flake package
 
 ## iso builder
 
@@ -48,8 +55,6 @@
 ## Future Enhancements
 
 - [ ] Ecosystem
-  - [ ] feat: Add spicetify support via declarative flatpak
-  
   - [ ] feat: Create sddm-hyprland
   - [ ] feat: Integrate hydepanel from rubin
   - [ ] feat: Add telegram theme support
@@ -59,6 +64,12 @@
   - [ ] feat: Add updated HyDE/code-wallbash nix support
 - [ ] feat: full nixos config & full home-manager config
 - [ ] feat: Set NIX-PATH to template flake location
+
+## Non-NixOS
+
+https://github.com/jpikl/pm for non-nixos packages
+specific scripts for each non-nixos distro options, ideally one script for all packages using pm
+nixGL wrapping for all prorgrams, well documented in the configuration as users will need to edit it. combine with any driver setup
 
 ## Hyde repo
 

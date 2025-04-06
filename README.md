@@ -148,6 +148,29 @@ inputs = {
   };
 ```
 
-run `nix flake update hydenix` again to apply the changes
+run `nix flake update hydenix` again to load the update, then rebuild your system to apply the changes
 
----
+## When to Upgrade
+
+```mermaid
+graph TD
+    A[v2.3.1] --> B[MAJOR]
+    A --> C[MINOR]
+    A --> D[PATCH]
+    B --> E[Breaking Changes<br>Review Release Notes for API Changes]
+    C --> F[New Features<br>Safe to Update]
+    D --> G[Bug Fixes<br>Safe to Update]
+
+    style A fill:#c79bf0,stroke:#ebbcba,stroke-width:2px,color:#000
+    style B fill:#ebbcba,stroke:#c79bf0,stroke-width:2px,color:#000
+    style C fill:#ebbcba,stroke:#c79bf0,stroke-width:2px,color:#000
+    style D fill:#ebbcba,stroke:#c79bf0,stroke-width:2px,color:#000
+    style E fill:#f6f6f6,stroke:#c79bf0,stroke-width:2px,color:#000
+    style F fill:#f6f6f6,stroke:#c79bf0,stroke-width:2px,color:#000
+    style G fill:#f6f6f6,stroke:#c79bf0,stroke-width:2px,color:#000
+```
+
+- **Always review [release notes](https://github.com/richen604/hydenix/releases) for major updates (API changes)**
+- Update to minor versions for new features
+- Keep up with patches for stability
+  
