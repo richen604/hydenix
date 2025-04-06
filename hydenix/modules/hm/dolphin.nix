@@ -42,13 +42,13 @@ in
     };
 
     home.file = {
-      ".config/dolphinrc" = lib.mkDefault {
+      ".config/dolphinrc" = {
         source = "${pkgs.hydenix.hyde}/Configs/.config/dolphinrc";
       };
-      ".config/baloofilerc" = lib.mkDefault {
+      ".config/baloofilerc" = {
         source = "${pkgs.hydenix.hyde}/Configs/.config/baloofilerc";
       };
-      ".config/menus/applications.menu" = lib.mkDefault {
+      ".config/menus/applications.menu" = {
         source = "${pkgs.hydenix.hyde}/Configs/.config/menus/applications.menu";
       };
 

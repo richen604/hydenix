@@ -110,18 +110,6 @@ in
         # we are writing our own .zshenv file to ensure that its properly sourcing nix paths, and removes all the arch nonsense
         ".zshenv".text = ''
           #!/usr/bin/env zsh
-          # HyDE's ZSH env configuration
-          # This file is sourced by ZSH on startup
-          # And ensures that we have an obstruction free ~/.zshrc file
-          # This also ensures that the proper HyDE $ENVs are loaded
-
-          # Function to handle initialization errors
-          function handle_init_error {
-              if [[ $? -ne 0 ]]; then
-                  echo "Error during initialization. Please check your configuration."
-              fi
-          }
-
           function no_such_file_or_directory_handler {
               local red='\e[1;31m' reset='\e[0m'
               printf "''${red}zsh: no such file or directory: %s''${reset}\n" "$1"
@@ -165,18 +153,14 @@ in
 
       (lib.mkIf cfg.fish.enable {
         # Fish configs
-        ".config/fish/config.fish".source =
-          lib.mkDefault "${pkgs.hydenix.hyde}/Configs/.config/fish/config.fish";
+        ".config/fish/config.fish".source = "${pkgs.hydenix.hyde}/Configs/.config/fish/config.fish";
       })
 
       # LSD configs - these are always included
       {
-        ".config/lsd/config.yaml".source =
-          lib.mkDefault "${pkgs.hydenix.hyde}/Configs/.config/lsd/config.yaml";
-        ".config/lsd/icons.yaml".source =
-          lib.mkDefault "${pkgs.hydenix.hyde}/Configs/.config/lsd/icons.yaml";
-        ".config/lsd/colors.yaml".source =
-          lib.mkDefault "${pkgs.hydenix.hyde}/Configs/.config/lsd/colors.yaml";
+        ".config/lsd/config.yaml".source = "${pkgs.hydenix.hyde}/Configs/.config/lsd/config.yaml";
+        ".config/lsd/icons.yaml".source = "${pkgs.hydenix.hyde}/Configs/.config/lsd/icons.yaml";
+        ".config/lsd/colors.yaml".source = "${pkgs.hydenix.hyde}/Configs/.config/lsd/colors.yaml";
       }
     ];
   };

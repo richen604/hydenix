@@ -49,7 +49,7 @@ in
     ];
 
     home.file = {
-      ".config/electron-flags.conf" = lib.mkDefault {
+      ".config/electron-flags.conf" = {
         source = "${pkgs.hydenix.hyde}/Configs/.config/electron-flags.conf";
       };
     };

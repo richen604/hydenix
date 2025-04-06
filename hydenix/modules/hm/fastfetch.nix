@@ -19,12 +19,12 @@ in
 
   config = lib.mkIf cfg.enable {
     home.file = {
-      ".config/fastfetch/config.jsonc" = lib.mkDefault {
+      ".config/fastfetch/config.jsonc" = {
         source = "${pkgs.hydenix.hyde}/Configs/.config/fastfetch/config.jsonc";
       };
       # TODO: add hydenix logo
       # TODO: custom logos and pick defaults
-      ".config/fastfetch/logos" = lib.mkDefault {
+      ".config/fastfetch/logos" = {
         source = "${pkgs.hydenix.hyde}/Configs/.config/fastfetch/logos";
         recursive = true;
       };
