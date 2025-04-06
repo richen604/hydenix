@@ -25,9 +25,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = with pkgs; [
-      comma
-    ];
+    programs.nix-index-database.comma.enable = true;
     programs.nix-index = {
       enable = true;
       enableZshIntegration = config.hydenix.hm.shell.zsh.enable;

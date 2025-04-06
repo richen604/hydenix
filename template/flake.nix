@@ -15,6 +15,11 @@
       url = "github:richen604/hydenix";
     };
 
+    # Nix-index-database - for comma and command-not-found
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

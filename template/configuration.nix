@@ -69,6 +69,8 @@ in
       {
         imports = [
           inputs.hydenix.lib.homeModules
+          # Nix-index-database - for comma and command-not-found
+          inputs.nix-index-database.hmModules.nix-index
           ./modules/hm
         ];
       };

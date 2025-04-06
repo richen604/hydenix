@@ -10,6 +10,12 @@
       inputs.nixpkgs.follows = "hydenix-nixpkgs";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    # Nix-index-database - for comma and command-not-found
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "hydenix-nixpkgs";
+    };
   };
 
   outputs =
@@ -19,6 +25,9 @@
       system = "x86_64-linux";
 
       hydenix-inputs = hydenix-pre-inputs // {
+        pkgs = import hydenix-pre-inputs.hydenix-nixpkgs {
+          inherit system;
+        };
         lib = {
           overlays = import ./hydenix/sources/overlay.nix;
           nixOsModules = import ./hydenix/modules/system;
@@ -40,6 +49,14 @@
       };
 
       isoConfig = hydenix-inputs.lib.iso {
+        inherit hydenix-inputs;
+      };
+
+      isoVmConfig = import ./lib/vms/iso-vm.nix {
+        inherit hydenix-inputs;
+      };
+
+      demoVmConfig = import ./lib/vms/demo-vm.nix {
         inherit hydenix-inputs;
       };
 
@@ -82,6 +99,10 @@
 
         # Explicitly named VM configuration
         nixos-vm = vmConfig.config.system.build.vm;
+        demo-vm = demoVmConfig.config.system.build.vm;
+
+        # Demo VM configuration
+        iso-vm = isoVmConfig;
 
         # ISO configuration
         iso = isoConfig.build-iso;

@@ -36,6 +36,26 @@
         "type": "github"
       }
     },
+    "nix-index-database": {
+      "inputs": {
+        "nixpkgs": [
+          "hydenix-nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1743911143,
+        "narHash": "sha256-4j4JPwr0TXHH4ZyorXN5yIcmqIQr0WYacsuPA4ktONo=",
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "rev": "a36f6a7148aec2c77d78e4466215cceb2f5f4bfb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "type": "github"
+      }
+    },
     "nixos-hardware": {
       "locked": {
         "lastModified": 1742631601,
@@ -56,6 +76,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "hydenix-nixpkgs": "hydenix-nixpkgs",
+        "nix-index-database": "nix-index-database",
         "nixos-hardware": "nixos-hardware"
       }
     }

@@ -6,7 +6,7 @@
 
     theme = {
       enable = true;
-      active = "Abyssal-Wave";
+      active = "BlueSky";
       themes = [
         "Abyssal-Wave"
         "AbyssGreen"

@@ -22,6 +22,7 @@ in
     hydenix-inputs.nixos-hardware.nixosModules.common-cpu-intel
     hydenix-inputs.nixos-hardware.nixosModules.common-pc
     hydenix-inputs.nixos-hardware.nixosModules.common-pc-ssd
+
   ];
 
   home-manager = {
@@ -37,6 +38,9 @@ in
         imports = [
           hydenix-inputs.lib.homeModules
           ./home.nix
+
+          # Nix-index-database - for comma and command-not-found
+          hydenix-inputs.nix-index-database.hmModules.nix-index
         ];
       };
   };
