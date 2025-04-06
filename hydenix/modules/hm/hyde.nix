@@ -31,6 +31,15 @@ in
 
     fonts.fontconfig.enable = true;
 
+    # fixes cava from not initializing on boot
+    home.activation.createCavaConfig = lib.hm.dag.entryAfter [ "mutableGeneration" ] ''
+      mkdir -p "$HOME/.config/cava"
+
+      touch "$HOME/.config/cava/config"
+
+      chmod 644 "$HOME/.config/cava/config"
+    '';
+
     home.file = {
       # Regular files (processed first)
       ".config/hyde/wallbash" = {
