@@ -34,9 +34,7 @@ in
     # fixes cava from not initializing on boot
     home.activation.createCavaConfig = lib.hm.dag.entryAfter [ "mutableGeneration" ] ''
       mkdir -p "$HOME/.config/cava"
-
       touch "$HOME/.config/cava/config"
-
       chmod 644 "$HOME/.config/cava/config"
     '';
 
@@ -106,7 +104,7 @@ in
         force = true;
         mutable = true;
       };
-      ".local/share/icons/default" = {
+      ".local/share/icons/default/index.theme" = {
         source = "${pkgs.hydenix.hyde}/Configs/.local/share/icons/default/index.theme";
         force = true;
         mutable = true;

@@ -1,7 +1,7 @@
 final: prev:
 let
   # Import the hyde commit from hyde/default.nix
-  commit = "2689df9882b5ac501d6d66a0118561041e311ae3";
+  commit = "87217f9126f1cda44d5df6b6371a92f974f299a2";
 
   # Helper function to import a package
   callPackage = prev.lib.callPackageWith (prev // packages);

@@ -59,6 +59,7 @@ in
             source = "${theme.pkg}/share/hyde/themes/${theme.name}";
             force = true;
             recursive = true;
+            mutable = true;
           };
         }) themesList
       );
@@ -98,8 +99,9 @@ in
 
       echo "Setting theme to ${cfg.active}..." | tee -a "$LOG_FILE"
 
+      export LOG_LEVEL=debug
+
       # Run the theme switch commands with the custom runtime dir
-      # $HOME/.local/lib/hyde/swwwallcache.sh -t "${cfg.active}" >> "$LOG_FILE" 2>&1
       $HOME/.local/lib/hyde/theme.switch.sh -s "${cfg.active}" >> "$LOG_FILE" 2>&1
       $HOME/.local/lib/hyde/theme.switch.sh -s "${cfg.active}" >> "$LOG_FILE" 2>&1
 
