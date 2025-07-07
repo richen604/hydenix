@@ -6,7 +6,7 @@ mkTheme rec {
     repo = "Obsidian-Purple";
     rev = "main";
     name = name;
-    sha256 = "sha256-O+EbtZWdszjye3RsXq11zB6qg/E3iNyTNpdokI3gdLk=";
+    sha256 = "sha256-wmply5k/FP1QKobCp+ZeaCzdHIlURAxdur3xXAF7qD0=";
   };
   meta = {
     name = name;
