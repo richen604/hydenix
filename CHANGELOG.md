@@ -1,3 +1,16 @@
+# [4.7.0](https://github.com/richen604/hydenix/compare/v4.6.0...v4.7.0) (2025-07-07)
+
+
+### Bug Fixes
+
+* bump theme hashes ([693f710](https://github.com/richen604/hydenix/commit/693f710fe8a37e616492579f840708fc5fbf2971))
+* paths for hyde-config service ([0032339](https://github.com/richen604/hydenix/commit/00323393b68173dc12815926ebd89ec10dfe8b16))
+
+
+### Features
+
+* update flake inputs ([41c95a2](https://github.com/richen604/hydenix/commit/41c95a298e3bacabe40463ba3285f7bad0f405a3))
+
 # [4.6.0](https://github.com/richen604/hydenix/compare/v4.5.1...v4.6.0) (2025-07-05)
 
 
