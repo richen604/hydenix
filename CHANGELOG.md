@@ -1,3 +1,10 @@
+## [4.7.1](https://github.com/richen604/hydenix/compare/v4.7.0...v4.7.1) (2025-07-10)
+
+
+### Bug Fixes
+
+* bumped theme hash ([04e8fdc](https://github.com/richen604/hydenix/commit/04e8fdc1f69c6e1d1a8876fa4e8a94f948887161))
+
 # [4.7.0](https://github.com/richen604/hydenix/compare/v4.6.0...v4.7.0) (2025-07-07)
 
 
