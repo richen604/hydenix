@@ -6,7 +6,7 @@ mkTheme rec {
     repo = "Code-Garden";
     rev = "main";
     name = name;
-    sha256 = "sha256-2aU72cN+Pi9OlNBuUyqAXRlJeWIwTVZNRRDdKtvaHs8=";
+    sha256 = "sha256-WvuVrgllMhste24dWGKw3I0eBBJMHoOYQCheLofenUE=";
   };
   meta = {
     name = name;

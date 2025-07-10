@@ -6,7 +6,7 @@ mkTheme rec {
     repo = "hyde-themes";
     rev = "Graphite-Mono";
     name = name;
-    sha256 = "sha256-WwEjLynHrLLB91MMTPZKsCMk7OAdKPw4Do7DjbpjQbo=";
+    sha256 = "sha256-bA07uhuF67ZN6USBsF5fvSFvPe/tiHQzxvV1dFEoXYI=";
   };
   meta = {
     description = "HyDE Theme: Graphite Mono";
