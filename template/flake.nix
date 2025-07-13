@@ -12,7 +12,7 @@
       # Dev: github:richen604/hydenix/dev
       # Commit: github:richen604/hydenix/<commit-hash>
       # Version: github:richen604/hydenix/v1.0.0
-      url = "github:richen604/hydenix";
+      url = "path:../";
     };
 
     # Nix-index-database - for comma and command-not-found
