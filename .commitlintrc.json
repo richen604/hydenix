@@ -6,9 +6,8 @@
       "lower-case"
     ],
     "subject-case": [
-      2,
-      "always",
-      "lower-case"
+      0,
+      "never"
     ],
     "scope-empty": [
       0,
