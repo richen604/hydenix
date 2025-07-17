@@ -56,7 +56,7 @@ in
   "BlueSky" = callTheme ./BlueSky.nix;
   "Cosmic Blue" = callTheme ./Cosmic-Blue.nix;
   "DoomBringers" = callTheme ./DoomBringers.nix;
-  "Eternal Artic" = callTheme ./Eternal-Artic.nix;
+  "Eternal Arctic" = callTheme ./Eternal-Arctic.nix;
   "Ever Blushing" = callTheme ./Ever-Blushing.nix;
   "Moonlight" = callTheme ./Moonlight.nix;
 }
