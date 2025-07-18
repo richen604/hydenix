@@ -1,3 +1,10 @@
+## [4.7.2](https://github.com/richen604/hydenix/compare/v4.7.1...v4.7.2) (2025-07-18)
+
+
+### Bug Fixes
+
+* typo in Eternal Arctic theme ([e2575cb](https://github.com/richen604/hydenix/commit/e2575cbc38157d62584c972898c9112e109c5ff8))
+
 ## [4.7.1](https://github.com/richen604/hydenix/compare/v4.7.0...v4.7.1) (2025-07-10)
 
 
