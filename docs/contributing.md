@@ -38,7 +38,6 @@ Where:
   - examples: vm, themes, home, cli, docs, etc.
 
 - **subject** must:
-  - be lowercase
   - not end with a period
   - be descriptive
 

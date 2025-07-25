@@ -82,7 +82,7 @@ inputs = {
     hydenix = {
       # Available inputs:
       # Main: github:richen604/hydenix
-      # Dev: github:richen604/hydenix/dev 
+      # Dev: github:richen604/hydenix/dev
       # Commit: github:richen604/hydenix/<commit-hash>
       # Version: github:richen604/hydenix/v1.0.0
       url = "github:richen604/hydenix";
@@ -213,149 +213,7 @@ This will automatically rename existing files with a `.backup` extension when ho
 
 ### What are the module options?
 
-Below will be the default options for hydenix. the only required options are `hydenix.enable` and `hydenix.hm.enable`.
-
-NixOS hydenix options:
-
-<details>
-<summary>View NixOS hydenix options</summary>
-
-```nix
-{
-  hydenix = {
-
-    #! Important options
-    enable = true; # enable hydenix - required, default false
-    hostname = "hydenix"; # hostname
-    timezone = "America/Vancouver"; # timezone
-    locale = "en_CA.UTF-8"; # locale
-
-    #! Below are defaults
-    audio.enable = true; # enable audio module
-    boot = {
-      enable = true; # enable boot module
-      useSystemdBoot = true; # disable for GRUB
-      grubTheme = "Retroboot"; # or "Pochita"
-      grubExtraConfig = ""; # additional GRUB configuration
-      kernelPackages = pkgs.linuxPackages_zen; # default zen kernel
-    };
-    gaming.enable = true; # enable gaming module
-    hardware.enable = true; # enable hardware module
-    network.enable = true; # enable network module
-    nix.enable = true; # enable nix module
-    sddm = {
-      enable = true; # enable sddm module
-      theme = "Candy" # or "Corners"
-    };
-    system.enable = true; # enable system module
-  };
-}
-```
-
-</details>
-
-<details>
-<summary>View Home Manager hydenix options</summary>
-
-```nix
-{
-  hydenix.hm = {
-
-    #! Important options
-    enable = true;
-
-    #! Below are defaults
-    comma.enable = true; # useful nix tool to run software without installing it first
-    dolphin.enable = true; # file manager
-    editors = {
-      enable = true; # enable editors module
-      neovim.enable = true; # enable neovim module
-      vscode = {
-        enable = true; # enable vscode module
-        wallbash = true; # enable wallbash extension for vscode
-      };
-      vim.enable = true; # enable vim module
-      default = "code"; # default text editor
-    };
-    fastfetch.enable = true; # fastfetch configuration
-    firefox.enable = true; # enable firefox module
-    gaming.enable = true; # enable gaming module
-    git = {
-      enable = true; # enable git module
-      name = null; # git user name eg "John Doe"
-      email = null; # git user email eg "john.doe@example.com"
-    };
-    hyde.enable = true; # enable hyde module
-    hyprland = {
-      enable = true; # enable hyprland module
-      extraConfig = ""; # extra hyprland config text
-    };
-    lockscreen = {
-      enable = true; # enable lockscreen module
-      hyprlock = true; # enable hyprlock lockscreen
-      swaylock = false; # enable swaylock lockscreen
-    };
-    notifications.enable = true; # enable notifications module
-    qt.enable = true; # enable qt module
-    rofi.enable = true; # enable rofi module
-    screenshots = {
-      enable = true; # enable screenshots module
-      grim.enable = true; # enable grim screenshot tool
-      slurp.enable = true; # enable slurp region selection tool
-      satty.enable = false; # enable satty screenshot annotation tool
-      swappy.enable = true; # enable swappy screenshot editor
-    };
-    wallpapers.enable = true; # enable wallpapers module
-    shell = {
-      enable = true; # enable shell module
-      zsh = {
-        enable = true; # enable zsh shell
-        plugins = [ "sudo" ]; # zsh plugins
-        configText = ""; # zsh config text
-      };
-      bash.enable = false; # enable bash shell
-      fish.enable = false; # enable fish shell
-      pokego.enable = false; # enable Pokemon ASCII art scripts
-      p10k.enable = false; # enable p10k prompt
-      starship.enable = true; # enable starship prompt
-    };
-    social = {
-      enable = true; # enable social module
-      discord.enable = true; # enable discord module
-      webcord.enable = true; # enable webcord module
-      vesktop.enable = true; # enable vesktop module
-    };
-    spotify.enable = true; # enable spotify module
-    swww.enable = true; # enable swww wallpaper daemon
-    terminals = {
-      enable = true; # enable terminals module
-      kitty = {
-        enable = true; # enable kitty terminal
-        configText = ""; # kitty config text
-      };
-    };
-    theme = {
-      enable = true; # enable theme module
-      active = "Catppuccin Mocha"; # active theme name
-      themes = [ "Catppuccin Mocha" "Catppuccin Latte" ]; # default enabled themes, full list in https://github.com/richen604/hydenix/tree/main/hydenix/sources/themes
-    };
-    waybar = {
-      enable = true; # enable waybar module
-      userStyle = ""; # custom waybar user-style.css
-    };
-    wlogout.enable = true; # enable wlogout module
-    xdg.enable = true; # enable xdg module
-  };
-}
-```
-
-</details>
-
-<div align="right">
-  <a href="#faq">
-    <img src="https://img.shields.io/badge/Back_to_Top-↑-blue" alt="Back to Top" />
-  </a>
-</div>
+Visit [options.md](./options.md) for more information on the module options.
 
 ### What if I want to customize hydenix?
 
