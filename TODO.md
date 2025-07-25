@@ -5,8 +5,8 @@
 
 - docs: improved configuration guide
 - docs: better hardware configuration guide, no default hardware options
-- feat: more hyprland options
-  - explicit configuration
+- feat: move hyprlock to hyprland module, swaylock should just be swaylock module
+  - assertion to not have both enabled
 - feat: new themes to build
 
 ## next api update
@@ -20,6 +20,7 @@
 ## backlog
 
 - finish demo-vm for video
+- docs: documentation generation?
 - feat: config.toml options
 - chore: remove iso builder and ci, close issue related to it in favor of (hyde)nixos-anywhere
 - chore: remove old vm builder
