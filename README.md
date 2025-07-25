@@ -12,7 +12,7 @@
 
 <div align = center>
     <a href="https://discord.gg/AYbJ9MJez7">
-<img alt="Dynamic JSON Badge" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fdiscordapp.com%2Fapi%2Finvites%2FmT5YqjaJFh%3Fwith_counts%3Dtrue&query=%24.approximate_member_count&suffix=%20members&style=for-the-badge&logo=discord&logoSize=auto&label=The%20HyDe%20Project&labelColor=ebbcba&color=c79bf0">
+<img alt="Dynamic JSON Badge" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fdiscordapp.com%2Fapi%2Finvites%2FmT5YqjaJFh%3Fwith_counts%3Dtrue&query=%24.approximate_member_count&suffix=%20members&style=for-the-badge&logo=discord&logoSize=auto&label=The%20HyDe%20Projecot&labelColor=ebbcba&color=c79bf0">
     </a>
 </div>
 
@@ -85,33 +85,69 @@ Why Nix?:
 
 ## Documentation
 
-- [Installation Options](#installation-options)
+- [Installation](#installation)
+- [Module Options](./docs/options.md)
 - [FAQ](./docs/faq.md)
 - [Troubleshooting & Issues](./docs/troubleshooting.md)
 - [Contributing](./docs/contributing.md)
 
-## Installation Options
-
----
+## Installation
 
 > [!CAUTION]
-> Templated flake is designed for a minimal install of NixOS.
+> The templated flake is designed for a minimal install of NixOS. Install NixOS first, then follow the instructions below.
 
-### 1. Template the Hydenix Flake
+### Quick Start
 
-1. in a new directory, `nix flake init -t github:richen604/hydenix`
-2. edit `configuration.nix` with your preferences for hydenix
-   - options needing to be changed are marked with `! EDIT`
-   - (optional) in your template flake folder, review both `./configuration.nix` and `./modules/hm/default.nix` for more options
-3. run `sudo nixos-generate-config --show-hardware-config > hardware-configuration.nix`
-4. `git init && git add .` (flakes have to be managed via git)
-5. run any of the packages in your new `flake.nix`
-    - for rebuild, use `sudo nixos-rebuild switch --flake .`
-6. DON'T FORGET: change your password for all users with `passwd` from initialPassword set in `configuration.nix`
+1. **Initialize the flake template**
 
-NOTE: After launching hydenix, you can run `hyde-shell reload` to generate cache for remaining themes if you want.
+   ```bash
+   # Create a new directory and initialize the template
+   mkdir hydenix-config && cd hydenix-config
+   nix flake init -t github:richen604/hydenix
+   ```
 
-### 2. Trying Out Hydenix with a VM
+2. **Configure your system**
+   - Edit `configuration.nix` with your preferences
+   - Options requiring changes are marked with `! EDIT`
+   - *(Optional)* Review `./configuration.nix` and `./modules/hm/default.nix` for additional configuration options and overriding defaults, see [Module Options](./docs/options.md) for more information.
+
+3. **Generate hardware configuration**
+
+   ```bash
+   sudo nixos-generate-config --show-hardware-config > hardware-configuration.nix
+   ```
+
+4. **Initialize git repository**
+
+   ```bash
+   git init && git add .
+   ```
+
+   > **Note:** Flakes must be managed via git
+
+5. **Build and switch to the new configuration**
+
+   ```bash
+   sudo nixos-rebuild switch --flake .#nixos
+   ```
+
+6. **Set user passwords**
+
+   ```bash
+   passwd
+   ```
+
+   > **Important:** Change passwords for all users from the `initialPassword` set in `configuration.nix`
+
+### Post-Installation
+
+After launching Hydenix, you can generate cache for remaining themes:
+
+```bash
+hyde-shell reload
+```
+
+## Running The Hydenix VM
 
 If your system supports it, the NixOS VM is a great way to try out hydenix without installing it.
 If you encounter issues running the VM, refer to the [virtio guide](docs/faq.md#how-do-i-run-hyprland-in-a-vm)
@@ -140,7 +176,7 @@ inputs = {
     hydenix = {
       # Available inputs:
       # Main: github:richen604/hydenix
-      # Dev: github:richen604/hydenix/dev 
+      # Dev: github:richen604/hydenix/dev
       # Commit: github:richen604/hydenix/<commit-hash>
       # Version: github:richen604/hydenix/v1.0.0
       url = "github:richen604/hydenix";
@@ -173,4 +209,3 @@ graph TD
 - **Always review [release notes](https://github.com/richen604/hydenix/releases) for major updates (API changes)**
 - Update to minor versions for new features
 - Keep up with patches for stability
-  

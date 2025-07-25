@@ -3,106 +3,57 @@
 
 ## now / notes
 
-- [ ] finish demo-vm for video
+- docs: improved configuration guide
+- docs: better hardware configuration guide, no default hardware options
+- feat: more hyprland options
+  - explicit configuration
+- feat: new themes to build
 
 ## next api update
 
-- [ ] hydenix nixOsModules to nixosModules
+- refactor: hydenix nixOsModules to nixosModules
+- refactor: outputs more flexible
+- fix: nix-index should be a module in hydenix only, its declared twice
+- fix: rename nix-index home-manager module whatever new name
+- feat: hydenix follows nixpkgs, no userPkgs overlays
 
-## priority
+## backlog
 
-- [ ] refactor hydevm to arch compatible then bump to repo
+- finish demo-vm for video
+- feat: config.toml options
+- chore: remove iso builder and ci, close issue related to it in favor of (hyde)nixos-anywhere
+- chore: remove old vm builder
+- docs: better documented first edits
+- refactor: revise module hierarchy to be more clear and concise
+- feat: assertions for common requirements
+- feat: spicetify theme support? flatpak?
+- chore: review bug template to make it more clear (easier with scripts?)
 
-- [ ] docs: better documented first edits
-  - [ ] add steps for what to edit first
-  - [ ] add more detailed driver
+## future
 
-- [ ] feat: demo-vm
-  - [ ] video
-   - [ ]  
+- binary cache when i build it
 
-- [ ] feat: spicetify theme support? flatpak?
+## notes
 
-- [ ] chore: review bug template
+using nixos-anywhere to install hydenix
 
-- [ ] feat: hyprland via home-manager only
-  - support plugins
-  - use hyprland flake package
-  - nixGL
-- [ ] binary cache
-- [ ] feat: experimental module exports #117
+- must be part of the template flake or a new template flake, as it will be used for the user configuration
+- document disko configuration clearly, the issue is ive never used disko
+- most likely will need its own video installation guide
 
-## unorganized
+- cleanupOnDisable activation script and option
 
-- [ ] BREAKING:make hydenix more extensible without losing the ability to upgrade hyde
-  - [ ] hyde CORE modules
-    - map a module hierachy, propose a revised api
-    - modules that are required for hyde must have assertions.
-
-## iso builder
-
-- [ ] feat: iso builder should give a copy of the iso to the user on install
-- [ ] feat: iso builder automated install should have more clear options, not just configuration.nix
-- [ ] feat: iso builder should tell user exact steps of auto installer, reflect that in the readme
-- [ ] fix: iso builder should prompt to edit hostname in flake.nix
-- [ ] refactor: expand iso installer sections to be more clear and concise
-- [ ] feat: iso installer section option to clone your own personal flake from github and use that instead of the hyde template
-- [ ] feat: Completed iso builder
-
-## config.toml integration
-
-- [ ] feat: hyde config.toml module and options in hyde.nix
-- [ ] feat: other program configuration should determine hyde config.toml options
-- [ ] feat: extend hyde config.toml options for more nix integration
-
-## hyprland.conf
-
-- [ ] feat: more options in hyprland.nix
-- [ ] feat: other program configuration should determine hyprland.conf options eg
-
-## hypridle
-
-- [ ] feat: hypridle module and options
-
-## hyprlock
-
-- [ ] feat: better hyprlock options
-
-## uncategorized
-
-- [ ] feat: cleanupOnDisable activation script and option
-
-## CI
-
-- [ ] ci: fix iso builder release flake check
-
-## Future Enhancements
-
-- [ ] Ecosystem
-  - [ ] feat: Create sddm-hyprland
-  - [ ] feat: Integrate hydepanel from rubin
-  - [ ] feat: Add telegram theme support
-  - [ ] feat: Add zed theme support
-  - [ ] feat: Add obsidian theme support
-  - [ ] feat: Add terminal-emulators support
-- [ ] feat: full nixos config & full home-manager config
-- [ ] feat: Set NIX-PATH to template flake location
-
-## Non-NixOS
-
-<https://github.com/jpikl/pm> for non-nixos packages
-specific scripts for each non-nixos distro options, ideally one script for all packages using pm
-nixGL wrapping for all programs, well documented in the configuration as users will need to edit it. combine with any driver setup
+- nh by default?
 
 ## Hyde repo
 
-- [ ] theme makers should be able to precache walls before patching
-  - [ ] requires arch vm (w/ commit hash param and snapshot functionality)
-  - [ ] hyde-theme-starter to implement /lib with swwwallcache and wallbash
+- theme makers should be able to precache walls before patching
+  - requires arch vm (w/ commit hash param and snapshot functionality)
+  - hyde-theme-starter to implement /lib with swwwallcache and wallbash
     - whatever generates dcols and wallcaches
-  - [ ] hyde repo themepatcher implement reading for .cache in theme to cp cache and skip
-  - [ ] validation
-    - [ ] themepatcher should still generate on missing cache per wall
-  - [ ] PR's for all themes to bring cache
-  - [ ] hydenix implementation (just home.file mutable)
-  - [ ] FUTURE: wallbash should be a seperate lib
+  - hyde repo themepatcher implement reading for .cache in theme to cp cache and skip
+  - validation
+    - themepatcher should still generate on missing cache per wall
+  - PR's for all themes to bring cache
+  - hydenix implementation (just home.file mutable)
+  - FUTURE: wallbash should be a seperate lib
