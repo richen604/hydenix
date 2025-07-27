@@ -3,6 +3,7 @@
     "home-manager": {
       "inputs": {
         "nixpkgs": [
+          "hydenix",
           "hydenix-nixpkgs"
         ]
       },
@@ -37,6 +38,25 @@
         "type": "github"
       }
     },
+    "hydenix": {
+      "inputs": {
+        "home-manager": "home-manager",
+        "hyde": "hyde",
+        "hydenix-nixpkgs": "hydenix-nixpkgs",
+        "nix-index-database": "nix-index-database",
+        "nixos-hardware": "nixos-hardware"
+      },
+      "locked": {
+        "lastModified": 0,
+        "narHash": "sha256-YJrMMXKrW18gh4NyHYDAp04DJtdX1BSGOOj8/gTTrFc=",
+        "path": "../",
+        "type": "path"
+      },
+      "original": {
+        "path": "../",
+        "type": "path"
+      }
+    },
     "hydenix-nixpkgs": {
       "locked": {
         "lastModified": 1753432016,
@@ -56,7 +76,28 @@
     "nix-index-database": {
       "inputs": {
         "nixpkgs": [
+          "hydenix",
           "hydenix-nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1752985182,
+        "narHash": "sha256-sX8Neff8lp3TCHai6QmgLr5AD8MdsQQX3b52C1DVXR8=",
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "rev": "fafdcb505ba605157ff7a7eeea452bc6d6cbc23c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "type": "github"
+      }
+    },
+    "nix-index-database_2": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
         ]
       },
       "locked": {
@@ -89,13 +130,27 @@
         "type": "github"
       }
     },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1753429684,
+        "narHash": "sha256-9h7+4/53cSfQ/uA3pSvCaBepmZaz/dLlLVJnbQ+SJjk=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
-        "home-manager": "home-manager",
-        "hyde": "hyde",
-        "hydenix-nixpkgs": "hydenix-nixpkgs",
-        "nix-index-database": "nix-index-database",
-        "nixos-hardware": "nixos-hardware"
+        "hydenix": "hydenix",
+        "nix-index-database": "nix-index-database_2",
+        "nixpkgs": "nixpkgs"
       }
     }
   },
