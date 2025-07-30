@@ -4,7 +4,7 @@
 }:
 
 hydenix-inputs.hydenix-nixpkgs.lib.nixosSystem {
-  inherit (hydenix-inputs.lib) system;
+  system = "x86_64-linux";
   specialArgs = {
     inherit hydenix-inputs;
   };

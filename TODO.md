@@ -3,6 +3,11 @@
 
 ## now / notes
 
+- refactor: cleaned up flake in preparation for next api update
+
+removed old vm builder
+removed iso, closes #53 in favor of a future nixos-anywhere implementation
+
 - docs: improved configuration guide
 - docs: better documented first edits
 - docs: better hardware configuration guide, no default hardware options
@@ -12,8 +17,7 @@
 
 ## next api update
 
-- refactor: hydenix nixOsModules to nixosModules
-- refactor: outputs more flexible
+- refactor: removed hydenix.lib to standardize outputs, hydenix nixOsModules to nixosModules
 - fix: nix-index should be a module in hydenix only, its declared twice
 - fix: rename nix-index home-manager module whatever new name
 - feat: hydenix follows nixpkgs, no userPkgs overlays
@@ -25,8 +29,6 @@
 - finish demo-vm for video
 - docs: documentation generation?
 - feat: config.toml options
-- chore: remove iso builder and ci, close issue related to it in favor of (hyde)nixos-anywhere
-- chore: remove old vm builder
 - refactor: revise module hierarchy to be more clear and concise
 - feat: assertions for common requirements
 - feat: spicetify theme support? flatpak?

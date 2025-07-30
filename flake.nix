@@ -24,23 +24,21 @@
   };
 
   outputs =
-    { ... }@hydenix-pre-inputs:
+    inputs@{ hydenix-nixpkgs, ... }:
     let
-      # TODO: multi system support?
       system = "x86_64-linux";
 
-      hydenix-inputs = hydenix-pre-inputs // {
-        pkgs = import hydenix-pre-inputs.hydenix-nixpkgs {
-          inherit system;
-        };
-        lib = {
-          overlays = import ./hydenix/sources/overlay.nix { inputs = hydenix-pre-inputs; };
-          nixOsModules = import ./hydenix/modules/system;
-          homeModules = import ./hydenix/modules/hm;
-          iso = import ./lib/iso/default.nix;
-          mkTheme = import ./hydenix/sources/themes/utils/mkTheme.nix;
-          inherit system;
-        };
+      # Create lib attribute that template expects
+      lib = {
+        inherit system;
+        overlays = import ./hydenix/sources/overlay.nix { inherit inputs; };
+        nixOsModules = ./hydenix/modules/system;
+        homeModules = ./hydenix/modules/hm;
+      };
+
+      # Internal inputs for building packages and configurations
+      hydenix-inputs = inputs // {
+        inherit lib;
       };
 
       defaultConfig = import ./lib/config {
@@ -53,78 +51,38 @@
         inherit hydenix-inputs;
       };
 
-      isoConfig = hydenix-inputs.lib.iso {
-        inherit hydenix-inputs;
-      };
-
-      isoVmConfig = import ./lib/vms/iso-vm.nix {
-        inherit hydenix-inputs;
-      };
-
       demoVmConfig = import ./lib/vms/demo-vm.nix {
         inherit hydenix-inputs;
       };
 
-      hydevm = import ./lib/vms/hydevm/default.nix {
-        pkgs = hydenix-inputs.pkgs;
-        lib = hydenix-inputs.pkgs.lib;
-      };
-
     in
     {
-      lib = hydenix-inputs.lib;
+      # Main API that template uses
+      # Will be depreciated in the next api update
+      inherit lib;
 
-      templates = {
-        default = {
-          path = ./template;
-          description = "Hydenix template";
-          welcomeText = ''
-            ```             _    _           _            _
-            | |  | |         | |          (_)
-            | |__| |_   _  __| | ___ _ __  ___  __
-            |  __  | | | |/ _` |/ _ \ '_ \| \ \/ /
-            | |  | | |_| | (_| |  __/ | | | |>  <
-            |_|  |_|\__, |\__,_|\___|_| |_|_/_/\_\
-                    __/ |
-                    |___/       ❄️ Powered by Nix ❄️
-            ```
-            1. edit `configuration.nix` with your preferences for hydenix
-              - visit https://github.com/richen604/hydenix for module documentation
-            2. run `sudo nixos-generate-config --show-hardware-config > hardware-configuration.nix`
-            3. `git init && git add .` (flakes have to be managed via git)
-            4. run any of the packages in your new `flake.nix`
-              - for rebuild, use `sudo nixos-rebuild switch --flake .`
-            5. DON'T FORGET: change your password for all users with `passwd` from initialPassword set in `configuration.nix`
-            6. NOTE: After rebuild, the first boot may take a while depending on how many `hydenix.hm.themes` are enabled, as the system generates cache.
-          '';
-        };
+      # Direct module access
+      homeModules.default = ./hydenix/modules/hm;
+      nixosModules.default = ./hydenix/modules/system;
+
+      overlays.default = import ./hydenix/sources/overlay.nix { inherit inputs; };
+
+      templates.default = {
+        path = ./template;
+        description = "Template for hydenix configuration";
       };
+
+      nixosConfigurations.default = defaultConfig;
 
       packages.${system} = {
         # Use the VM configuration as default
         default = vmConfig.config.system.build.vm;
 
-        # Original NixOS configuration
-        nixos = defaultConfig.config.system.build.toplevel;
-
-        # Explicitly named VM configuration
-        nixos-vm = vmConfig.config.system.build.vm;
+        # WIP: For a future demo installation & usage video
         demo-vm = demoVmConfig.config.system.build.vm;
 
-        # Demo VM configuration
-        iso-vm = isoVmConfig;
-
-        # ISO configuration
-        iso = isoConfig.build-iso;
-
-        # Add the burn-iso script as a package
-        burn-iso = isoConfig.burn-iso;
-
-        # Add hyde-update package
+        # Helper to manage hyde updates
         hyde-update = import ./lib/hyde-update { inherit hydenix-inputs; };
-
-        # Add hydevm packages
-        hydevm = hydevm.defaultPackage;
       };
 
       devShells.${system}.default = import ./lib/dev-shell.nix { inherit hydenix-inputs; };
