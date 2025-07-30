@@ -3,6 +3,7 @@
 - [Hydenix Options](#hydenix-options)
   - [Module Documentation](#module-documentation)
   - [Required Options](#required-options)
+  - [Default Options](#default-options)
 
 ## Module Documentation
 
@@ -65,6 +66,8 @@ You *must* set these options or else hydenix will not load.
 }
 ```
 
+## Default Options
+
 Below will be the default options for hydenix.
 
 ```nix
@@ -125,6 +128,7 @@ Below will be the default options for hydenix.
       enable = true; # enable hyprland module
       extraConfig = ""; # extra config appended to userprefs.conf
       overrideMain = null; # complete override of hyprland.conf
+      suppressWarnings = false; # suppress warnings
       # Animation configurations
       animations = {
         enable = true; # enable animation configurations

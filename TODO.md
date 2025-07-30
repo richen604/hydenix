@@ -4,6 +4,7 @@
 ## now / notes
 
 - docs: improved configuration guide
+- docs: better documented first edits
 - docs: better hardware configuration guide, no default hardware options
 - feat: move hyprlock to hyprland module, swaylock should just be swaylock module
   - assertion to not have both enabled
@@ -16,6 +17,8 @@
 - fix: nix-index should be a module in hydenix only, its declared twice
 - fix: rename nix-index home-manager module whatever new name
 - feat: hydenix follows nixpkgs, no userPkgs overlays
+- feat: vscode-nix-ide part of editors, enabled by default
+- feat: themes as part of hydenix flake inputs
 
 ## backlog
 
@@ -24,7 +27,6 @@
 - feat: config.toml options
 - chore: remove iso builder and ci, close issue related to it in favor of (hyde)nixos-anywhere
 - chore: remove old vm builder
-- docs: better documented first edits
 - refactor: revise module hierarchy to be more clear and concise
 - feat: assertions for common requirements
 - feat: spicetify theme support? flatpak?

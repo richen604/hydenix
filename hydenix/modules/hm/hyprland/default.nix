@@ -11,6 +11,7 @@ in
 {
   imports = [
     ./options.nix
+    ./assertions.nix
     ./animations.nix
     ./shaders.nix
     ./workflows.nix
