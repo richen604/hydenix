@@ -24,6 +24,11 @@ in
       default = null;
       description = "Complete override of hyprland.conf";
     };
+    suppressWarnings = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Suppress warnings about configuration overrides";
+    };
 
     # Animation configurations
     animations = {
@@ -112,6 +117,13 @@ in
         type = lib.types.attrsOf lib.types.lines;
         default = { };
         description = "Override or add custom workflows";
+        example = lib.literalExpression ''
+          {
+            "my-workflow.conf" = '''
+              // Custom workflow configuration
+            ''';
+          }
+        '';
       };
     };
 
