@@ -7,7 +7,7 @@
 
 ## Module Documentation
 
-The Nix options system *is* the documentation
+Going to let you in on a secret: The Nix options system *is* the documentation.
 
 Let's walk through an example. Say you want to find info about `hydenix.hm.hyprland`.
 

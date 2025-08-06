@@ -12,7 +12,7 @@
 
 <div align = center>
     <a href="https://discord.gg/AYbJ9MJez7">
-<img alt="Dynamic JSON Badge" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fdiscordapp.com%2Fapi%2Finvites%2FmT5YqjaJFh%3Fwith_counts%3Dtrue&query=%24.approximate_member_count&suffix=%20members&style=for-the-badge&logo=discord&logoSize=auto&label=The%20HyDe%20Projecot&labelColor=ebbcba&color=c79bf0">
+<img alt="Dynamic JSON Badge" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fdiscordapp.com%2Fapi%2Finvites%2FmT5YqjaJFh%3Fwith_counts%3Dtrue&query=%24.approximate_member_count&suffix=%20members&style=for-the-badge&logo=discord&logoSize=auto&label=The%20HyDe%20Project&labelColor=ebbcba&color=c79bf0">
     </a>
 </div>
 
@@ -102,14 +102,22 @@ Why Nix?:
 
    ```bash
    # Create a new directory and initialize the template
-   mkdir hydenix-config && cd hydenix-config
+   mkdir hydenix && cd hydenix
    nix flake init -t github:richen604/hydenix
    ```
 
 2. **Configure your system**
-   - Edit `configuration.nix` with your preferences
-   - Options requiring changes are marked with `! EDIT`
-   - *(Optional)* Review `./configuration.nix` and `./modules/hm/default.nix` for additional configuration options and overriding defaults, see [Module Options](./docs/options.md) for more information.
+
+   Edit `configuration.nix` following the detailed comments:
+
+   - **Required Changes:**
+     - Set your username (replace "hydenix" in two places)
+     - Set your hostname, timezone, and locale
+     - Configure your hardware (GPU/CPU modules)
+
+   - **Optional:**
+     - Review `./modules/hm/default.nix` for home-manager options
+     - See [Module Options](./docs/options.md) for advanced configuration
 
 3. **Generate hardware configuration**
 
@@ -131,21 +139,21 @@ Why Nix?:
    sudo nixos-rebuild switch --flake .#nixos
    ```
 
-6. **Set user passwords**
+6. **IMPORTANT: Set your password**
 
    ```bash
    passwd
    ```
 
-   > **Important:** Change passwords for all users from the `initialPassword` set in `configuration.nix`
+7. **Launch Hydenix**
 
-### Post-Installation
+   Reboot and log in.
 
-After launching Hydenix, you can generate cache for remaining themes:
+   After first login, generate theme cache (you only need to do this once):
 
-```bash
-hyde-shell reload
-```
+   ```bash
+   hyde-shell reload
+   ```
 
 ## Running The Hydenix VM
 

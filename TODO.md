@@ -1,28 +1,27 @@
 
-# todo / roadmap
+# todo / roadmaphydenix-inputs.lib
 
-## now / notes
+## now / note
 
-- refactor: cleaned up flake in preparation for next api update
-
-removed old vm builder
-removed iso, closes #53 in favor of a future nixos-anywhere implementation
-
-- docs: improved configuration guide
-- docs: better documented first edits
-- docs: better hardware configuration guide, no default hardware options
+- docs: options.md use hydenix.hm.theme as an example instead of hydenix.hm.hyprland
+- feat: hyprland flake packages rather than nixpkgs
+- feat: new themes to build
 - feat: move hyprlock to hyprland module, swaylock should just be swaylock module
   - assertion to not have both enabled
-- feat: new themes to build
+
+- feat: update hyde
 
 ## next api update
 
 - refactor: removed hydenix.lib to standardize outputs, hydenix nixOsModules to nixosModules
 - fix: nix-index should be a module in hydenix only, its declared twice
 - fix: rename nix-index home-manager module whatever new name
-- feat: hydenix follows nixpkgs, no userPkgs overlays
+- feat: user now owns their nixosSystem, depreciated hydenix-nixpkgs.lib.nixosSystem
+- feat: hydenix follows its own nixpkgs, no userPkgs overlays, template hydenix follows nixpkgs by default
+  - update docs to reflect this
 - feat: vscode-nix-ide part of editors, enabled by default
-- feat: themes as part of hydenix flake inputs
+- feat: update.sh for themes, map name to hash (check daily), passThru update.sh caller github action
+  - <https://github.com/NixOS/nixpkgs/blob/nixos-25.05/pkgs/by-name/ad/adi1090x-plymouth-themes/update.sh>
 
 ## backlog
 
@@ -40,14 +39,11 @@ removed iso, closes #53 in favor of a future nixos-anywhere implementation
 
 ## notes
 
-using nixos-anywhere to install hydenix
-
-- must be part of the template flake or a new template flake, as it will be used for the user configuration
-- document disko configuration clearly, the issue is ive never used disko
-- most likely will need its own video installation guide
-
+- using nixos-anywhere to install hydenix:
+  - must be part of the template flake or a new template flake, as it will be used for the user configuration
+  - document disko configuration clearly, the issue is ive never used disko
+  - most likely will need its own video installation guide
 - cleanupOnDisable activation script and option
-
 - nh by default?
 
 ## Hyde repo
