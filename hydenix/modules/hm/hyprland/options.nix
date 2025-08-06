@@ -37,23 +37,24 @@ in
       };
       preset = lib.mkOption {
         type = lib.types.enum [
+          "LimeFrenzy"
           "classic"
           "diablo-1"
           "diablo-2"
-          "dynamic"
           "disable"
-          "eevee-1"
-          "eevee-2"
+          "dynamic"
+          "end4"
+          "fast"
           "high"
-          "low-1"
-          "low-2"
+          "ja"
+          "me-1"
+          "me-2"
           "minimal-1"
           "minimal-2"
           "moving"
           "optimized"
           "standard"
           "vertical"
-          "LimeFrenzy"
         ];
         default = "standard";
         description = "Animation preset to use";
