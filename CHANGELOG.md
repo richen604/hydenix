@@ -1,3 +1,18 @@
+# [4.8.0](https://github.com/richen604/hydenix/compare/v4.7.2...v4.8.0) (2025-08-07)
+
+
+### Bug Fixes
+
+* animation list for hyprland ([ec24dfa](https://github.com/richen604/hydenix/commit/ec24dfa3acfb7ecb29c616e53019549b4e5c62d0))
+* zsh configuration updates for home-manager ([0906968](https://github.com/richen604/hydenix/commit/0906968caeb0b7aa2fcf3175936475ecc723504c))
+
+
+### Features
+
+* added additional hyprland options ([8e4ae8d](https://github.com/richen604/hydenix/commit/8e4ae8d38206d686e49ab501055324941e35d80a))
+* assertions for hm.hyprland and suppressWarnings option ([4d562ff](https://github.com/richen604/hydenix/commit/4d562ff0675622cec03e2c7e0688e3183e07fb75))
+* update nixpkgs ([0248d5d](https://github.com/richen604/hydenix/commit/0248d5d317457eca5db717aa5c68b1e2c66dcdb9))
+
 ## [4.7.2](https://github.com/richen604/hydenix/compare/v4.7.1...v4.7.2) (2025-07-18)
 
 
