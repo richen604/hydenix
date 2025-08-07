@@ -13,10 +13,7 @@
     </a>
 </div>
 
-<video controls width="100%" style="margin: 20px 0 20px 0;">
-  <source src="https://github.com/user-attachments/assets/7f8fadc8-e293-4482-a851-e9c6464f5265" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+https://github.com/user-attachments/assets/7f8fadc8-e293-4482-a851-e9c6464f5265
 
 <div align="left" style="margin: 0 10% 0 10%;">
 
