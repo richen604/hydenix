@@ -8,17 +8,18 @@
 </div>
 
 <div align = center>
-    <a href="https://discord.gg/AYbJ9MJez7">
+<a href="https://discord.gg/AYbJ9MJez7">
 <img alt="Dynamic JSON Badge" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fdiscordapp.com%2Fapi%2Finvites%2FmT5YqjaJFh%3Fwith_counts%3Dtrue&query=%24.approximate_member_count&suffix=%20members&style=for-the-badge&logo=discord&logoSize=auto&label=The%20HyDe%20Project&labelColor=ebbcba&color=c79bf0">
-    </a>
+</a>
+<br>
+
+<https://github.com/user-attachments/assets/7f8fadc8-e293-4482-a851-e9c6464f5265>
+
 </div>
 
-https://github.com/user-attachments/assets/7f8fadc8-e293-4482-a851-e9c6464f5265
+<br>
 
-<div align="left" style="margin: 0 10% 0 10%;">
-
-<div align="right" style="margin: 0 -12% -75px 0;"><img width="100px" alt="NixOS" src="https://github.com/HyDE-Project/HyDE/blob/master/Source/assets/nixos.png?raw=true"/></div>
-</div>
+<img align="right" width="75px" alt="NixOS" src="https://github.com/HyDE-Project/HyDE/blob/master/Source/assets/nixos.png?raw=true"/>
 
 # hydenix
 
@@ -64,5 +65,4 @@ nix run github:richen604/hydenix
 
 > [!NOTE]
 > any changes require the vm to be rebuilt. run `rm hydenix.qcow2` to remove the old one.
-
 </div>

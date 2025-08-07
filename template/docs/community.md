@@ -1,3 +1,5 @@
+<img align="right" width="75px" alt="NixOS" src="https://github.com/HyDE-Project/HyDE/blob/master/Source/assets/nixos.png?raw=true"/>
+
 # hydenix community
 
 here are a list of community configs using hydenix.

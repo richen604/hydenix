@@ -25,8 +25,6 @@
   outputs =
     { ... }@inputs:
     let
-      HOSTNAME = "hydenix";
-
       hydenixConfig = inputs.hydenix.inputs.hydenix-nixpkgs.lib.nixosSystem {
         inherit (inputs.hydenix.lib) system;
         specialArgs = {
@@ -39,7 +37,6 @@
 
     in
     {
-      nixosConfigurations.nixos = hydenixConfig;
-      nixosConfigurations.${HOSTNAME} = hydenixConfig;
+      nixosConfigurations.hydenix = hydenixConfig;
     };
 }

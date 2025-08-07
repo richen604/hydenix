@@ -1,3 +1,6 @@
+
+<img align="right" width="75px" alt="NixOS" src="https://github.com/HyDE-Project/HyDE/blob/master/Source/assets/nixos.png?raw=true"/>
+
 # hydenix options
 
 - [hydenix options](#hydenix-options)
@@ -7,11 +10,9 @@
 
 ## module documentation
 
-going to let you in on a secret: the nix options system *is* the documentation.
-
-let's walk through an example. say you want to find info about `hydenix.hm.hyprland`.
-
-the easiest way is to search the GitHub repo for the options:
+going to let you in on a secret: the nix options system *is* the documentation.\
+let's walk through an example. say you want to find info about `hydenix.hm.hyprland`.\
+the easiest way is to search the github repo for the options:
 
 [search for `hydenix.hm.hyprland`](https://github.com/richen604/hydenix/search?q=hydenix.hm.hyprland)
 
@@ -134,7 +135,7 @@ below are the default options for hydenix. they are in *object format* and any o
         # Animation configurations
         animations = {
           enable = true; # enable animation configurations
-          preset = "standard"; # animation preset: "classic", "diablo-1", "diablo-2", "dynamic", "disable", "eevee-1", "eevee-2", "high", "low-1", "low-2", "minimal-1", "minimal-2", "moving", "optimized", "standard", "vertical", "LimeFrenzy"
+          preset = "standard"; # animation preset: "LimeFrenzy", "classic", "diablo-1", "diablo-2", "disable", "dynamic", "end4", "fast", "high", "ja", "me-1", "me-2", "minimal-1", "minimal-2", "moving", "optimized", "standard", "vertical"
           extraConfig = ""; # additional animation configuration
           overrides = { }; # override specific animation files by name
         };
