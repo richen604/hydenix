@@ -1,22 +1,59 @@
-<div align="left" style="margin: 0 10% 0 10%;">
+<img align="right" width="75px" alt="NixOS" src="https://github.com/HyDE-Project/HyDE/blob/master/Source/assets/nixos.png?raw=true"/>
 
-<div align="right" style="margin: 0 -2% -75px 0;"><img width="100px" alt="NixOS" src="https://github.com/HyDE-Project/HyDE/blob/master/Source/assets/nixos.png?raw=true"/></div>
+# hydenix template flake
 
-# your nixos configuration
+This is now your personal NixOS configuration.\
+Add packages, customize themes, or even disable hydenix and setup your own wm/de.\
+Enjoy the full power of Nix!
 
-This is now your personal NixOS configuration. <br>
-Add packages, customize themes, or even disable hydenix and setup your own wm/de. <br>
-Enjoy the full power of Nix! <br>
+visit the [docs/installation.md](./docs/installation.md) to get started.
 
-## documentation
+## file structure
 
-- [installation](./docs/installation.md)
-- [module options](./docs/options.md)
-- [faq](./docs/faq.md)
-- [troubleshooting & issues](./docs/troubleshooting.md)
-- [upgrading](./docs/upgrading.md)
-- [contributing](./docs/contributing.md)
-- [community configs](./docs/community.md)
+### core configuration files
+
+| file | description |
+|------|-------------|
+| `flake.nix` | main flake configuration and entry point |
+| `configuration.nix` | nixos system configuration |
+| `hardware-configuration.nix` | hardware-specific settings (auto-generated) |
+
+### documentation
+
+| file | purpose |
+|------|---------|
+| [`docs/installation.md`](./docs/installation.md) | installation guide and setup instructions |
+| [`docs/options.md`](./docs/options.md) | available module configuration options |
+| [`docs/faq.md`](./docs/faq.md) | frequently asked questions and solutions |
+| [`docs/troubleshooting.md`](./docs/troubleshooting.md) | common issues and fixes |
+| [`docs/upgrading.md`](./docs/upgrading.md) | how to upgrade your configuration |
+| [`docs/contributing.md`](./docs/contributing.md) | guidelines for contributing |
+| [`docs/community.md`](./docs/community.md) | community configurations and examples |
+
+### write your own modules
+
+> **note:** Use these directories to override or extend hydenix modules with your custom configurations.
+
+| directory | type | purpose |
+|-----------|------|---------|
+| `modules/hm/` | home manager | custom home-manager module definitions (and for `hydenix.hm` options) |
+| `modules/system/` | nixos system | custom system-level module definitions (and for `hydenix` options) |
+
+### directory tree
+
+```bash
+hydenix/
+├── README.md
+├── flake.nix
+├── configuration.nix
+├── hardware-configuration.nix
+├── docs/
+│   ├── *.md files
+│   └── assets/
+└── modules/
+    ├── hm/default.nix
+    └── system/default.nix
+```
 
 ## next steps
 
@@ -29,5 +66,3 @@ Enjoy the full power of Nix! <br>
 - [hydenix issues](https://github.com/richen604/hydenix/issues)
 - [hydenix discussions](https://github.com/richen604/hydenix/discussions)
 - [hyde discord](https://discord.gg/AYbJ9MJez7)
-
-</div>

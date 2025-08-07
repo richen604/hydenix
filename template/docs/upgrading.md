@@ -1,3 +1,5 @@
+<img align="right" width="75px" alt="NixOS" src="https://github.com/HyDE-Project/HyDE/blob/master/Source/assets/nixos.png?raw=true"/>
+
 # upgrading
 
 hydenix can be upgraded, downgraded, or version locked easy.

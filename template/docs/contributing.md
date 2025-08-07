@@ -1,3 +1,5 @@
+<img align="right" width="75px" alt="NixOS" src="https://github.com/HyDE-Project/HyDE/blob/master/Source/assets/nixos.png?raw=true"/>
+
 # contributing
 
 this project uses [direnv](https://direnv.net/) for pre-commit hooks. please install it first:
