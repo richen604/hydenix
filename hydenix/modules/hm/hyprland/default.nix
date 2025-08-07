@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  hydenix-inputs,
   ...
 }:
 
@@ -24,12 +25,10 @@ in
 
   config = lib.mkIf cfg.enable {
     # Always include packages and base setup
-    home.packages = with pkgs; [
-      hyprcursor
-      hyprutils
-      xdg-desktop-portal-hyprland
-      hyprpicker
-      hypridle
+    home.packages = [
+      pkgs.hyprutils
+      pkgs.hyprpicker
+      pkgs.hyprcursor
     ];
 
     home.activation.createHyprConfigs = lib.hm.dag.entryAfter [ "mutableGeneration" ] ''

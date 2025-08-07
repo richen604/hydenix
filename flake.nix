@@ -21,6 +21,9 @@
       url = "github:HyDE-Project/HyDE/cc76f032e090b84c367c11a4c1b326be76a9fa7e";
       flake = false;
     };
+
+    hyprland.url = "github:hyprwm/Hyprland";
+    hypridle.url = "github:hyprwm/hypridle";
   };
 
   outputs =

@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  hydenix-inputs,
   ...
 }:
 
@@ -53,6 +54,8 @@ in
       gawk # awk implementation
       coreutils # coreutils implementation
       bash-completion # Add bash-completion package
+
+      hydenix-inputs.hypridle.packages.${pkgs.system}.hypridle
     ];
 
     environment.variables = {
@@ -60,6 +63,8 @@ in
     };
 
     programs.hyprland = {
+      package = hydenix-inputs.hyprland.packages.${pkgs.system}.hyprland;
+      portalPackage = hydenix-inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
       enable = true;
       withUWSM = false;
     };

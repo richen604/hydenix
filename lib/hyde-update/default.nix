@@ -27,8 +27,8 @@ let
     pkgs.fetchFromGitHub {
       owner = "HyDE-Project";
       repo = "HyDE";
-      rev = "master";
-      sha256 = "sha256-rYlD979i1XUDZg+okpJZSC4piQKwJiIocfEYjxMyaz8=";
+      rev = "168287f2f10e95a4a9a623c955c7e08147c48472";
+      sha256 = "sha256-hT7xLsfqsVwcYS/YscRwVOPqK8ZpubhGdpK58INkdJ0=";
     }
   );
 in
