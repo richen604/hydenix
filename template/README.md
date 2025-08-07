@@ -1,101 +1,33 @@
-# Hydenix Template
+<div align="left" style="margin: 0 10% 0 10%;">
 
-Welcome to your Hydenix configuration!
+<div align="right" style="margin: 0 -2% -75px 0;"><img width="100px" alt="NixOS" src="https://github.com/HyDE-Project/HyDE/blob/master/Source/assets/nixos.png?raw=true"/></div>
 
-This template provides a self-documenting NixOS configuration with the HyDE desktop environment.
+# your nixos configuration
 
-## Quick Setup
+This is now your personal NixOS configuration. <br>
+Add packages, customize themes, or even disable hydenix and setup your own wm/de. <br>
+Enjoy the full power of Nix! <br>
 
-### 1. Configure Your System
+## documentation
 
-Edit `configuration.nix` following the detailed comments:
+- [installation](./docs/installation.md)
+- [module options](./docs/options.md)
+- [faq](./docs/faq.md)
+- [troubleshooting & issues](./docs/troubleshooting.md)
+- [upgrading](./docs/upgrading.md)
+- [contributing](./docs/contributing.md)
+- [community configs](./docs/community.md)
 
-**Required Changes:**
+## next steps
 
-- Set your username (replace "hydenix" in two places)
-- Set your hostname, timezone, and locale
-- Configure your hardware (GPU/CPU modules)
+- to learn more about nix, see [nix resources](./docs/faq.md#how-do-i-learn-more-about-nix)
+- see [module options](./docs/options.md) for configuration
+- check the [faq](./docs/faq.md) and [troubleshooting](./docs/troubleshooting.md) guides
 
-**User Account Setup:**
+## getting help
 
-- Find the "USER ACCOUNT SETUP" section
-- Replace `"hydenix"` with your desired username (appears in 2 places)
-- Choose your shell: `pkgs.zsh`, `pkgs.bash`, or `pkgs.fish`
+- [hydenix issues](https://github.com/richen604/hydenix/issues)
+- [hydenix discussions](https://github.com/richen604/hydenix/discussions)
+- [hyde discord](https://discord.gg/AYbJ9MJez7)
 
-**System Settings:**
-
-- Set your `hostname` (computer network name)
-- Set your `timezone` (run `timedatectl list-timezones` for options)
-- Set your `locale` (language/region format)
-
-**Hardware Configuration:**
-
-- Uncomment your GPU type (NVIDIA or AMD)
-- Uncomment your CPU type (Intel or AMD)
-- Add any additional hardware modules (laptop, SSD, high-DPI, etc.)
-
-**For NVIDIA users:** If you have hybrid graphics (laptop), you'll also need to:
-
-```bash
-# Find your GPU bus IDs:
-lspci | grep VGA
-
-# Then set in configuration.nix:
-# hardware.nvidia.prime.intelBusId = "PCI:0:2:0";
-# hardware.nvidia.prime.nvidiaBusId = "PCI:1:0:0";
-```
-
-### 2. Generate Hardware Configuration
-
-```bash
-sudo nixos-generate-config --show-hardware-config > hardware-configuration.nix
-```
-
-### 3. Initialize Git Repository
-
-```bash
-git init && git add .
-```
-
-### 4. Build Your System
-
-```bash
-sudo nixos-rebuild switch --flake .#nixos
-```
-
-### 5. IMPORTANT: Set Your Password
-
-```bash
-passwd
-```
-
-### 6. Launch Hydenix
-
-After first login, generate theme cache (you only need to do this once):
-
-```bash
-hyde-shell reload
-```
-
-## Next Steps
-
-- Review `./modules/hm/default.nix` for home-manager options
-- See [Module Options](https://github.com/richen604/hydenix/blob/main/docs/options.md) for advanced configuration
-- Check the [FAQ](https://github.com/richen604/hydenix/blob/main/docs/faq.md) and [Troubleshooting](https://github.com/richen604/hydenix/blob/main/docs/troubleshooting.md) guides
-
-## Getting Help
-
-- [Hydenix Documentation](https://github.com/richen604/hydenix)
-- [Hyde Discord](https://discord.gg/AYbJ9MJez7)
-- [GitHub Discussions](https://github.com/richen604/hydenix/discussions)
-
-## Upgrading
-
-Update Hydenix:
-
-```bash
-nix flake update hydenix
-sudo nixos-rebuild switch --flake .#nixos
-```
-
-This is now your personal NixOS configuration. Add packages, customize themes, or even try other desktop environments. Enjoy the full power of Nix!
+</div>
