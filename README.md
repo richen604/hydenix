@@ -1,12 +1,9 @@
-###### *<div align="right"><sub>// design by t2</sub></div>*
-
 <div align="center">
 
-[![NixOS Unstable](https://img.shields.io/badge/NixOS-unstable-blue.svg?style=flat-square&logo=NixOS&logoColor=white)](https://nixos.org)
-[![Release](https://img.shields.io/github/v/release/richen604/hydenix?style=flat-square)](https://github.com/richen604/hydenix/releases)
-[![Last Commit](https://img.shields.io/github/last-commit/richen604/hydenix/main?style=flat-square)](https://github.com/richen604/hydenix/commits/main)
-
-[![Nix Flake Check](https://github.com/richen604/hydenix/actions/workflows/flake-check.yml/badge.svg?style=flat-square)](https://github.com/richen604/hydenix/actions/workflows/flake-check.yml)
+[![NixOS Unstable](https://img.shields.io/badge/NixOS-unstable-ebbcba.svg?style=flat-square&logo=NixOS&logoColor=white)](https://nixos.org)
+[![Release](https://img.shields.io/github/v/release/richen604/hydenix?style=flat-square&color=c79bf0)](https://github.com/richen604/hydenix/releases)
+[![Last Commit](https://img.shields.io/github/last-commit/richen604/hydenix/main?style=flat-square&color=ebbcba)](https://github.com/richen604/hydenix/commits/main)
+[![Nix Flake Check](https://img.shields.io/github/actions/workflow/status/richen604/hydenix/flake-check.yml?style=flat-square&color=c79bf0&label=flake%20check)](https://github.com/richen604/hydenix/actions/workflows/flake-check.yml)
 
 </div>
 
@@ -16,204 +13,59 @@
     </a>
 </div>
 
-<!--
-<img alt="Dynamic JSON Badge" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fdiscordapp.com%2Fapi%2Finvites%2FmT5YqjaJFh%3Fwith_counts%3Dtrue&query=%24.approximate_member_count&suffix=%20members&style=for-the-badge&logo=discord&logoSize=auto&label=The%20HyDe%20Project&labelColor=ebbcba&color=c79bf0">
+<video controls width="100%" style="margin: 20px 0 20px 0;">
+  <source src="https://github.com/user-attachments/assets/7f8fadc8-e293-4482-a851-e9c6464f5265" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
-<img alt="Dynamic JSON Badge" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fdiscordapp.com%2Fapi%2Finvites%2FmT5YqjaJFh%3Fwith_counts%3Dtrue&query=%24.approximate_presence_count&suffix=%20online&style=for-the-badge&logo=discord&logoSize=auto&label=The%20HyDe%20Project&labelColor=ebbcba&color=c79bf0">
--->
+<div align="left" style="margin: 0 10% 0 10%;">
 
-<div align="center">
+<div align="right" style="margin: 0 -12% -75px 0;"><img width="100px" alt="NixOS" src="https://github.com/HyDE-Project/HyDE/blob/master/Source/assets/nixos.png?raw=true"/></div>
+</div>
 
- ![hyde_banner](https://raw.githubusercontent.com/prasanthrangan/hyprdots/main/Source/assets/hyde_banner.png)
+# hydenix
 
-<br>
+a nixos and home-manager configuration for [HyDE](https://github.com/HyDE-Project/HyDE)
 
-  <a href="#installation-options"><kbd> <br> Installation <br> </kbd></a>&ensp;
-  <a href="#upgrading"><kbd> <br> Upgrading <br> </kbd></a>&ensp;
-    <a href="#troubleshooting--issues"><kbd> <br> Issues <br> </kbd></a>&ensp;
-      <a href="#faq"><kbd> <br> FAQ <br> </kbd></a>&ensp;
-        <a href="#contributing"><kbd> <br> Contributing <br> </kbd></a>&ensp;
-  <a href="https://www.youtube.com/watch?v=2rWqdKU1vu8&list=PLt8rU_ebLsc5yEHUVsAQTqokIBMtx3RFY&index=1"><kbd> <br> Youtube <br> </kbd></a>&ensp;
-  <a href="https://discord.gg/qWehcFJxPa"><kbd> <br> Discord <br> </kbd></a>
+**features / why nixos? :**
 
-</div><br><br>
+- declarative `hydenix` and `hydenix.hm` configuration options
+- leveraged module system, easily extend disable or override any module
+- close feature parity with [HyDE](https://github.com/HyDE-Project/HyDE)
+- every community [hyde-gallery theme](https://github.com/HyDE-Project/hyde-gallery)
+- reproducible environments with easy rollbacks
+- version control for your desktop
 
-<video controls src="https://private-user-images.githubusercontent.com/106020512/324331744-7f8fadc8-e293-4482-a851-e9c6464f5265.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzAxNzIwODEsIm5iZiI6MTczMDE3MTc4MSwicGF0aCI6Ii8xMDYwMjA1MTIvMzI0MzMxNzQ0LTdmOGZhZGM4LWUyOTMtNDQ4Mi1hODUxLWU5YzY0NjRmNTI2NS5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQxMDI5JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MTAyOVQwMzE2MjFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT03YTBiNDVjZThhZjU4NmY1MTc4NTRjYzEyZTBmYjRmZjI0YTY0ZTIyNWU2NTlhMTBkZmIxOWFlOWQ0YzQ5YTAyJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.cTLUInzudFw4tmHUS1K32e6hx3umv84Ka2sDCuzrUig" title="https://github.com/prasanthrangan/hyprdots/assets/106020512/7f8fadc8-e293-4482-a851-e9c6464f5265"></video>
+## requirements
 
-<br><div align="center"><img width="16.5%" alt="NixOS" src="https://github.com/HyDE-Project/HyDE/blob/master/Source/assets/nixos.png?raw=true"/></div>
-
-# Hydenix
-
-Hydenix is a Nix & home-manager configuration for [HyDE](https://github.com/HyDE-Project/HyDE).
-The nix ecosystem brings a reproducable environment to the HyDE experience; allowing for build-time configuration options, easy updates, and more.
-
-Features:
-
-- `hydenix` and `hydenix.hm` (home-manager) options for easy configuration
-- Themes are fetched at build-time, for faster setup
-
-Why Nix?:
-
-- Reproducible environment
-- Easy to manage packages, dependencies, and configurations
-- changes in configuration can be rolled back easily
-- home-manager for managing dotfiles
+- minimal install of nixos, follow instructions on [nixos iso](https://nixos.org/download/#nixos-iso)
 
 > [!IMPORTANT]
-> Experience in functional programming is recommended.
-> If you are new to Nix, please refer to the [Nix Resources](docs/faq.md#how-do-i-learn-more-about-nix).
-> Feel free to ask questions in discussions or discord.
+> functional programming experience recommended. <br>
+> new to nix? see [nix resources](./template/docs/faq.md#how-do-i-learn-more-about-nix) or ask in discussions/discord.
 
----
+## documentation
 
-## Requirements
+- [installation](./template/docs/installation.md)
+- [upgrading](./template/docs/upgrading.md)
+- [module options](./template/docs/options.md)
+- [faq](./template/docs/faq.md)
+- [troubleshooting & issues](./template/docs/troubleshooting.md)
+- [contributing](./template/docs/contributing.md)
+- [community configs](./template/docs/community.md)
+- [todo - sneak peak of whats coming soon](./TODO.md)
 
-- minimal install of NixOS, follow instructions on [NixOS ISO](https://nixos.org/download/#nixos-iso)
-- experimental features enabled:
+## hydenix vm
 
-  ```bash
-  # Add to /etc/nixos/configuration.nix
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  # then rebuild your system
-  sudo nixos-rebuild switch
-  ```
-
-- git (`nix-shell -p git`)
-
----
-
-## Documentation
-
-- [Installation](#installation)
-- [Module Options](./docs/options.md)
-- [FAQ](./docs/faq.md)
-- [Troubleshooting & Issues](./docs/troubleshooting.md)
-- [Contributing](./docs/contributing.md)
-
-## Installation
-
-> [!CAUTION]
-> The templated flake is designed for a minimal install of NixOS. Install NixOS first, then follow the instructions below.
-
-### Quick Start
-
-1. **Initialize the flake template**
-
-   ```bash
-   # Create a new directory and initialize the template
-   mkdir hydenix && cd hydenix
-   nix flake init -t github:richen604/hydenix
-   ```
-
-2. **Configure your system**
-
-   Edit `configuration.nix` following the detailed comments:
-
-   - **Required Changes:**
-     - Set your username (replace "hydenix" in two places)
-     - Set your hostname, timezone, and locale
-     - Configure your hardware (GPU/CPU modules)
-
-   - **Optional:**
-     - Review `./modules/hm/default.nix` for home-manager options
-     - See [Module Options](./docs/options.md) for advanced configuration
-
-3. **Generate hardware configuration**
-
-   ```bash
-   sudo nixos-generate-config --show-hardware-config > hardware-configuration.nix
-   ```
-
-4. **Initialize git repository**
-
-   ```bash
-   git init && git add .
-   ```
-
-   > **Note:** Flakes must be managed via git
-
-5. **Build and switch to the new configuration**
-
-   ```bash
-   sudo nixos-rebuild switch --flake .#nixos
-   ```
-
-6. **IMPORTANT: Set your password**
-
-   ```bash
-   passwd
-   ```
-
-7. **Launch Hydenix**
-
-   Reboot and log in.
-
-   After first login, generate theme cache (you only need to do this once):
-
-   ```bash
-   hyde-shell reload
-   ```
-
-## Running The Hydenix VM
-
-If your system supports it, the NixOS VM is a great way to try out hydenix without installing it.
-If you encounter issues running the VM, refer to the [virtio guide](docs/faq.md#how-do-i-run-hyprland-in-a-vm)
+if your system supports it, the nixos vm is a great way to try out hydenix without installing it.
+if you encounter issues running the vm, refer to the [virtio guide](./template/docs/faq.md#how-do-i-run-hyprland-in-a-vm)
 
 ```bash
 # run the flake remotely
 nix run github:richen604/hydenix
 ```
 
-> **note:** any changes require the vm to be rebuilt. run `rm hydenix.qcow2` to remove the old one.
+> [!NOTE]
+> any changes require the vm to be rebuilt. run `rm hydenix.qcow2` to remove the old one.
 
-## Upgrading
-
-Hydenix can be upgraded, downgraded, or version locked easy.
-in your template flake folder, update hydenix to main using
-
-```bash
-nix flake update hydenix
-```
-
-or define a specific version in your `flake.nix` template
-
-```nix
-inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    hydenix = {
-      # Available inputs:
-      # Main: github:richen604/hydenix
-      # Dev: github:richen604/hydenix/dev
-      # Commit: github:richen604/hydenix/<commit-hash>
-      # Version: github:richen604/hydenix/v1.0.0
-      url = "github:richen604/hydenix";
-    };
-  };
-```
-
-run `nix flake update hydenix` again to load the update, then rebuild your system to apply the changes
-
-## When to Upgrade
-
-```mermaid
-graph TD
-    A[v2.3.1] --> B[MAJOR]
-    A --> C[MINOR]
-    A --> D[PATCH]
-    B --> E[Breaking Changes<br>Review Release Notes for API Changes]
-    C --> F[New Features<br>Safe to Update]
-    D --> G[Bug Fixes<br>Safe to Update]
-
-    style A fill:#c79bf0,stroke:#ebbcba,stroke-width:2px,color:#000
-    style B fill:#ebbcba,stroke:#c79bf0,stroke-width:2px,color:#000
-    style C fill:#ebbcba,stroke:#c79bf0,stroke-width:2px,color:#000
-    style D fill:#ebbcba,stroke:#c79bf0,stroke-width:2px,color:#000
-    style E fill:#f6f6f6,stroke:#c79bf0,stroke-width:2px,color:#000
-    style F fill:#f6f6f6,stroke:#c79bf0,stroke-width:2px,color:#000
-    style G fill:#f6f6f6,stroke:#c79bf0,stroke-width:2px,color:#000
-```
-
-- **Always review [release notes](https://github.com/richen604/hydenix/releases) for major updates (API changes)**
-- Update to minor versions for new features
-- Keep up with patches for stability
+</div>
