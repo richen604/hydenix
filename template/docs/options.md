@@ -1,4 +1,3 @@
-
 <img align="right" width="75px" alt="NixOS" src="https://github.com/HyDE-Project/HyDE/blob/master/Source/assets/nixos.png?raw=true"/>
 
 # hydenix options
@@ -11,10 +10,10 @@
 ## module documentation
 
 going to let you in on a secret: the nix options system *is* the documentation.\
-let's walk through an example. say you want to find info about `hydenix.hm.hyprland`.\
+let's walk through an example. say you want to find info about `hydenix.hm.theme`.\
 the easiest way is to search the github repo for the options:
 
-[search for `hydenix.hm.hyprland`](https://github.com/richen604/hydenix/search?q=hydenix.hm.hyprland)
+[search for `hydenix.hm.theme`](https://github.com/richen604/hydenix/search?q=hydenix.hm.theme)
 
 you'll see the options in the search results, something like this:
 
@@ -23,29 +22,35 @@ you'll see the options in the search results, something like this:
 click on the file to see the actual options definition, which looks something like this:
 
 ```nix
-  options.hydenix.hm.hyprland = {
+  options.hydenix.hm.theme = {
     enable = lib.mkOption {
       type = lib.types.bool;
       default = config.hydenix.hm.enable;
-      description = "Enable hyprland module";
+      description = "Enable theme module";
     };
 
-    extraConfig = lib.mkOption {
-      type = lib.types.lines;
-      default = "";
-      description = "Extra config for hyprland";
+    active = lib.mkOption {
+      type = lib.types.str;
+      default = "Catppuccin Mocha";
+      description = "Active theme name";
+    };
+
+    themes = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      default = [
+        "Catppuccin Mocha"
+        "Catppuccin Latte"
+      ];
+      description = "Available theme names";
     };
   };
 ```
 
-notice that `extraConfig` has type `lines`, which means it accepts multiline strings.
+notice that `active` has type `str`, which means it accepts a string.
 so you'd configure it like this:
 
 ```nix
-hydenix.hm.hyprland.extraConfig = ''
-  # hyprland.conf
-  windowrule = float, ^(.*)
-''
+hydenix.hm.theme.active = "Catppuccin Mocha";
 ```
 
 you can find the full list of option types in the [nixos manual](https://nlewo.github.io/nixos-manual-sphinx/development/option-types.xml.html).
