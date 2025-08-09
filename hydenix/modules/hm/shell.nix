@@ -95,6 +95,7 @@ in
       ++ lib.optionals (cfg.zsh.enable || cfg.fish.enable) [
         eza
         duf
+        bat
       ]
       ++ lib.optionals cfg.zsh.enable [
         zsh
@@ -117,6 +118,7 @@ in
         enable = true;
         plugins = cfg.zsh.plugins;
       };
+      dotDir = "${config.xdg.configHome}/zsh";
 
       # Custom shell aliases integrated into programs.zsh
       shellAliases = {
@@ -259,7 +261,8 @@ in
         set -g fish_greeting
 
         # Source Hyde configuration
-        source ${pkgs.hydenix.hyde}/Configs/.config/fish/hyde_config.fish
+        source ${pkgs.hydenix.hyde}/Configs/.config/fish/conf.d/hyde.fish
+        source ${pkgs.hydenix.hyde}/Configs/.config/fish/user.fish
 
         ${lib.optionalString cfg.starship.enable ''
           if type -q starship
@@ -269,14 +272,53 @@ in
           end
         ''}
 
-        # fzf integration
+        # fzf
         if type -q fzf
-          fzf --fish | source
+            fzf --fish | source
+            for file in ~/.config/fish/functions/fzf/*.fish
+                source $file
+                # NOTE: these funtions are built on top of fzf builtin widgets
+                # they help you navigate through directories and files "Blazingly" fast
+                # to get help on each one, just type `ff` in terminal and press `TAB`
+                # keep in mind all of them require an argument to be passed after the alias
+            end
         end
 
-        # Color settings
+        # NOTE: binds Alt+n to inserting the nth command from history in edit buffer
+        # e.g. Alt+4 is same as pressing Up arrow key 4 times
+        # really helpful if you get used to it
+        bind_M_n_history
+
+        # example integration with bat : <cltr+f>
+        # bind -M insert \ce '$EDITOR $(fzf --preview="bat --color=always --plain {}")'
+
         set fish_pager_color_prefix cyan
         set fish_color_autosuggestion brblack
+
+        # List Directory
+        alias c='clear'
+        alias l='eza -lh --icons=auto'
+        alias ls='eza -1 --icons=auto'
+        alias ll='eza -lha --icons=auto --sort=name --group-directories-first'
+        alias ld='eza -lhD --icons=auto'
+        alias lt='eza --icons=auto --tree'
+        alias un='$aurhelper -Rns'
+        alias up='$aurhelper -Syu'
+        alias pl='$aurhelper -Qs'
+        alias pa='$aurhelper -Ss'
+        alias pc='$aurhelper -Sc'
+        alias po='$aurhelper -Qtdq | $aurhelper -Rns -'
+        alias vc='code'
+        alias fastfetch='fastfetch --logo-type kitty'
+
+        # Directory navigation shortcuts
+        alias ..='cd ..'
+        alias ...='cd ../..'
+        alias .3='cd ../../..'
+        alias .4='cd ../../../..'
+        alias .5='cd ../../../../..'
+
+        abbr mkdir 'mkdir -p'
 
         ${lib.optionalString cfg.pokego.enable ''
           pokego --no-title -r 1,3,6
@@ -306,24 +348,49 @@ in
 
     home.file = lib.mkMerge [
       (lib.mkIf cfg.zsh.enable {
-        ".p10k.zsh" = {
-          source = "${pkgs.hydenix.hyde}/Configs/.p10k.zsh";
+        # Zsh configs
+        ".zshenv".source = "${pkgs.hydenix.hyde}/Configs/.zshenv";
+        ".config/zsh/completions/hyde-shell.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/completions/hyde-shell.zsh";
+        ".config/zsh/.p10k.zsh" = {
+          source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/.p10k.zsh";
           enable = cfg.p10k.enable;
         };
-      })
+        ".config/zsh/completions/fzf.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/completions/fzf.zsh";
+        ".config/zsh/completions/hydectl.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/completions/hydectl.zsh";
+        ".config/zsh/functions/bat.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/functions/bat.zsh";
+        ".config/zsh/functions/bind_M_n_history.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/functions/bind_M_n_history.zsh";
+        ".config/zsh/functions/duf.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/functions/duf.zsh";
+        ".config/zsh/functions/error-handlers.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/functions/error-handlers.zsh";
+        ".config/zsh/functions/eza.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/functions/eza.zsh";
+        ".config/zsh/functions/fzf.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/functions/fzf.zsh";
+        ".config/zsh/functions/kb_help.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/functions/kb_help.zsh";
 
+        # We are not including any of these configurations as they are part of the existing zsh options
+        # ".config/zsh/.zshenv".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/.zshenv";
+        # ".config/zsh/user.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/user.zsh";
+        # ".config/zsh/prompt.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/prompt.zsh";
+        # ".config/zsh/conf.d/hyde/terminal.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/conf.d/hyde/terminal.zsh";
+        # ".config/zsh/conf.d/00-hyde.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/conf.d/00-hyde.zsh";
+        # ".config/zsh/conf.d/hyde/env.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/conf.d/hyde/env.zsh";
+        # ".config/zsh/conf.d/hyde/prompt.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/conf.d/hyde/prompt.zsh";
+      })
       (lib.mkIf cfg.fish.enable {
         # Fish configs
-        ".config/fish/hyde_config.fish".source =
-          "${pkgs.hydenix.hyde}/Configs/.config/fish/hyde_config.fish";
-        ".config/fish/functions/df.fish".source =
-          "${pkgs.hydenix.hyde}/Configs/.config/fish/functions/df.fish";
-        ".config/fish/functions/ffcd.fish".source =
-          "${pkgs.hydenix.hyde}/Configs/.config/fish/functions/ffcd.fish";
-        ".config/fish/functions/ffec.fish".source =
-          "${pkgs.hydenix.hyde}/Configs/.config/fish/functions/ffec.fish";
-        ".config/fish/functions/ffe.fish".source =
-          "${pkgs.hydenix.hyde}/Configs/.config/fish/functions/ffe.fish";
+        ".config/fish/completions/hyde-shell.fish".source =
+          "${pkgs.hydenix.hyde}/Configs/.config/fish/completions/hyde-shell.fish";
+        ".config/fish/conf.d/hyde.fish".source =
+          "${pkgs.hydenix.hyde}/Configs/.config/fish/conf.d/hyde.fish";
+        ".config/fish/functions/bind_M_n_history.fish".source =
+          "${pkgs.hydenix.hyde}/Configs/.config/fish/functions/bind_M_n_history.fish";
+        ".config/fish/functions/fzf/ffcd.fish".source =
+          "${pkgs.hydenix.hyde}/Configs/.config/fish/functions/fzf/ffcd.fish";
+        ".config/fish/functions/fzf/ffch.fish".source =
+          "${pkgs.hydenix.hyde}/Configs/.config/fish/functions/fzf/ffch.fish";
+        ".config/fish/functions/fzf/ffec.fish".source =
+          "${pkgs.hydenix.hyde}/Configs/.config/fish/functions/fzf/ffec.fish";
+        ".config/fish/functions/fzf/ffe.fish".source =
+          "${pkgs.hydenix.hyde}/Configs/.config/fish/functions/fzf/ffe.fish";
+        ".config/fish/user.fish".source = "${pkgs.hydenix.hyde}/Configs/.config/fish/user.fish";
       })
 
       # LSD configs - these are always included
