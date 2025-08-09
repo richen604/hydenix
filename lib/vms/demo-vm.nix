@@ -16,10 +16,10 @@ hydenix-inputs.hydenix-nixpkgs.lib.nixosSystem {
           virtualisation = {
             memorySize = 8192;
             cores = 6;
-            diskSize = 102400;
+            diskSize = 20480;
             qemu = {
               options = [
-                "-device virtio-vga-gl"
+                "-device virtio-vga-gl,xres=2056,yres=1440"
                 "-display gtk,gl=on,grab-on-hover=on"
                 "-usb -device usb-tablet"
                 "-cpu host"
@@ -31,6 +31,28 @@ hydenix-inputs.hydenix-nixpkgs.lib.nixosSystem {
           services.xserver = {
             videoDrivers = [ "virtio" ];
           };
+
+          # Console font for readable CLI recordings at 1440p (2K)
+          console = {
+            earlySetup = true;
+            packages = [ pkgs.terminus_font ];
+            font = "ter-v32b";
+          };
+
+          # # Use kmscon for TTF Nerd Font rendering on the console
+          # services.kmscon = {
+          #   enable = true;
+          #   hwRender = true;
+          #   fonts = [
+          #     {
+          #       package = pkgs.nerd-fonts.jetbrains-mono;
+          #       name = "JetBrainsMono Nerd Font Mono";
+          #     }
+          #   ];
+          #   extraConfig = ''
+          #     font-size=36
+          #   '';
+          # };
 
           system.stateVersion = "25.05";
         };
