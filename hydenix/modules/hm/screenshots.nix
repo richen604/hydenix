@@ -32,11 +32,10 @@ in
       };
     };
 
-    # TODO: satty should be default, get a screenshot error
     satty = {
       enable = lib.mkOption {
         type = lib.types.bool;
-        default = false;
+        default = true;
         description = "Enable satty screenshot annotation tool";
       };
     };
@@ -44,7 +43,7 @@ in
     swappy = {
       enable = lib.mkOption {
         type = lib.types.bool;
-        default = true;
+        default = false; # Disabled by default
         description = "Enable swappy screenshot editor";
       };
     };
@@ -57,5 +56,12 @@ in
       (lib.mkIf cfg.satty.enable satty) # screenshot annotation tool
       (lib.mkIf cfg.swappy.enable swappy) # screenshot editor
     ];
+
+    home.file = lib.mkIf cfg.satty.enable {
+      ".config/satty/config.toml" = {
+        source = "${pkgs.hydenix.hyde}/Configs/.config/satty/config.toml";
+        force = true;
+      };
+    };
   };
 }
