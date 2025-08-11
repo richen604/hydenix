@@ -13,9 +13,12 @@ let
     Tela-circle-dracula = callPackage ./Tela-circle-dracula.nix { };
     Bibata-Modern-Ice = callPackage ./Bibata-Modern-Ice.nix { };
     hydenix = {
-      hyde = callPackage ./hyde.nix { };
+      hyde = callPackage ./hyde.nix { inherit inputs; };
       # Theme packages from the themes directory
       themes = callPackage ./themes/default.nix { };
+      hyprland = inputs.hyprland.packages.${prev.system}.hyprland;
+      hypridle = inputs.hypridle.packages.${prev.system}.hypridle;
+      xdg-desktop-portal-hyprland = inputs.hyprland.packages.${prev.system}.xdg-desktop-portal-hyprland;
     };
   };
 in

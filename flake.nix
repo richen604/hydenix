@@ -27,35 +27,35 @@
   };
 
   outputs =
-    inputs@{ hydenix-nixpkgs, ... }:
+    hydenix-inputs@{ hydenix-nixpkgs, ... }:
     let
       system = "x86_64-linux";
 
       # Create lib attribute that template expects
       lib = {
         inherit system;
-        overlays = import ./hydenix/sources/overlay.nix { inherit inputs; };
+        overlays = import ./hydenix/sources/overlay.nix hydenix-inputs;
         nixOsModules = ./hydenix/modules/system;
         homeModules = ./hydenix/modules/hm;
       };
 
       # Internal inputs for building packages and configurations
-      hydenix-inputs = inputs // {
+      inputs = hydenix-inputs // {
         inherit lib;
       };
 
       defaultConfig = import ./lib/config {
-        inherit hydenix-inputs;
+        inherit inputs;
       };
 
       # Create VM variant of the NixOS configuration
       vmConfig = import ./lib/vms/nixos-vm.nix {
         nixosConfiguration = defaultConfig;
-        inherit hydenix-inputs;
+        inherit inputs;
       };
 
       demoVmConfig = import ./lib/vms/demo-vm.nix {
-        inherit hydenix-inputs;
+        inherit inputs;
       };
 
     in
@@ -68,7 +68,7 @@
       homeModules.default = ./hydenix/modules/hm;
       nixosModules.default = ./hydenix/modules/system;
 
-      overlays.default = import ./hydenix/sources/overlay.nix { inherit inputs; };
+      overlays.default = import ./hydenix/sources/overlay.nix hydenix-inputs;
 
       templates.default = {
         path = ./template;
@@ -85,9 +85,9 @@
         demo-vm = demoVmConfig.config.system.build.vm;
 
         # Helper to manage hyde updates
-        hyde-update = import ./lib/hyde-update { inherit hydenix-inputs; };
+        hyde-update = import ./lib/hyde-update { inherit inputs; };
       };
 
-      devShells.${system}.default = import ./lib/dev-shell.nix { inherit hydenix-inputs; };
+      devShells.${system}.default = import ./lib/dev-shell.nix { inherit inputs; };
     };
 }

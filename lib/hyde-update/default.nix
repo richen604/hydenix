@@ -1,10 +1,10 @@
 {
-  hydenix-inputs,
+  inputs,
 }:
 
 let
   system = "x86_64-linux";
-  pkgs = import hydenix-inputs.hydenix-nixpkgs {
+  pkgs = import inputs.hydenix-nixpkgs {
     inherit system;
     config.allowUnfree = true;
   };
@@ -14,13 +14,13 @@ let
     src:
     import ../../hydenix/sources/hyde.nix {
       inherit pkgs;
-      inputs = hydenix-inputs // {
+      inputs = inputs // {
         hyde = src;
       };
     };
 
   # Current pinned Hyde version
-  hyde-pinned = mkHyde hydenix-inputs.hyde;
+  hyde-pinned = mkHyde inputs.hyde;
 
   # Latest master Hyde version
   hyde-master = mkHyde (

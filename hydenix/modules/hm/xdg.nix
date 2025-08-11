@@ -2,7 +2,7 @@
   config,
   lib,
   pkgs,
-  hydenix-inputs,
+  inputs,
   ...
 }:
 
@@ -26,13 +26,13 @@ in
       portal = {
         enable = true;
         extraPortals = with pkgs; [
-          hydenix-inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
+          pkgs.hydenix.xdg-desktop-portal-hyprland
           xdg-desktop-portal-gtk
           xdg-desktop-portal
         ];
         xdgOpenUsePortal = true;
         configPackages = with pkgs; [
-          hydenix-inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
+          pkgs.hydenix.xdg-desktop-portal-hyprland
           xdg-desktop-portal-gtk
           xdg-desktop-portal
         ];

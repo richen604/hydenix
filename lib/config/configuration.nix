@@ -1,13 +1,13 @@
 {
-  hydenix-inputs,
+  inputs,
   ...
 }:
 let
-  hydenix-pkgs = import hydenix-inputs.hydenix-nixpkgs {
-    inherit (hydenix-inputs.lib) system;
+  hydenix-pkgs = import inputs.hydenix-nixpkgs {
+    inherit (inputs.lib) system;
     config.allowUnfree = true;
     overlays = [
-      hydenix-inputs.lib.overlays
+      inputs.lib.overlays
     ];
   };
 in
@@ -16,12 +16,12 @@ in
   nixpkgs.pkgs = hydenix-pkgs;
 
   imports = [
-    hydenix-inputs.home-manager.nixosModules.home-manager
+    inputs.home-manager.nixosModules.home-manager
     ./hardware-configuration.nix
-    hydenix-inputs.lib.nixOsModules
-    hydenix-inputs.nixos-hardware.nixosModules.common-cpu-intel
-    hydenix-inputs.nixos-hardware.nixosModules.common-pc
-    hydenix-inputs.nixos-hardware.nixosModules.common-pc-ssd
+    inputs.lib.nixOsModules
+    inputs.nixos-hardware.nixosModules.common-cpu-intel
+    inputs.nixos-hardware.nixosModules.common-pc
+    inputs.nixos-hardware.nixosModules.common-pc-ssd
 
   ];
 
@@ -29,18 +29,18 @@ in
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = {
-      inherit hydenix-inputs;
+      inherit inputs;
     };
 
     users."hydenix" =
       { ... }:
       {
         imports = [
-          hydenix-inputs.lib.homeModules
+          inputs.lib.homeModules
           ./home.nix
 
           # Nix-index-database - for comma and command-not-found
-          hydenix-inputs.nix-index-database.hmModules.nix-index
+          inputs.nix-index-database.homeModules.nix-index
         ];
       };
   };

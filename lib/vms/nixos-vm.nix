@@ -1,4 +1,4 @@
-{ hydenix-inputs, nixosConfiguration, ... }:
+{ inputs, nixosConfiguration, ... }:
 nixosConfiguration.extendModules {
   modules = [
     (
@@ -13,8 +13,8 @@ nixosConfiguration.extendModules {
             }
           ];
           imports = [
-            hydenix-inputs.nixos-hardware.nixosModules.common-gpu-amd
-            hydenix-inputs.nixos-hardware.nixosModules.common-cpu-intel
+            inputs.nixos-hardware.nixosModules.common-gpu-amd
+            inputs.nixos-hardware.nixosModules.common-cpu-intel
           ];
           virtualisation = {
             memorySize = 8192;
