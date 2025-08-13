@@ -21,6 +21,11 @@
       url = "github:HyDE-Project/HyDE/168287f2f10e95a4a9a623c955c7e08147c48472";
       flake = false;
     };
+    # HyDE related binaries
+    hyq.url = "github:richen604/hyprquery";
+    hydectl.url = "github:richen604/hydectl";
+    hyde-ipc.url = "github:richen604/hyde-ipc";
+    hyde-config.url = "github:richen604/hyde-config";
 
     hyprland.url = "github:hyprwm/Hyprland";
     hypridle.url = "github:hyprwm/hypridle";
@@ -86,6 +91,12 @@
 
         # Helper to manage hyde updates
         hyde-update = import ./lib/hyde-update { inherit inputs; };
+
+        # Add hyq, hydectl, hyde-ipc, and hyde-config for building
+        hyq = inputs.hyq.packages.${system}.default;
+        hydectl = inputs.hydectl.packages.${system}.default;
+        hyde-ipc = inputs.hyde-ipc.packages.${system}.default;
+        hyde-config = inputs.hyde-config.packages.${system}.default;
       };
 
       devShells.${system}.default = import ./lib/dev-shell.nix { inherit inputs; };
