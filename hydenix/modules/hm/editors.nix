@@ -61,6 +61,24 @@ in
       mutableExtensionsDir = true;
     };
 
+    xdg.mimeApps = {
+      defaultApplications = {
+        "text/plain" = [ "${cfg.default}.desktop" ];
+        "application/x-shellscript" = [ "${cfg.default}.desktop" ];
+        "text/css" = [ "${cfg.default}.desktop" ];
+        "application/javascript" = [ "${cfg.default}.desktop" ];
+        "application/json" = [ "${cfg.default}.desktop" ];
+        "application/xml" = [ "${cfg.default}.desktop" ];
+        "text/x-python" = [ "${cfg.default}.desktop" ];
+        "text/x-java-source" = [ "${cfg.default}.desktop" ];
+        "text/x-c++src" = [ "${cfg.default}.desktop" ];
+        "text/x-csrc" = [ "${cfg.default}.desktop" ];
+        "text/x-go" = [ "${cfg.default}.desktop" ];
+        "text/x-typescript" = [ "${cfg.default}.desktop" ];
+        "text/markdown" = [ "${cfg.default}.desktop" ];
+      };
+    };
+
     home.file = lib.mkMerge [
       (lib.mkIf cfg.vscode.enable {
         # Editor flags
