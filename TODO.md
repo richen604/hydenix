@@ -27,6 +27,7 @@
 
 - fix: removed hydenix-inputs from template/configuration.nix
 - refactor: removed hydenix.lib to standardize outputs, hydenix nixOsModules to nixosModules
+- refactor: rename all overlays so there is no namespace nesting
 - fix: nix-index should be a module in hydenix only, its declared twice
 - fix: rename nix-index home-manager module whatever new name
 - feat: user now owns their nixosSystem, depreciated hydenix-nixpkgs.lib.nixosSystem
