@@ -21,16 +21,35 @@
       url = "github:HyDE-Project/HyDE/168287f2f10e95a4a9a623c955c7e08147c48472";
       flake = false;
     };
+
     # HyDE related binaries
-    hyq.url = "github:richen604/hyprquery";
-    hydectl.url = "github:richen604/hydectl";
-    hyde-ipc.url = "github:richen604/hyde-ipc";
-    hyde-config.url = "github:richen604/hyde-config";
+    hyq = {
+      url = "github:richen604/hyprquery";
+      inputs.nixpkgs.follows = "hydenix-nixpkgs";
+    };
+    hydectl = {
+      url = "github:richen604/hydectl";
+      inputs.nixpkgs.follows = "hydenix-nixpkgs";
+    };
+    hyde-ipc = {
+      url = "github:richen604/hyde-ipc";
+      inputs.nixpkgs.follows = "hydenix-nixpkgs";
+    };
+    hyde-config = {
+      url = "github:richen604/hyde-config";
+      inputs.nixpkgs.follows = "hydenix-nixpkgs";
+    };
 
-    hyprland.url = "github:hyprwm/Hyprland";
-    hypridle.url = "github:hyprwm/hypridle";
+    hyprland = {
+      url = "github:hyprwm/hyprland";
+      inputs.nixpkgs.follows = "hydenix-nixpkgs";
+    };
+    hypridle = {
+      url = "github:hyprwm/hypridle";
+      inputs.nixpkgs.follows = "hydenix-nixpkgs";
+    };
+
   };
-
   outputs =
     hydenix-inputs@{ hydenix-nixpkgs, ... }:
     let
