@@ -19,6 +19,10 @@ let
       hyprland = inputs.hyprland.packages.${prev.system}.hyprland;
       hypridle = inputs.hypridle.packages.${prev.system}.hypridle;
       xdg-desktop-portal-hyprland = inputs.hyprland.packages.${prev.system}.xdg-desktop-portal-hyprland;
+      hyq = inputs.hyq.packages.${prev.system}.default;
+      hydectl = inputs.hydectl.packages.${prev.system}.default;
+      hyde-ipc = inputs.hyde-ipc.packages.${prev.system}.default;
+      hyde-config = inputs.hyde-config.packages.${prev.system}.default;
     };
   };
 in

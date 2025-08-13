@@ -3,10 +3,6 @@
 
 ## now
 
-- feat(editors): dynamically set xdg.mimeApps default applications using cfg.default and add common code mimetypes
-- feat: hyde binaries are now added via flake inputs, should fix various bugs
-- chore: bumped theme hash
-
 ## next
 
 - feat: new themes to build

@@ -80,21 +80,32 @@ in
 
       # TODO: requires nix-ld
       ".local/bin/hydectl" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.local/bin/hydectl";
+        source = "${pkgs.hydenix.hydectl}/bin/hydectl";
         executable = true;
       };
 
       ".local/bin/hyde-ipc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.local/bin/hyde-ipc";
+        source = "${pkgs.hydenix.hyde-ipc}/bin/hyde-ipc";
+        executable = true;
+      };
+
+      ".local/bin/hyq" = {
+        source = "${pkgs.hydenix.hyq}/bin/hyq";
         executable = true;
       };
 
       ".local/lib/hyde" = {
         source = "${pkgs.hydenix.hyde}/Configs/.local/lib/hyde";
         recursive = true;
-        force = true;
-        mutable = true;
         executable = true;
+      };
+
+      ".local/lib/hyde-config" = {
+        source = "${pkgs.hydenix.hyde-config}/bin/hyde-config";
+        executable = true;
+        # FIXME: this is a hack to make sure the hyde-config binary is copied after the .local/lib/hyde above
+        mutable = true;
+        force = true;
       };
 
       ".local/lib/hyde/globalcontrol.sh" = {
