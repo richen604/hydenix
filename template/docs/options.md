@@ -140,19 +140,20 @@ below are the default options for hydenix. they are in *object format* and any o
         # Animation configurations
         animations = {
           enable = true; # enable animation configurations
-          preset = "standard"; # animation preset: "LimeFrenzy", "classic", "diablo-1", "diablo-2", "disable", "dynamic", "end4", "fast", "high", "ja", "me-1", "me-2", "minimal-1", "minimal-2", "moving", "optimized", "standard", "vertical"
+          preset = "standard"; # string from override or default: "standard" # or "LimeFrenzy", "classic", "diablo-1", "diablo-2", "disable", "dynamic", "end4", "fast", "high", "ja", "me-1", "me-2", "minimal-1", "minimal-2", "moving", "optimized", "standard", "vertical"
           extraConfig = ""; # additional animation configuration
           overrides = { }; # override specific animation files by name
         };
         # Shader configurations
         shaders = {
           enable = true; # enable shader configurations
+          active = "disable"; # string from override or default: "disable" # or "blue-light-filter", "color-vision", "custom", "grayscale", "invert-colors", "oled", "oled-saver", "paper", "vibrance", "wallbash"
           overrides = { }; # override or add custom shaders
         };
         # Workflow configurations
         workflows = {
           enable = true; # enable workflow configurations
-          active = "default"; # active workflow preset: "default", "editing", "gaming", "powersaver", "snappy"
+          active = "default"; # string from override or default: "default" # or "editing", "gaming", "powersaver", "snappy"
           overrides = { }; # override or add custom workflows
         };
         # Hypridle configurations

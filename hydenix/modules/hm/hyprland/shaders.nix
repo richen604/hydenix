@@ -45,7 +45,14 @@ in
             mutable = true;
           };
           ".config/hypr/shaders.conf" = {
-            source = "${pkgs.hydenix.hyde}/Configs/.config/hypr/shaders.conf";
+            text = ''
+              # name of the shader
+              $SCREEN_SHADER = "${cfg.shaders.active}"
+              # path to the shader
+              $SCREEN_SHADER_PATH = "$XDG_CONFIG_HOME/hypr/shaders/${cfg.shaders.active}.frag"
+              # path to the compiled shader // override this in '../hyde/config.toml'
+              $SCREEN_SHADER_COMPILED = $XDG_CONFIG_HOME/hypr/shaders/.compiled.cache.glsl
+            '';
             force = true;
             mutable = true;
           };
