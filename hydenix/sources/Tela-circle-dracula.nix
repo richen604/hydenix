@@ -23,11 +23,11 @@ stdenv.mkDerivation {
     jdupes --recurse $out/share/icons
   '';
 
-  meta = with lib; {
+  meta = {
     description = "Tela Dracula icon theme from HyDE Project";
     homepage = "https://github.com/HyDE-Project/hyde-themes";
-    license = licenses.gpl3; # You may need to verify the actual license
-    platforms = platforms.all;
+    license = lib.licenses.gpl3; # You may need to verify the actual license
+    platforms = lib.platforms.all;
     maintainers = [ ];
   };
 }

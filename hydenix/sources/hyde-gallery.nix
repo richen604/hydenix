@@ -17,10 +17,10 @@ pkgs.stdenv.mkDerivation {
   '';
 
   # Add meta information
-  meta = with lib; {
+  meta = {
     description = "Gallery of themes for HyDE";
     homepage = "https://github.com/HyDE-Project/hyde-gallery";
-    license = licenses.mit;
-    platforms = platforms.all;
+    license = lib.licenses.mit;
+    platforms = lib.platforms.all;
   };
 }
