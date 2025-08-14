@@ -4,9 +4,9 @@ mkTheme rec {
   src = pkgs.fetchFromGitHub {
     owner = "rishav12s";
     repo = "Oxo-Carbon";
-    rev = "91eff63b9ba2b0a2ad002661c3e7f327237e4d02";
+    rev = "Oxo-Carbon";
     name = name;
-    sha256 = "sha256-qxqdP5rInvHy2Irm6pxlujhSPaVm+i4YoQ2/4dS4vhw=";
+    sha256 = "sha256-w+7Gky7L2crF4F7myhA64fXgjoWulLb/hWBaI6OMwBo=";
   };
   meta = {
     description = "HyDE Theme: Oxo Carbon";
