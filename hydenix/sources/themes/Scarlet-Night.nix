@@ -4,9 +4,9 @@ mkTheme rec {
   src = pkgs.fetchFromGitHub {
     owner = "abenezerw";
     repo = "Scarlet-Night";
-    rev = "1c80ed42231de2afcda28e48793e395e3f0955d2";
+    rev = "main";
     name = name;
-    sha256 = "sha256-RtZQpL0ZzjsLOT812JCnhbW6aIya+6I9FO+fCxWIPRY=";
+    sha256 = "sha256-+RNKfwc8mfgSnNifMcxlHyBTzDvY5DXAJeNKbJsD8AU=";
   };
   meta = {
     description = "HyDE Theme: Scarlet Night";

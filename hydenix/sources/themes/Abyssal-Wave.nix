@@ -5,9 +5,9 @@ mkTheme rec {
     owner = "Itz-Abhishek-Tiwari";
     repo = "Abyssal-Wave";
     # locking commit
-    rev = "1f6eff0eb85ed05ac2c402d9e608cc70a3bb16a0";
+    rev = "main";
     name = name;
-    sha256 = "sha256-VpKPKgRQMQhDWmlrFignZ1tN69MB/cd8KBsAARMIKIo=";
+    sha256 = "sha256-JMYjNV2r6/lRwKNQFdz2HmZH7ZxLO0MdiO2iUi5R7As=";
   };
   meta = {
     name = name;

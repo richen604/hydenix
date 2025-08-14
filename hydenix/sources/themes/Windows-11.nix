@@ -4,9 +4,9 @@ mkTheme rec {
   src = pkgs.fetchFromGitHub {
     owner = "HyDE-Project";
     repo = "hyde-gallery";
-    rev = "ea30c190b526555c06b6c716d0c062f48a996897";
+    rev = "Windows-11";
     name = name;
-    sha256 = "sha256-QG2pGDT6G9fuqiCErSf1cTOdRNI5WDy+1yyHGXDsYoQ=";
+    sha256 = "sha256-rAg4iPOD8sRvKX32N9+8DekwvvmizFC9Q2QwWA7mKz0=";
   };
   meta = {
     description = "HyDE Theme: Windows 11";

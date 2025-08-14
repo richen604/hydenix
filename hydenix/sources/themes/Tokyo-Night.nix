@@ -4,9 +4,9 @@ mkTheme rec {
   src = pkgs.fetchFromGitHub {
     owner = "HyDE-Project";
     repo = "hyde-themes";
-    rev = "da8c38b7a6927eb585203e28fb8e403203578fe5";
+    rev = "Tokyo-Night";
     name = name;
-    sha256 = "sha256-YL91+Q7CIGT+Ams9FOdw343OgQ19NWz6GJZEG37Gg9A=";
+    sha256 = "sha256-pPeNr8hbJ7wgGkYxFdvHdrBfkZpNRlKgQfhIF7rQKWU=";
   };
   meta = {
     description = "HyDE Theme: Tokyo Night";

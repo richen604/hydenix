@@ -4,9 +4,9 @@ mkTheme rec {
   src = pkgs.fetchFromGitHub {
     owner = "mahaveergurjar";
     repo = "Theme-Gallery";
-    rev = "371030f2236f1713d084a4fc90b479fa821b0067";
+    rev = "Red_Stone";
     name = name;
-    sha256 = "sha256-BNvAQ8TulTCex0cF8cvaM2NJc5zeKARTYJLO3nQD1n4=";
+    sha256 = "sha256-cbg7hBjXg0xTRCZqbo1UUQM7zNoQHEQO6it2VkahYqI=";
   };
   meta = {
     description = "HyDE Theme: Red Stone";
