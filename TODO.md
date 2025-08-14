@@ -3,6 +3,8 @@
 
 ## now
 
+- feat: hyprland shaders active option and documentation
+
 ## next
 
 - feat: new themes to build
