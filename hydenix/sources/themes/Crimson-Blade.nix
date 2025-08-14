@@ -4,9 +4,9 @@ mkTheme rec {
   src = pkgs.fetchFromGitHub {
     owner = "cyb3rgh0u1";
     repo = "Crimson-Blade";
-    rev = "4b1afd9f62c4b64a7c35628c2e80fa632cb81735";
+    rev = "main";
     name = name;
-    sha256 = "sha256-PGE4H7hhaFnxv5TUyEO86bg3BM2A1nDsnBifpMxTBNY=";
+    sha256 = "sha256-ooQJN3XcE7ZyC2JIlLCC6jraQC9pnwjRSila0Z19G3I=";
   };
   meta = {
     description = "HyDE Theme: A striking fusion of sharp elegance, cutting through the darkness with bold hues.";

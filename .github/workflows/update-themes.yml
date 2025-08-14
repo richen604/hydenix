@@ -1,0 +1,54 @@
+name: Update HyDE Themes
+
+on:
+  workflow_dispatch: # Allows manual triggering
+  schedule:
+    - cron: "0 0 * * *" # Run daily at midnight UTC
+
+jobs:
+  update-themes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Fetch all history for auto-merge
+
+      - name: Setup Nix
+        uses: cachix/install-nix-action@v20
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+
+      - name: Run update script
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Automatically provided by GitHub Actions
+        run: |
+          chmod +x hydenix/sources/themes/utils/update-themes.sh
+          ./hydenix/sources/themes/utils/update-themes.sh
+
+      - name: Create Pull Request
+        id: create_pr
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "feat(themes): automated theme updates"
+          title: "feat(themes): Automated HyDE Theme Updates"
+          body: |
+            This PR updates the `sha256` for HyDE themes based on their specified `rev`.
+            Automated by GitHub Actions.
+          branch: automated-theme-updates
+          delete-branch: true
+          labels: |
+            automated
+            themes
+          assignees: ${{ github.actor }} # Assign to the user who triggered the workflow or the bot
+          reviewers: ${{ github.actor }}
+          add-paths: "hydenix/sources/themes/*.nix"
+
+    # - name: Enable Auto-merge
+    #   if: steps.create_pr.outputs.pull-request-number
+    #   run: |
+    #     gh pr merge --auto --rebase "$PR_URL"
+    #   env:
+    #     PR_URL: ${{ steps.create_pr.outputs.pull-request-url }}
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -4,9 +4,9 @@ mkTheme rec {
   src = pkgs.fetchFromGitHub {
     owner = "mahaveergurjar";
     repo = "Theme-Gallery";
-    rev = "2c4ecf9e32753da36832d2aa9f32908a92caab15";
+    rev = "Monokai";
     name = name;
-    sha256 = "sha256-vxIm5Gasnv8xooGnFNFVmZJd7o2YkOORJD2pIQFZrhA=";
+    sha256 = "sha256-bwjFzGVemYCU9zOT7v5gVvnrzsxZ09YlYt87P73nA3I=";
   };
   meta = {
     description = "HyDE Theme: Monokai";

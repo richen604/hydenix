@@ -5,8 +5,8 @@ mkTheme rec {
     owner = "mahaveergurjar";
     repo = "Theme-Gallery";
     name = name;
-    rev = "c7d369fb3cdac01572a8b21b077cd59b3379e878";
-    sha256 = "sha256-5UhGEVAKCnjQ8pWZ2+zjaheWOM4lZ++5DqoUGXikNls=";
+    rev = "Greenify";
+    sha256 = "sha256-jf8CilUopQBqAa3JBPl68S9P7Hg/87KpyEATbiOhg4A=";
   };
   meta = {
     description = "HyDE Theme: Greenify";

@@ -4,9 +4,9 @@ mkTheme rec {
   src = pkgs.fetchFromGitHub {
     owner = "HyDE-Project";
     repo = "hyde-themes";
-    rev = "61c389a0ba3c0858e000436a359385389cda7f44";
+    rev = "Synth-Wave";
     name = name;
-    sha256 = "sha256-2qkR61CaUyHry/clQb7WVMSt4rV+4c4yElRxqSwF73Y=";
+    sha256 = "sha256-BV5+A/CnaCX8t9oHt3Q0nxWGJvRUYWQ3IpBK3NlJbj0=";
   };
   meta = {
     description = "HyDE Theme: Synth Wave";

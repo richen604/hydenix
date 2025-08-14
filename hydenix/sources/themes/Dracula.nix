@@ -4,9 +4,9 @@ mkTheme rec {
   src = pkgs.fetchFromGitHub {
     owner = "RAprogramm";
     repo = "HyDe-Themes";
-    rev = "fc51f05927f2fe9d90393fdf2debc1afaf429df6";
+    rev = "Dracula";
     name = name;
-    sha256 = "sha256-AaFFKyFasjGQuLtqJeZYWxrtAgqsW0FDVxB8KqZkkzM=";
+    sha256 = "sha256-0mfuP8jhPtQM4VCGXKhNStse0HePvT0eew4BNh7sOsE=";
   };
   meta = {
     description = "HyDE Theme: Dracula";
