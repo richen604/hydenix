@@ -3,11 +3,9 @@
 
 ## now
 
-- feat: hyprland shaders active option and documentation
+- feat: new themes to build
 
 ## next
-
-- feat: new themes to build
 
 - fix: hydenix.hm.hyprland options with presets should by type str to allow for overrides, example should show default lists
 - feat: move hyprlock to hyprland module, swaylock should just be swaylock module
@@ -20,7 +18,7 @@
   - waybar
 - docs: remove doc for overlays on theme for now i think unless i can fix it
   - adding the overlay causes `pkgs.hydenix.hyde` to disappear lol
-- feat: update.sh for themes, map name to hash (check daily), passThru update.sh caller github action
+- feat: update.sh for themes, map name to hash (check daily), passThru update.sh caller github action and auto merge
   - <https://github.com/NixOS/nixpkgs/blob/nixos-25.05/pkgs/by-name/ad/adi1090x-plymouth-themes/update.sh>
 - feat: vscode-nix-ide part of editors, enabled by default
 - fix: i don't think .config/waybar/modules is supposed to be set anymore
