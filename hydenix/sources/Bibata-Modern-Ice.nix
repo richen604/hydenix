@@ -23,11 +23,11 @@ stdenv.mkDerivation {
     jdupes --recurse $out/share/icons/
   '';
 
-  meta = with lib; {
+  meta = {
     description = "Bibata Modern Ice cursor theme";
     homepage = "https://github.com/HyDE-Project/HyDE";
-    license = licenses.gpl3;
-    platforms = platforms.all;
+    license = lib.licenses.gpl3;
+    platforms = lib.platforms.all;
     maintainers = [ ];
   };
 }

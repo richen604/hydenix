@@ -32,11 +32,10 @@ python3.pkgs.buildPythonPackage rec {
 
   pythonImportsCheck = [ "pyamdgpuinfo" ];
 
-  meta = with lib; {
+  meta = {
     description = "AMD GPU stats";
     homepage = "https://github.com/mark9064/pyamdgpuinfo";
-    license = licenses.gpl3Only;
-    maintainers = with maintainers; [ ];
-    platforms = platforms.linux;
+    license = lib.licenses.gpl3Only;
+    platforms = lib.platforms.linux;
   };
 }
