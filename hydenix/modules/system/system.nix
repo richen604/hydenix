@@ -55,7 +55,7 @@ in
       coreutils # coreutils implementation
       bash-completion # Add bash-completion package
 
-      pkgs.hydenix.hypridle
+      hypridle
     ];
 
     environment.variables = {
@@ -63,8 +63,8 @@ in
     };
 
     programs.hyprland = {
-      package = pkgs.hydenix.hyprland;
-      portalPackage = pkgs.hydenix.xdg-desktop-portal-hyprland;
+      package = pkgs.hyprland;
+      portalPackage = pkgs.xdg-desktop-portal-hyprland;
       enable = true;
       withUWSM = false;
     };

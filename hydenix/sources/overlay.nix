@@ -16,9 +16,6 @@ let
       hyde = callPackage ./hyde.nix { inherit inputs; };
       # Theme packages from the themes directory
       themes = callPackage ./themes/default.nix { };
-      hyprland = inputs.hyprland.packages.${prev.system}.hyprland;
-      hypridle = inputs.hypridle.packages.${prev.system}.hypridle;
-      xdg-desktop-portal-hyprland = inputs.hyprland.packages.${prev.system}.xdg-desktop-portal-hyprland;
       hyq = inputs.hyq.packages.${prev.system}.default;
       hydectl = inputs.hydectl.packages.${prev.system}.default;
       hyde-ipc = inputs.hyde-ipc.packages.${prev.system}.default;
