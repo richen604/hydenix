@@ -6,7 +6,7 @@ mkTheme rec {
     repo = "Cosmic-Blue";
     rev = "main";
     name = name;
-    sha256 = "sha256-TKJGuyWyd6R2GdKTRBnrfTGfH9iSVlwr83xZsfvmgPE=";
+    sha256 = "sha256-ed9QxS4onniN+kABewK9kBRu9xFMvHU6em+QcP2GrFM=";
   };
   meta = {
     description = "HyDE Theme: Cosmic Blue";
