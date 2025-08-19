@@ -40,15 +40,6 @@
       inputs.nixpkgs.follows = "hydenix-nixpkgs";
     };
 
-    hyprland = {
-      url = "github:hyprwm/hyprland";
-      inputs.nixpkgs.follows = "hydenix-nixpkgs";
-    };
-    hypridle = {
-      url = "github:hyprwm/hypridle";
-      inputs.nixpkgs.follows = "hydenix-nixpkgs";
-    };
-
   };
   outputs =
     hydenix-inputs@{ hydenix-nixpkgs, ... }:
