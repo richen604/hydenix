@@ -1,3 +1,20 @@
+# [4.9.0](https://github.com/richen604/hydenix/compare/v4.8.0...v4.9.0) (2025-08-23)
+
+
+### Bug Fixes
+
+* hydenix-inputs renamed to inputs to prevent naming conflict ([f9bb0e1](https://github.com/richen604/hydenix/commit/f9bb0e13931b07fd806ec6d83460353f6bf6f3c5))
+
+
+### Features
+
+* finished demo vm ([1c7c329](https://github.com/richen604/hydenix/commit/1c7c3295e23bd0d8463f8d8649d63edfc0c0634d))
+* **hyde-update:** completed hyde update ([68bde8a](https://github.com/richen604/hydenix/commit/68bde8aa8208ecd619592d89aa80f1498c1c4b28))
+* **hyde-update:** update fish and zsh shell configs ([192fc08](https://github.com/richen604/hydenix/commit/192fc082b30ff3d288e396b2284d4b098f1d0978))
+* **hyde-update:** update hyprlock config ([fb1ff11](https://github.com/richen604/hydenix/commit/fb1ff11cd27b92501990b41a900ef61d915fce7d))
+* **hyde-update:** update satty config ([19c4c58](https://github.com/richen604/hydenix/commit/19c4c58fcf17dc8660cdbcd776cb6570b0e4bf44))
+* hyprland from flake pkgs ([e446dd1](https://github.com/richen604/hydenix/commit/e446dd174b3eda565c61ad0e27febadb51d19321))
+
 # [4.8.0](https://github.com/richen604/hydenix/compare/v4.7.2...v4.8.0) (2025-08-07)
 
 
