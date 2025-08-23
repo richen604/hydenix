@@ -6,7 +6,7 @@ mkTheme rec {
     repo = "Nightbrew";
     rev = "main";
     name = name;
-    sha256 = "sha256-L+AogaJS7JRxFvDF6QtvsjGazuqDYPh12AlSy+eu6CI=";
+    sha256 = "sha256-yoAU7x8blO2pTQCy64+c8Y4XKdlFF04Wx8aAkX2xMUc=";
   };
   meta = {
     name = name;

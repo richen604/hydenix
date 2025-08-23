@@ -6,7 +6,7 @@ mkTheme rec {
     repo = "hyde-themes";
     rev = "Catppuccin-Mocha";
     name = name;
-    sha256 = "sha256-k2URq2xKXZ3lqRbNLZJAmyG6Tsqs6W/HNRITZ11ib6Y=";
+    sha256 = "sha256-GoXRPYUFdrw6P8OeOsSiFDC9FhaEyo1+lvta0FCJoPY=";
   };
   meta = {
     description = "HyDE Theme: Catppuccin Mocha";

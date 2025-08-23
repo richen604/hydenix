@@ -6,7 +6,7 @@ mkTheme rec {
     repo = "Moonlight";
     rev = "main";
     name = name;
-    sha256 = "sha256-1ZzLxHREUJqm/ckcsmc/95ka4PyoCRR9FF+xoH+egro=";
+    sha256 = "sha256-MEjuTBNt/C6bKt5TR1yYPJ1fsDVvWO4hHTD49Dc9Phk=";
   };
   meta = {
     description = "HyDE Theme: Moonlight";

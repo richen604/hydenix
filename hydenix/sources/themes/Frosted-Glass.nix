@@ -6,7 +6,7 @@ mkTheme rec {
     repo = "hyde-themes";
     rev = "Frosted-Glass";
     name = name;
-    sha256 = "sha256-S+4FATRHHwdYgz5pHsV/ycV6kmPAuzYVaTn85zVIt+Q=";
+    sha256 = "sha256-6/KxQNjcFkYPSouvaMDF1cRto9wQS1IhQqFRteGDQUA=";
   };
   meta = {
     description = "HyDE Theme: Frosted Glass";

@@ -6,7 +6,7 @@ mkTheme rec {
     repo = "hyde-themes";
     rev = "Rose-Pine";
     name = name;
-    sha256 = "sha256-C/DA1z8MHoeEa3REmYwTrKrueZp91A+siYMCorKaExE=";
+    sha256 = "sha256-ySrHzOyySxDYMomuatoz1JFfkWnSg8SUSCbe5QkrJwY=";
   };
   meta = {
     description = "HyDE Theme: Rosé Pine";

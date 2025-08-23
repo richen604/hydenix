@@ -6,7 +6,7 @@ mkTheme rec {
     repo = "hyde-themes";
     rev = "Nordic-Blue";
     name = name;
-    sha256 = "sha256-kf1jFKVgx+7wOBTOH4iJNzQgOTGq8VK7SwWjDZHhjuo=";
+    sha256 = "sha256-b1w1EpS0GlAXAEPNSEOYqVtZnoHamqSqlsGSucTzPVg=";
   };
   meta = {
     description = "HyDE Theme: Nordic Blue";

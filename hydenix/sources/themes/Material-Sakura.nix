@@ -6,7 +6,7 @@ mkTheme rec {
     repo = "hyde-themes";
     rev = "Material-Sakura";
     name = name;
-    sha256 = "sha256-tdH7ok9dEmhx/SE01DeJdiLia4ulCxeSzRwU7tByL9M=";
+    sha256 = "sha256-pxVWKIxjLKoTUbRBrAn9SludTLyS+yA5HlqyFRLHdiM=";
   };
   meta = {
     description = "HyDE Theme: Material Sakura";
