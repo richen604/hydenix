@@ -47,7 +47,6 @@ in
       };
       extraPackages = with pkgs; [
         libsForQt5.sddm
-        libsForQt5.sddm-kcm
         libsForQt5.qtsvg
         libsForQt5.qtmultimedia
         libsForQt5.qtvirtualkeyboard
