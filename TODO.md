@@ -58,6 +58,6 @@
   - document disko configuration clearly, the issue is ive never used disko
   - most likely will need its own video installation guide
 - nh by default?
-- docs: documentation generation using nixosOptionsDoc
+- docs: documentation generation using nixosOptionsDoc <https://bmcgee.ie/posts/2023/03/til-how-to-generate-nixos-module-docs/>
 - refactor: revise module hierarchy to be more clear and concise?
 - feat: spicetify theme support? flatpak?
