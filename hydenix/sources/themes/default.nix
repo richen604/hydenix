@@ -40,7 +40,7 @@ in
   "Oxo Carbon" = callTheme ./Oxo-Carbon.nix;
   "Paranoid Sweet" = callTheme ./Paranoid-Sweet.nix;
   "Pixel Dream" = callTheme ./Pixel-Dream.nix;
-  "Piece Of Mind" = callTheme ./Piece-Of-Mind.nix;
+  "Peace Of Mind" = callTheme ./Peace-Of-Mind.nix;
   "Rain Dark" = callTheme ./Rain-Dark.nix;
   "Red Stone" = callTheme ./Red-Stone.nix;
   "Rosé Pine" = callTheme ./Rose-Pine.nix;

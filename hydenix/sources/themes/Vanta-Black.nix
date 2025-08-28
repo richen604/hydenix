@@ -11,6 +11,6 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: Vanta Black inspired theme having the deepest blacks";
     homepage = "https://github.com/rishav12s/Vanta-Black";
-    priority = 10;
+    priority = 100;
   };
 }

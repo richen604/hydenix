@@ -6,7 +6,7 @@ mkTheme rec {
     repo = "hyde-themes";
     rev = "Gruvbox-Retro";
     name = name;
-    sha256 = "sha256-zbY//EeJb9QelM+NNtzH58QcD8LGmgxmwQUvQ4eb554=";
+    sha256 = "sha256-GJ3Y9b36mPZMzzIlBx6S862KS3mOB9ItCKIZf5qKIeo=";
   };
   meta = {
     description = "HyDE Theme: Gruvbox Retro";

@@ -6,7 +6,7 @@ mkTheme rec {
     repo = "hyde-themes";
     rev = "Tokyo-Night";
     name = name;
-    sha256 = "sha256-pPeNr8hbJ7wgGkYxFdvHdrBfkZpNRlKgQfhIF7rQKWU=";
+    sha256 = "sha256-ntM6cfHI4BBiFkp1ylqDjZxAqefV4x/rG0A6gqD1jR4=";
   };
   meta = {
     description = "HyDE Theme: Tokyo Night";
