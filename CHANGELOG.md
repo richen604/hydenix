@@ -1,3 +1,22 @@
+# [4.10.0](https://github.com/richen604/hydenix/compare/v4.9.0...v4.10.0) (2025-08-28)
+
+
+### Bug Fixes
+
+* **editor:** set default applications and add common code mimetypes ([92c05fc](https://github.com/richen604/hydenix/commit/92c05fc3431362a6aee3d9173905fa5341aed2fd))
+* hydenix-nixpkgs as main version for inputs ([9038178](https://github.com/richen604/hydenix/commit/9038178d9f34dbbaec0306e86369ee22b2910a6e))
+* removed unnecessary with lib ([7e1d51f](https://github.com/richen604/hydenix/commit/7e1d51ff611e9473df63bf4eef886ca598751057))
+* revert hyprland pkgs, bumped theme. fixes [#143](https://github.com/richen604/hydenix/issues/143) ([bc56c39](https://github.com/richen604/hydenix/commit/bc56c39a77d267712bee0429e269c4c19c91a578))
+* sddm pkg ([71a6a49](https://github.com/richen604/hydenix/commit/71a6a49d2b79913643991b035d419ab6efe1b69a))
+
+
+### Features
+
+* hyde binaries are now added via inputs ([9a2da9b](https://github.com/richen604/hydenix/commit/9a2da9b0d10edd04588b5909a32f7e5ce922da32))
+* hyprland shaders active option and documentation ([8c0eba1](https://github.com/richen604/hydenix/commit/8c0eba166cbd7267b24ef9f62db38cd40ee7b6f1))
+* theme update script ([3e0e191](https://github.com/richen604/hydenix/commit/3e0e191160c0bb1b257c0d900521cb1a8efe4fc9))
+* update flake, fixed sddm, bumped theme hashes ([9e23c12](https://github.com/richen604/hydenix/commit/9e23c1234a971b1b4be2d2ac68a66c6cce08c3b9))
+
 # [4.9.0](https://github.com/richen604/hydenix/compare/v4.8.0...v4.9.0) (2025-08-23)
 
 
