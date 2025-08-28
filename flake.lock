@@ -140,11 +140,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1754885202,
-        "narHash": "sha256-3/Z2AwSUFgRQaGACIJ1hKLNt3dJBAQ1UninODL3wOQE=",
+        "lastModified": 1756353138,
+        "narHash": "sha256-2G8YwNzELvklrYftaRAzNLZ2AbDtIrWzgRgnhReNnuk=",
         "owner": "richen604",
         "repo": "hyprquery",
-        "rev": "370ed645dc0c0e1fb5daae6405b3ecd667be320c",
+        "rev": "afe6da39cf94f3e24dcfd13abf88da6ea5d661ac",
         "type": "github"
       },
       "original": {
