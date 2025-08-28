@@ -11,6 +11,6 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: Material Sakura";
     homepage = "https://github.com/HyDE-Project/hyde-themes/tree/Material-Sakura";
-    priority = 100;
+    priority = 95;
   };
 }

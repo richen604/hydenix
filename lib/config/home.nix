@@ -43,7 +43,7 @@
         "Oxo Carbon"
         "Paranoid Sweet"
         "Pixel Dream"
-        "Piece Of Mind"
+        "Peace Of Mind"
         "Rain Dark"
         "Red Stone"
         "Rosé Pine"
@@ -53,7 +53,8 @@
         "Synth Wave"
         "Tundra"
         "Tokyo Night"
-        "Vanta Black"
+        #FIXME: theme conflicts with material sakura that wont fix
+        # "Vanta Black"
         "Windows 11"
 
         "Another World"

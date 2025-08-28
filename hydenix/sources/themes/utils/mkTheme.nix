@@ -111,7 +111,6 @@ let
       runHook postInstall
     '';
 
-    # Add allowBrokenSymlinks to prevent build failures due to broken symlinks
     meta = with pkgs.lib; {
       inherit (meta) description homepage priority;
       license = licenses.mit;

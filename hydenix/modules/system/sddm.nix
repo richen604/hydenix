@@ -52,7 +52,6 @@ in
         libsForQt5.qtvirtualkeyboard
         libsForQt5.qtquickcontrols2
         libsForQt5.qtgraphicaleffects
-        libsForQt5.layer-shell-qt
         libsForQt5.qt5.qtwayland
         hydenix.hyde
         Bibata-Modern-Ice

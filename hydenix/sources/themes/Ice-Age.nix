@@ -6,11 +6,11 @@ mkTheme rec {
     repo = "Ice-Age";
     rev = "main";
     name = name;
-    sha256 = "sha256-+U5J+NvCYm9t77vfhdAcWR2ZWh499weSaDQ1ZDPFa3c=";
+    sha256 = "sha256-hS3PwjzRe7JUaB5eQ6AAS0OUg6fajictQrNdXkpVynw=";
   };
   meta = {
     description = "HyDE Theme: Ice Age";
     homepage = "https://github.com/saber-88/Ice-Age";
-    priority = 10;
+    priority = 15;
   };
 }

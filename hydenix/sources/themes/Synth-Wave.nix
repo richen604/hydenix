@@ -6,7 +6,7 @@ mkTheme rec {
     repo = "hyde-themes";
     rev = "Synth-Wave";
     name = name;
-    sha256 = "sha256-BV5+A/CnaCX8t9oHt3Q0nxWGJvRUYWQ3IpBK3NlJbj0=";
+    sha256 = "sha256-/r9vPTzGrZOx1EhtfxPZFIax08O9EY1PyB3l5XKKtXo=";
   };
   meta = {
     description = "HyDE Theme: Synth Wave";
