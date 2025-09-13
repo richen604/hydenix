@@ -12,6 +12,7 @@ let
       inputs.hydenix.lib.overlays
       (final: prev: {
         userPkgs = import inputs.nixpkgs {
+          inherit (pkgs) system;
           config.allowUnfree = true;
         };
       })
