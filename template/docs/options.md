@@ -115,7 +115,7 @@ below are the default options for hydenix. they are in *object format* and any o
       dolphin.enable = true; # file manager
       editors = {
         enable = true; # enable editors module
-        neovim.enable = true; # enable neovim module
+        neovim = true; # enable neovim module
         vscode = {
           enable = true; # enable vscode module
           wallbash = true; # enable wallbash extension for vscode
