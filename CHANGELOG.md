@@ -1,3 +1,10 @@
+## [4.10.1](https://github.com/richen604/hydenix/compare/v4.10.0...v4.10.1) (2025-09-14)
+
+
+### Bug Fixes
+
+* **userpkgs:** add system context to prevent evaluation errors ([1b1214c](https://github.com/richen604/hydenix/commit/1b1214c534de4929194bd4ac129c842bf74a8a82))
+
 # [4.10.0](https://github.com/richen604/hydenix/compare/v4.9.0...v4.10.0) (2025-08-28)
 
 
