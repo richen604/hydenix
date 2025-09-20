@@ -26,6 +26,7 @@ in
       Tela-circle-dracula
       kdePackages.kconfig # TODO: not sure if this is still needed
       wf-recorder # screen recorder for wlroots-based compositors such as sway
+      python-pyamdgpuinfo
     ];
 
     fonts.fontconfig.enable = true;
@@ -74,7 +75,10 @@ in
       };
 
       ".local/bin/hyde-shell" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.local/bin/hyde-shell";
+        source = pkgs.writeShellScript "hyde-shell-wrapped" ''
+          export PYTHONPATH="${pkgs.python-pyamdgpuinfo}/${pkgs.python3.sitePackages}:$PYTHONPATH"
+          exec "${pkgs.hydenix.hyde}/Configs/.local/bin/hyde-shell" "$@"
+        '';
         executable = true;
       };
 
