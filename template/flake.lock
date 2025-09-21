@@ -21,6 +21,7 @@
     "home-manager": {
       "inputs": {
         "nixpkgs": [
+          "hydenix",
           "hydenix-nixpkgs"
         ]
       },
@@ -58,6 +59,7 @@
     "hyde-config": {
       "inputs": {
         "nixpkgs": [
+          "hydenix",
           "hydenix-nixpkgs"
         ]
       },
@@ -78,6 +80,7 @@
     "hyde-ipc": {
       "inputs": {
         "nixpkgs": [
+          "hydenix",
           "hydenix-nixpkgs"
         ],
         "rust-overlay": "rust-overlay"
@@ -99,6 +102,7 @@
     "hydectl": {
       "inputs": {
         "nixpkgs": [
+          "hydenix",
           "hydenix-nixpkgs"
         ]
       },
@@ -114,6 +118,29 @@
         "owner": "richen604",
         "repo": "hydectl",
         "type": "github"
+      }
+    },
+    "hydenix": {
+      "inputs": {
+        "home-manager": "home-manager",
+        "hyde": "hyde",
+        "hyde-config": "hyde-config",
+        "hyde-ipc": "hyde-ipc",
+        "hydectl": "hydectl",
+        "hydenix-nixpkgs": "hydenix-nixpkgs",
+        "hyq": "hyq",
+        "nix-index-database": "nix-index-database",
+        "nixos-hardware": "nixos-hardware"
+      },
+      "locked": {
+        "lastModified": 0,
+        "narHash": "sha256-hLU5CEQA5z/rTFlZnhDUVbGH6RoyPF2h17Bw+uE/RxM=",
+        "path": "../",
+        "type": "path"
+      },
+      "original": {
+        "path": "../",
+        "type": "path"
       }
     },
     "hydenix-nixpkgs": {
@@ -136,6 +163,7 @@
       "inputs": {
         "flake-utils": "flake-utils",
         "nixpkgs": [
+          "hydenix",
           "hydenix-nixpkgs"
         ]
       },
@@ -156,7 +184,28 @@
     "nix-index-database": {
       "inputs": {
         "nixpkgs": [
+          "hydenix",
           "hydenix-nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1757822619,
+        "narHash": "sha256-3HIpe3P2h1AUPYcAH9cjuX0tZOqJpX01c0iDwoUYNZ8=",
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "rev": "050a5feb5d1bb5b6e5fc04a7d3d816923a87c9ea",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "type": "github"
+      }
+    },
+    "nix-index-database_2": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
         ]
       },
       "locked": {
@@ -205,17 +254,27 @@
         "type": "github"
       }
     },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1758277210,
+        "narHash": "sha256-iCGWf/LTy+aY0zFu8q12lK8KuZp7yvdhStehhyX1v8w=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "8eaee110344796db060382e15d3af0a9fc396e0e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
-        "home-manager": "home-manager",
-        "hyde": "hyde",
-        "hyde-config": "hyde-config",
-        "hyde-ipc": "hyde-ipc",
-        "hydectl": "hydectl",
-        "hydenix-nixpkgs": "hydenix-nixpkgs",
-        "hyq": "hyq",
-        "nix-index-database": "nix-index-database",
-        "nixos-hardware": "nixos-hardware"
+        "hydenix": "hydenix",
+        "nix-index-database": "nix-index-database_2",
+        "nixpkgs": "nixpkgs_2"
       }
     },
     "rust-overlay": {
