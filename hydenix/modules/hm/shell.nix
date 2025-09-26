@@ -226,6 +226,22 @@ in
           bindkey '\e[F' end-of-line
         '')
 
+        # needs to be sourced after 550
+        (lib.mkOrder 910 ''
+          # Source the rest of the functions
+          if [[ -d ~/.config/zsh/functions ]]; then
+              for file in ~/.config/zsh/functions/*.zsh; do
+                  [[ -f "$file" ]] && source "$file"
+              done
+          fi
+
+          if [[ -d ~/.config/zsh/completions ]]; then
+              for file in ~/.config/zsh/completions/*.zsh; do
+                  [[ -f "$file" ]] && source "$file"
+              done
+          fi
+        '')
+
         # Regular initialization content
         ''
           ${lib.optionalString cfg.pokego.enable ''
