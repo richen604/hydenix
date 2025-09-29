@@ -5,6 +5,7 @@
 
 ## now
 
+- use pkgs.buildEnv with `ignoreCollisions=true;` for themes instead of meta.priority
 - feat: new themes to build
 
 ## next
@@ -18,8 +19,6 @@
   - waybar
 - docs: remove doc for overlays on theme for now i think unless i can fix it
   - adding the overlay causes `pkgs.hydenix.hyde` to disappear lol
-- feat: update.sh for themes, map name to hash (check daily), passThru update.sh caller github action and auto merge
-  - <https://github.com/NixOS/nixpkgs/blob/nixos-25.05/pkgs/by-name/ad/adi1090x-plymouth-themes/update.sh>
 - feat: vscode-nix-ide part of editors, enabled by default
 - fix: i don't think .config/waybar/modules is supposed to be set anymore
 
