@@ -29,6 +29,11 @@ in
       python-pyamdgpuinfo
     ];
 
+    # ensures hyprland config is available in session as per hyde uwsm update
+    home.sessionVariables = {
+      HYPRLAND_CONFIG = "${config.xdg.dataHome}/hypr/hyprland.conf";
+    };
+
     fonts.fontconfig.enable = true;
 
     # fixes cava from not initializing on boot
