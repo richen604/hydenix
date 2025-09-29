@@ -5,7 +5,7 @@ mkTheme rec {
     owner = "dim-ghub";
     repo = "AncientAliens";
     name = name;
-    rev = "main";
+    rev = "822c5126ef727e75570e174e9f54894f203587ee";
     sha256 = "sha256-lcrl87sYXNg17oxL1hnGvrcZPpPkCRFllIGWf9/1bZU=";
   };
   meta = {
