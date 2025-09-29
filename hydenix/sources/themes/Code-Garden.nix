@@ -4,7 +4,7 @@ mkTheme rec {
   src = pkgs.fetchFromGitHub {
     owner = "jacobfranco";
     repo = "Code-Garden";
-    rev = "main";
+    rev = "4d3ce14a1a17029a7cfe4b1b44c24575b596af8d";
     name = name;
     sha256 = "sha256-WvuVrgllMhste24dWGKw3I0eBBJMHoOYQCheLofenUE=";
   };

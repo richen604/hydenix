@@ -5,7 +5,7 @@ mkTheme rec {
     owner = "xaicat";
     repo = "LimeFrenzy";
     name = name;
-    rev = "main";
+    rev = "ce1d07c439fbe870a2c58c2c08288e203eb87468";
     sha256 = "sha256-mQzSm7XtU1swm77uf0h0rOMqa1hc3uLmiLXdn15dz08=";
   };
   meta = {
