@@ -26,6 +26,10 @@ pkgs.stdenv.mkDerivation {
     find . -type f -executable -print0 | xargs -0 sed -i 's/find "/find -L "/g'
     find . -type f -name "*.sh" -print0 | xargs -0 sed -i 's/find "/find -L "/g'
 
+    # remove lines 187-190 from Configs/.local/lib/hyde/theme.switch.sh
+    # fixes gtk4 themes
+    sed -i '187,190d' Configs/.local/lib/hyde/theme.switch.sh
+
     # BUILD FONTS
     mkdir -p $out/share/fonts/truetype
     for fontarchive in ./Source/arcs/Font_*.tar.gz; do
