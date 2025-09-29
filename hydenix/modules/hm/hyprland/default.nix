@@ -45,9 +45,14 @@ in
       chmod 644 "$HOME/.config/hypr/themes/colors.conf"
       chmod 644 "$HOME/.config/hypr/themes/theme.conf"
       chmod 644 "$HOME/.config/hypr/themes/wallbash.conf"
+
     '';
 
     home.file = {
+      ".local/share/hypr/" = {
+        source = "${pkgs.hydenix.hyde}/Configs/.local/share/hypr/";
+        recursive = true;
+      };
       ".config/hypr/hyprland.conf" =
         if cfg.overrideMain != null then
           {
@@ -59,8 +64,6 @@ in
             source = "${pkgs.hydenix.hyde}/Configs/.config/hypr/hyprland.conf";
             force = true;
           };
-
-      ".config/hypr/hyde.conf".source = "${pkgs.hydenix.hyde}/Configs/.config/hypr/hyde.conf";
 
       ".config/hypr/userprefs.conf" = {
         text = cfg.extraConfig;
