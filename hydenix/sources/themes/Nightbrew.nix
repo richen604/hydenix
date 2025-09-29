@@ -4,7 +4,7 @@ mkTheme rec {
   src = pkgs.fetchFromGitHub {
     owner = "jackpawlik1";
     repo = "Nightbrew";
-    rev = "main";
+    rev = "7cd0355316c1d302cda31076d0a713549007d1bd";
     name = name;
     sha256 = "sha256-yoAU7x8blO2pTQCy64+c8Y4XKdlFF04Wx8aAkX2xMUc=";
   };
