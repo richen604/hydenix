@@ -75,7 +75,7 @@ in
       };
 
       ".local/bin/hyde-shell" = {
-        source = pkgs.writeShellScript "hyde-shell-wrapped" ''
+        source = pkgs.writeShellScript "hyde-shell" ''
           export PYTHONPATH="${pkgs.python-pyamdgpuinfo}/${pkgs.python3.sitePackages}:$PYTHONPATH"
           exec "${pkgs.hydenix.hyde}/Configs/.local/bin/hyde-shell" "$@"
         '';
