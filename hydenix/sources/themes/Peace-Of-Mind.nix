@@ -4,7 +4,7 @@ mkTheme rec {
   src = pkgs.fetchFromGitHub {
     owner = "Maroc02";
     repo = "Peace-Of-Mind";
-    rev = "main";
+    rev = "45ee6f24bc7f4cabdc8478e00c44172e907ba9e4";
     name = name;
     sha256 = "sha256-9FpH9PvykUHzJOp3NkWeExoM2taesHmVmruUge5xH3M=";
   };

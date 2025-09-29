@@ -4,7 +4,7 @@ mkTheme rec {
   src = pkgs.fetchFromGitHub {
     owner = "cyb3rgh0u1";
     repo = "Crimson-Blade";
-    rev = "main";
+    rev = "9603993976e4159e7f858abcf618835d39a1e757";
     name = name;
     sha256 = "sha256-ooQJN3XcE7ZyC2JIlLCC6jraQC9pnwjRSila0Z19G3I=";
   };

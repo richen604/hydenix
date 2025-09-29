@@ -4,7 +4,7 @@ mkTheme rec {
   src = pkgs.fetchFromGitHub {
     owner = "mahaveergurjar";
     repo = "Theme-Gallery";
-    rev = "Monokai";
+    rev = "da57d03eddf8a86efd9461fe82fbde290f81559d";
     name = name;
     sha256 = "sha256-bwjFzGVemYCU9zOT7v5gVvnrzsxZ09YlYt87P73nA3I=";
   };

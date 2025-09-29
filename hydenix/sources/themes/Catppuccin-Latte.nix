@@ -4,7 +4,7 @@ mkTheme rec {
   src = pkgs.fetchFromGitHub {
     owner = "HyDE-Project";
     repo = "hyde-themes";
-    rev = "Catppuccin-Latte";
+    rev = "9a9332bb660ecb2e05671b7dcd7dd058b0803e48";
     name = name;
     sha256 = "sha256-dW5DgXFxFNjt54Styzk+Ew3pv4rO1FX/qtfDGIClLuY=";
   };
