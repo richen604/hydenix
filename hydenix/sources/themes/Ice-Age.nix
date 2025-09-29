@@ -6,7 +6,7 @@ mkTheme rec {
     repo = "Ice-Age";
     rev = "main";
     name = name;
-    sha256 = "sha256-hS3PwjzRe7JUaB5eQ6AAS0OUg6fajictQrNdXkpVynw=";
+    sha256 = "sha256-IWevprHXKgGh/h/zBUgDu+hSFkEp4VOwbt6qrWgpsuQ=";
   };
   meta = {
     description = "HyDE Theme: Ice Age";
