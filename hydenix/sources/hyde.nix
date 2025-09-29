@@ -26,17 +26,6 @@ pkgs.stdenv.mkDerivation {
     find . -type f -executable -print0 | xargs -0 sed -i 's/find "/find -L "/g'
     find . -type f -name "*.sh" -print0 | xargs -0 sed -i 's/find "/find -L "/g'
 
-    # fix pyamdgpuinfo imports - replace pip_env.v_import with direct import
-    find . -type f -name "*.py" -print0 | xargs -0 sed -i 's/pip_env\.v_import("pyamdgpuinfo")/import pyamdgpuinfo/g'
-
-    # remove pip_env import lines where only pyamdgpuinfo is being imported
-    find . -type f -name "*.py" -exec grep -l "pip_env" {} \; | while read file; do
-      if grep -q 'pip_env\.v_import("pyamdgpuinfo")' "$file" && ! grep -q 'pip_env\.v_import(' "$file" | grep -v pyamdgpuinfo; then
-        sed -i '/from.*pip_env import/d' "$file"
-        sed -i '/import.*pip_env/d' "$file"
-      fi
-    done
-
     # BUILD FONTS
     mkdir -p $out/share/fonts/truetype
     for fontarchive in ./Source/arcs/Font_*.tar.gz; do
