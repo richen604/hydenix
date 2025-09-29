@@ -30,6 +30,9 @@ pkgs.stdenv.mkDerivation {
     # fixes gtk4 themes
     sed -i '187,190d' Configs/.local/lib/hyde/theme.switch.sh
 
+    # remove pkill command from rofilaunch.sh
+    sed -i '5d' Configs/.local/lib/hyde/rofilaunch.sh
+
     # BUILD FONTS
     mkdir -p $out/share/fonts/truetype
     for fontarchive in ./Source/arcs/Font_*.tar.gz; do

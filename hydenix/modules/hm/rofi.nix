@@ -36,5 +36,22 @@ in
       $DRY_RUN_CMD mkdir -p "$HOME/.local/share/rofi/themes"
       $DRY_RUN_CMD find "$HOME/.local/share/hyde/rofi/themes" -type f -o -type l -exec ln -snf {} "$HOME/.local/share/rofi/themes/" \; 2>/dev/null || true
     '';
+
+    home.file = {
+
+      ".local/share/hyde/rofi/assets/" = {
+        source = "${pkgs.hydenix.hyde}/Configs/.local/share/hyde/rofi/assets/";
+        recursive = true;
+        force = true;
+        mutable = true;
+      };
+
+      ".local/share/hyde/rofi/themes/" = {
+        source = "${pkgs.hydenix.hyde}/Configs/.local/share/hyde/rofi/themes/";
+        recursive = true;
+        force = true;
+        mutable = true;
+      };
+    };
   };
 }
