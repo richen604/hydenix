@@ -185,6 +185,23 @@ in
       };
     };
 
+    # Pyprland configurations
+    pyprland = {
+      enable = lib.mkEnableOption "pyprland configurations" // {
+        default = cfg.enable;
+      };
+      extraConfig = lib.mkOption {
+        type = lib.types.lines;
+        default = "";
+        description = "Additional pyprland configuration";
+      };
+      overrideConfig = lib.mkOption {
+        type = lib.types.nullOr lib.types.lines;
+        default = null;
+        description = "Complete pyprland configuration override";
+      };
+    };
+
     # Monitor configurations
     monitors = {
       enable = lib.mkEnableOption "monitor configurations" // {

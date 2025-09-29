@@ -180,6 +180,13 @@ below are the default options for hydenix. they are in *object format* and any o
           extraConfig = ""; # additional NVIDIA configuration
           overrideConfig = null; # complete NVIDIA configuration override (null or lib.types.lines)
         };
+        # Pyprland configurations
+        pyprland = {
+          enable = true; # enable pyprland configurations
+          extraConfig = ""; # additional pyprland configuration
+          overrideConfig = null; # complete pyprland configuration override (null or lib.types.lines)
+        };
+
         # Monitor configurations
         monitors = {
           enable = true; # enable monitor configurations
