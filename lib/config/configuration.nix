@@ -3,22 +3,23 @@
   ...
 }:
 let
-  hydenix-pkgs = import inputs.hydenix-nixpkgs {
-    inherit (inputs.lib) system;
+  system = "x86_64-linux";
+  pkgs = import inputs.nixpkgs {
+    inherit system;
     config.allowUnfree = true;
     overlays = [
-      inputs.lib.overlays
+      inputs.self.overlays.default
     ];
   };
 in
 {
 
-  nixpkgs.pkgs = hydenix-pkgs;
+  nixpkgs.pkgs = pkgs;
 
   imports = [
     inputs.home-manager.nixosModules.home-manager
     ./hardware-configuration.nix
-    inputs.lib.nixOsModules
+    inputs.self.nixosModules.default
     inputs.nixos-hardware.nixosModules.common-cpu-intel
     inputs.nixos-hardware.nixosModules.common-pc
     inputs.nixos-hardware.nixosModules.common-pc-ssd
@@ -36,11 +37,8 @@ in
       { ... }:
       {
         imports = [
-          inputs.lib.homeModules
+          inputs.self.homeModules.default
           ./home.nix
-
-          # Nix-index-database - for comma and command-not-found
-          inputs.nix-index-database.homeModules.nix-index
         ];
       };
   };
@@ -60,7 +58,7 @@ in
       "networkmanager"
       "video"
     ];
-    shell = hydenix-pkgs.zsh;
+    shell = pkgs.zsh;
   };
 
   system.stateVersion = "25.05";
