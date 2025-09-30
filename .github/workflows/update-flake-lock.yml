@@ -18,25 +18,25 @@ jobs:
       - uses: cachix/install-nix-action@v24
         with:
           nix_path: nixpkgs=channel:nixos-unstable
-      
+
       - name: Update nixpkgs input to unstable
         run: |
-          sed -i 's|hydenix-nixpkgs.url = "github:nixos/nixpkgs/.*"|hydenix-nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable"|' flake.nix
+          sed -i 's|nixpkgs.url = "github:nixos/nixpkgs/.*"|nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable"|' flake.nix
       - name: Update flake.lock
         run: nix flake update
       - name: Update flake.nix with new rev
         run: |
-          NEW_REV=$(jq -r '.nodes."hydenix-nixpkgs".locked.rev' flake.lock)
+          NEW_REV=$(jq -r '.nodes."nixpkgs".locked.rev' flake.lock)
           if [ -n "$NEW_REV" ] && [ "$NEW_REV" != "null" ]; then
-            sed -i 's|hydenix-nixpkgs.url = "github:nixos/nixpkgs/[^"]*"|hydenix-nixpkgs.url = "github:nixos/nixpkgs/'$NEW_REV'"|' flake.nix
+            sed -i 's|nixpkgs.url = "github:nixos/nixpkgs/[^"]*"|nixpkgs.url = "github:nixos/nixpkgs/'$NEW_REV'"|' flake.nix
           else
             echo "Failed to extract revision from flake.lock"
             exit 1
           fi
       - name: Verify flake.nix
         run: |
-          grep -q "hydenix-nixpkgs.url" flake.nix || (echo "Failed to update flake.nix" && exit 1)
-      
+          grep -q "nixpkgs.url" flake.nix || (echo "Failed to update flake.nix" && exit 1)
+
       - name: Check Root Flake
         id: check_root
         continue-on-error: true
@@ -51,7 +51,7 @@ jobs:
           nix flake check
           git checkout flake.nix
           rm -f flake.lock
-      
+
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:

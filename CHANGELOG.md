@@ -11,7 +11,7 @@
 ### Bug Fixes
 
 * **editor:** set default applications and add common code mimetypes ([92c05fc](https://github.com/richen604/hydenix/commit/92c05fc3431362a6aee3d9173905fa5341aed2fd))
-* hydenix-nixpkgs as main version for inputs ([9038178](https://github.com/richen604/hydenix/commit/9038178d9f34dbbaec0306e86369ee22b2910a6e))
+* nixpkgs as main version for inputs ([9038178](https://github.com/richen604/hydenix/commit/9038178d9f34dbbaec0306e86369ee22b2910a6e))
 * removed unnecessary with lib ([7e1d51f](https://github.com/richen604/hydenix/commit/7e1d51ff611e9473df63bf4eef886ca598751057))
 * revert hyprland pkgs, bumped theme. fixes [#143](https://github.com/richen604/hydenix/issues/143) ([bc56c39](https://github.com/richen604/hydenix/commit/bc56c39a77d267712bee0429e269c4c19c91a578))
 * sddm pkg ([71a6a49](https://github.com/richen604/hydenix/commit/71a6a49d2b79913643991b035d419ab6efe1b69a))

@@ -1,5 +1,5 @@
 { inputs, ... }:
-inputs.hydenix-nixpkgs.lib.nixosSystem {
+inputs.nixpkgs.lib.nixosSystem {
   system = "x86_64-linux";
   modules = [
     (
