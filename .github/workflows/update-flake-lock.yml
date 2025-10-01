@@ -8,6 +8,9 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  # Required for `create-pull-request` to create a PR directly against the base branch
+  # if an existing PR for the branch already exists.
+  # Also required for auto-merging.
 
 jobs:
   lockfile:
@@ -21,7 +24,7 @@ jobs:
 
       - name: Update nixpkgs input to unstable
         run: |
-          sed -i 's|nixpkgs.url = "github:nixos/nixpkgs/.*"|nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable"|' flake.nix
+          sed -i 's|nixpkgs.url = "github:nixos/nixpkgs/.*"|nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"|' flake.nix
       - name: Update flake.lock
         run: nix flake update
       - name: Update flake.nix with new rev
@@ -39,28 +42,81 @@ jobs:
 
       - name: Check Root Flake
         id: check_root
-        continue-on-error: true
-        run: nix flake check
+        continue-on-error: true # Temporarily set to true to capture output even on failure
+        run: |
+          ROOT_CHECK_RESULT=$(nix flake check 2>&1 || true) # Capture output, and continue on error
+          echo "root_check_output<<EOF" >> $GITHUB_OUTPUT
+          echo "$ROOT_CHECK_RESULT" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          if echo "$ROOT_CHECK_RESULT" | grep -q 'error'; then
+            echo "ROOT_CHECK_SUCCESS=false" >> $GITHUB_OUTPUT
+          else
+            echo "ROOT_CHECK_SUCCESS=true" >> $GITHUB_OUTPUT
+          fi
 
       - name: Check Template Flake
         id: check_template
-        continue-on-error: true
+        continue-on-error: true # Temporarily set to true to capture output even on failure
         run: |
           cd template
           sed -i 's|url = "github:richen604/hydenix"|url = "path:../"|' flake.nix
-          nix flake check
+          TEMPLATE_CHECK_RESULT=$(nix flake check 2>&1 || true) # Capture output, and continue on error
+          echo "template_check_output<<EOF" >> $GITHUB_OUTPUT
+          echo "$TEMPLATE_CHECK_RESULT" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          if echo "$TEMPLATE_CHECK_RESULT" | grep -q 'error'; then
+            echo "TEMPLATE_CHECK_SUCCESS=false" >> $GITHUB_OUTPUT
+          else
+            echo "TEMPLATE_CHECK_SUCCESS=true" >> $GITHUB_OUTPUT
+          fi
           git checkout flake.nix
           rm -f flake.lock
 
       - name: Create Pull Request
+        id: create_pr
         uses: peter-evans/create-pull-request@v5
         with:
           commit-message: "chore(deps): update flake.lock"
           title: "chore(deps): update flake.lock"
-          branch: update-flake-lock-${{ github.run_id }}
-          delete-branch: true
+          branch: update-flake-lock
+          token: ${{ secrets.GITHUB_TOKEN }}
           body: |
             Updated flake.lock file.
 
-            Root Flake check: ${{ steps.check_root.outcome == 'success' && '✅ Passed' || '❌ Failed' }}
-            Template Flake check: ${{ steps.check_template.outcome == 'success' && '✅ Passed' || '❌ Failed' }}
+            ---
+
+            ### Root Flake Check: ${{ steps.check_root.outputs.ROOT_CHECK_SUCCESS == 'true' && '✅ Passed' || '❌ Failed' }}
+            <details>
+            <summary>View output</summary>
+
+            ```
+            ${{ steps.check_root.outputs.root_check_output }}
+            ```
+
+            </details>
+
+            ### Template Flake Check: ${{ steps.check_template.outputs.TEMPLATE_CHECK_SUCCESS == 'true' && '✅ Passed' || '❌ Failed' }}
+            <details>
+            <summary>View output</summary>
+
+            ```
+            ${{ steps.check_template.outputs.template_check_output }}
+            ```
+
+            </details>
+
+            ---
+        if: always()
+
+      - name: Enable auto-merge on PR
+        if: ${{ steps.check_root.outputs.ROOT_CHECK_SUCCESS == 'true' && steps.check_template.outputs.TEMPLATE_CHECK_SUCCESS == 'true' && steps.create_pr.outputs.pull-request-number }}
+        run: |
+          gh pr merge ${{ steps.create_pr.outputs.pull-request-number }} --auto --squash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check overall status and fail if necessary
+        if: ${{ steps.check_root.outputs.ROOT_CHECK_SUCCESS == 'false' || steps.check_template.outputs.TEMPLATE_CHECK_SUCCESS == 'false' }}
+        run: |
+          echo "One or more flake checks failed. Failing workflow as requested."
+          exit 1
