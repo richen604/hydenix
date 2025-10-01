@@ -3,6 +3,8 @@
   ...
 }:
 let
+  # FOLLOW THE BELOW INSTRUCTIONS LINE BY LINE TO SET UP YOUR SYSTEM
+
   # Package configuration - sets up package system with proper overlays
   # Most users won't need to modify this section
   system = "x86_64-linux";

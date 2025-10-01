@@ -12,7 +12,9 @@
       # Commit: github:richen604/hydenix/<commit-hash>
       # Version: github:richen604/hydenix/v1.0.0 - note the version may not be compatible with this template
       url = "github:richen604/hydenix";
-      inputs.nixpkgs.follows = "nixpkgs";
+
+      # uncomment the below if you know what you're doing, hydenix updates nixos-unstable every week or so
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Home Manager
