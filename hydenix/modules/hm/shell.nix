@@ -4,7 +4,6 @@
   pkgs,
   ...
 }:
-
 let
   cfg = config.hydenix.hm.shell;
 in
@@ -86,7 +85,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-
     home.packages =
       with pkgs;
       [
@@ -131,10 +129,6 @@ in
         ".4" = "cd ../../../..";
         ".5" = "cd ../../../../..";
         mkdir = "mkdir -p";
-        ffec = "_fuzzy_edit_search_file_content";
-        ffcd = "_fuzzy_change_directory";
-        ffe = "_fuzzy_edit_search_file";
-        df = "_df";
       };
 
       # Using the new initContent API with proper ordering
@@ -142,85 +136,6 @@ in
         # Early initialization (before completion init) - order 550
         (lib.mkOrder 550 ''
           #!/usr/bin/env zsh
-          function no_such_file_or_directory_handler {
-              local red='\e[1;31m' reset='\e[0m'
-              printf "''${red}zsh: no such file or directory: %s''${reset}\n" "$1"
-              return 127
-          }
-
-          # best fzf aliases ever
-          _fuzzy_change_directory() {
-              local initial_query="$1"
-              local selected_dir
-              local fzf_options=('--preview=ls -p {}' '--preview-window=right:60%')
-              fzf_options+=(--height "80%" --layout=reverse --preview-window right:60% --cycle)
-              local max_depth=7
-
-              if [[ -n "$initial_query" ]]; then
-                  fzf_options+=("--query=$initial_query")
-              fi
-
-              #type -d
-              selected_dir=$(find . -maxdepth $max_depth \( -name .git -o -name node_modules -o -name .venv -o -name target -o -name .cache \) -prune -o -type d -print 2>/dev/null | fzf "''${fzf_options[@]}")
-
-              if [[ -n "$selected_dir" && -d "$selected_dir" ]]; then
-                  cd "$selected_dir" || return 1
-              else
-                  return 1
-              fi
-          }
-
-          _fuzzy_edit_search_file_content() {
-              # [f]uzzy [e]dit  [s]earch [f]ile [c]ontent
-              local selected_file
-              selected_file=$(grep -irl "''${1:-}" ./ | fzf --height "80%" --layout=reverse --preview-window right:60% --cycle --preview 'cat {}' --preview-window right:60%)
-
-              if [[ -n "$selected_file" ]]; then
-                  if command -v "$EDITOR" &>/dev/null; then
-                      "$EDITOR" "$selected_file"
-                  else
-                      echo "EDITOR is not specified. using vim.  (you can export EDITOR in ~/.zshrc)"
-                      vim "$selected_file"
-                  fi
-              else
-                  echo "No file selected or search returned no results."
-              fi
-          }
-
-          _fuzzy_edit_search_file() {
-              local initial_query="$1"
-              local selected_file
-              local fzf_options=()
-              fzf_options+=(--height "80%" --layout=reverse --preview-window right:60% --cycle)
-              local max_depth=5
-
-              if [[ -n "$initial_query" ]]; then
-                  fzf_options+=("--query=$initial_query")
-              fi
-
-              # -type f: only find files
-              selected_file=$(find . -maxdepth $max_depth -type f 2>/dev/null | fzf "''${fzf_options[@]}")
-
-              if [[ -n "$selected_file" && -f "$selected_file" ]]; then
-                  if command -v "$EDITOR" &>/dev/null; then
-                      "$EDITOR" "$selected_file"
-                  else
-                      echo "EDITOR is not specified. using vim.  (you can export EDITOR in ~/.zshrc)"
-                      vim "$selected_file"
-                  fi
-              else
-                  return 1
-              fi
-          }
-
-          _df() {
-              if [[ $# -ge 1 && -e "''${@: -1}" ]]; then
-                  duf "''${@: -1}"
-              else
-                  duf
-              fi
-          }
-
           # Some binds won't work on first prompt when deferred
           bindkey '\e[H' beginning-of-line
           bindkey '\e[F' end-of-line
@@ -379,21 +294,21 @@ in
         ".config/zsh/functions/bind_M_n_history.zsh".source =
           "${pkgs.hyde}/Configs/.config/zsh/functions/bind_M_n_history.zsh";
         ".config/zsh/functions/duf.zsh".source = "${pkgs.hyde}/Configs/.config/zsh/functions/duf.zsh";
-        ".config/zsh/functions/error-handlers.zsh".source =
-          "${pkgs.hyde}/Configs/.config/zsh/functions/error-handlers.zsh";
         ".config/zsh/functions/eza.zsh".source = "${pkgs.hyde}/Configs/.config/zsh/functions/eza.zsh";
         ".config/zsh/functions/fzf.zsh".source = "${pkgs.hyde}/Configs/.config/zsh/functions/fzf.zsh";
         ".config/zsh/functions/kb_help.zsh".source =
           "${pkgs.hyde}/Configs/.config/zsh/functions/kb_help.zsh";
 
-        # We are not including any of these configurations as they are part of the existing zsh options
-        # ".config/zsh/.zshenv".source = "${pkgs.hyde}/Configs/.config/zsh/.zshenv";
-        # ".config/zsh/user.zsh".source = "${pkgs.hyde}/Configs/.config/zsh/user.zsh";
-        # ".config/zsh/prompt.zsh".source = "${pkgs.hyde}/Configs/.config/zsh/prompt.zsh";
-        # ".config/zsh/conf.d/hyde/terminal.zsh".source = "${pkgs.hyde}/Configs/.config/zsh/conf.d/hyde/terminal.zsh";
-        # ".config/zsh/conf.d/00-hyde.zsh".source = "${pkgs.hyde}/Configs/.config/zsh/conf.d/00-hyde.zsh";
-        # ".config/zsh/conf.d/hyde/env.zsh".source = "${pkgs.hyde}/Configs/.config/zsh/conf.d/hyde/env.zsh";
-        # ".config/zsh/conf.d/hyde/prompt.zsh".source = "${pkgs.hyde}/Configs/.config/zsh/conf.d/hyde/prompt.zsh";
+        # We are not including any of these configurations as they are part of the existing zsh home-manager options
+        # ".config/zsh/functions/error-handlers.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/functions/error-handlers.zsh";
+        # ".config/zsh/functions/fzf.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/functions/fzf.zsh";
+        # ".config/zsh/.zshenv".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/.zshenv";
+        # ".config/zsh/user.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/user.zsh";
+        # ".config/zsh/prompt.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/prompt.zsh";
+        # ".config/zsh/conf.d/hyde/terminal.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/conf.d/hyde/terminal.zsh";
+        # ".config/zsh/conf.d/00-hyde.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/conf.d/00-hyde.zsh";
+        # ".config/zsh/conf.d/hyde/env.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/conf.d/hyde/env.zsh";
+        # ".config/zsh/conf.d/hyde/prompt.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/conf.d/hyde/prompt.zsh";
       })
       (lib.mkIf cfg.fish.enable {
         # Fish configs
