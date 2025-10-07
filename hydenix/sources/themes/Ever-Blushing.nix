@@ -11,5 +11,6 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: Ever-Blushing";
     homepage = "https://github.com/rishav12s/Ever-Blushing";
+    priority = 10;
   };
 }

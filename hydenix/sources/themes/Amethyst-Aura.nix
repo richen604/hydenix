@@ -12,5 +12,6 @@ mkTheme rec {
     name = name;
     description = "HyDE Theme: Amethyst-Aura";
     homepage = "https://github.com/jackpawlik1/Amethyst-Aura";
+    priority = 90;
   };
 }

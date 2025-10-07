@@ -11,5 +11,6 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: Tundra";
     homepage = "https://github.com/Prof-Shiba/Tundra";
+    priority = 100;
   };
 }

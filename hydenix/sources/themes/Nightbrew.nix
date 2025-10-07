@@ -12,5 +12,6 @@ mkTheme rec {
     name = name;
     description = "HyDE Theme: Nightbrew";
     homepage = "https://github.com/jackpawlik1/Nightbrew";
+    priority = 100;
   };
 }

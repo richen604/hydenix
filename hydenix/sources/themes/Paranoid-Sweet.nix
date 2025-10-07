@@ -11,5 +11,6 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: Paranoid Sweet";
     homepage = "https://github.com/rishav12s/Paranoid-Sweet";
+    priority = 10;
   };
 }

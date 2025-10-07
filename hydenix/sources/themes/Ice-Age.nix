@@ -11,5 +11,6 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: Ice Age";
     homepage = "https://github.com/saber-88/Ice-Age";
+    priority = 15;
   };
 }

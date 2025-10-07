@@ -11,5 +11,6 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: Sci-fi";
     homepage = "https://github.com/KaranRaval123/Sci-fi";
+    priority = 20;
   };
 }

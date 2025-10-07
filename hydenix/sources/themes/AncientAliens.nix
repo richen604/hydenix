@@ -11,5 +11,6 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: AncientAliens";
     homepage = "https://github.com/dim-ghub/AncientAliens";
+    priority = 100;
   };
 }

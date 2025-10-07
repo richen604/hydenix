@@ -11,5 +11,6 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: A striking fusion of sharp elegance, cutting through the darkness with bold hues.";
     homepage = "https://github.com/cyb3rgh0u1/Crimson-Blade";
+    priority = 10;
   };
 }

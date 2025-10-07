@@ -11,5 +11,6 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: One Dark";
     homepage = "https://github.com/RAprogramm/HyDe-Themes/tree/One-Dark";
+    priority = 10;
   };
 }

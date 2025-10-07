@@ -12,5 +12,6 @@ mkTheme rec {
     name = name;
     description = "HyDE Theme: Peace Of Mind";
     homepage = "https://github.com/Maroc02/Peace-Of-Mind";
+    priority = 100;
   };
 }

@@ -11,5 +11,6 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: BlueSky";
     homepage = "https://github.com/richen604/BlueSky";
+    priority = 10;
   };
 }

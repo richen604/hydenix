@@ -11,5 +11,6 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: Eternal-Arctic";
     homepage = "https://github.com/rishav12s/Eternal-Arctic";
+    priority = 10;
   };
 }

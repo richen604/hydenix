@@ -11,5 +11,6 @@ mkTheme rec {
   meta = {
     description = "Pixel Art inspired theme";
     homepage = "https://github.com/rishav12s/Pixel-Dream";
+    priority = 10;
   };
 }

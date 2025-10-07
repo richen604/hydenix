@@ -11,5 +11,6 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: Oxo Carbon";
     homepage = "https://github.com/rishav12s/Oxo-Carbon";
+    priority = 10;
   };
 }

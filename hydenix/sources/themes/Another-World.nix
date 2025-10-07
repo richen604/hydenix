@@ -11,5 +11,6 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: Another World";
     homepage = "https://github.com/cyb3rgh0u1/Another-World";
+    priority = 10;
   };
 }

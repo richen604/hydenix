@@ -11,5 +11,6 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: Moonlight";
     homepage = "https://github.com/Maroc02/Moonlight";
+    priority = 10;
   };
 }

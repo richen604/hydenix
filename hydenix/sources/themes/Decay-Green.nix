@@ -11,5 +11,6 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: Decay Green";
     homepage = "https://github.com/HyDE-Project/hyde-themes/tree/Decay-Green";
+    priority = 100;
   };
 }

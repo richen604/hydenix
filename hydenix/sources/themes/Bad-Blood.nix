@@ -11,5 +11,6 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: Bad Blood";
     homepage = "https://github.com/HyDE-Project/hyde-gallery/tree/Bad-Blood";
+    priority = 10;
   };
 }

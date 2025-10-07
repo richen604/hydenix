@@ -12,5 +12,6 @@ mkTheme rec {
     name = name;
     description = "HyDE Theme: Crimson-Blue";
     homepage = "https://github.com/amit-0i/Crimson-Blue";
+    priority = 100;
   };
 }

@@ -11,5 +11,6 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: Catppuccin Mocha";
     homepage = "https://github.com/HyDE-Project/hyde-themes/tree/Catppuccin-Mocha";
+    priority = 100;
   };
 }

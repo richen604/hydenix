@@ -12,5 +12,6 @@ mkTheme rec {
     name = name;
     description = "HyDE Theme: Code Garden";
     homepage = "https://github.com/jacobfranco/Code-Garden";
+    priority = 100;
   };
 }

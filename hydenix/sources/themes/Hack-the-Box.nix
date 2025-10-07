@@ -11,5 +11,6 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: Hack the Box";
     homepage = "https://github.com/HyDE-Project/hyde-gallery/tree/Hack-the-Box";
+    priority = 10;
   };
 }

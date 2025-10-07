@@ -11,5 +11,6 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: Windows 11";
     homepage = "https://github.com/HyDE-Project/hyde-gallery/tree/Windows-11";
+    priority = 10;
   };
 }
