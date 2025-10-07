@@ -1,3 +1,178 @@
+# [5.0.0](https://github.com/richen604/hydenix/compare/v4.10.1...v5.0.0) (2025-10-07)
+
+
+* feat!: 5.0 release ([7f778f1](https://github.com/richen604/hydenix/commit/7f778f1005ad0010f6b8dc0cc8c245d2f4bce603))
+
+
+### Bug Fixes
+
+* gtk4 theme works correctly on theme changes ([38de924](https://github.com/richen604/hydenix/commit/38de924fb6419f7b7faa67afdd9259a11760da6a))
+* hyde bins import as pkgs, removed in hyde drv ([ee7ed73](https://github.com/richen604/hydenix/commit/ee7ed737b1f12c0c5a04a8b0ba4bde0034a9bb6f))
+* new hyprland location ([1499da7](https://github.com/richen604/hydenix/commit/1499da7d866dce5a7eab5d334e34a993ecdff6ef))
+* pyamdgpuinfo support for waybar modules [#151](https://github.com/richen604/hydenix/issues/151) ([53ddf86](https://github.com/richen604/hydenix/commit/53ddf863ca40b3204dbc10ac48c8b4a3b3eadb84))
+* removed unnecessary sound in vm ([ce04dcf](https://github.com/richen604/hydenix/commit/ce04dcf866a3b2f28b535631d48e99ab2e944ba6))
+* rofi themes and launch fix in hyde drv ([40d49f2](https://github.com/richen604/hydenix/commit/40d49f2e9987fb71f0636a3769cd603762b7030e))
+* theme correctly loads at boot with dconf ([4ffc60d](https://github.com/richen604/hydenix/commit/4ffc60d190f3bf32903c0d6d9d85de35d140202b))
+* themes correctly handle conflicts in arcs using symlinkJoin ([4342a77](https://github.com/richen604/hydenix/commit/4342a77ef4db079fda146b8e91692c484f78265b))
+* update nixpkgs input and fix rofi WIP ([#151](https://github.com/richen604/hydenix/issues/151)) ([3d41678](https://github.com/richen604/hydenix/commit/3d416788e94775c92bcd4df7a91878df3fa3314a))
+
+
+### Features
+
+* greetd hyprlock ([8879abb](https://github.com/richen604/hydenix/commit/8879abb2c2a8e4e39714beac8e45b8cba178182e))
+* new themes ([33b2b24](https://github.com/richen604/hydenix/commit/33b2b24d39ac4574b56f1886ac7e10b48aecf091))
+* new waybar modules ([e5a5f5c](https://github.com/richen604/hydenix/commit/e5a5f5ca06b02ef0a9703f98555f3fa39b975014))
+* nixpkgs and hyde uwsm update wip ([b2e1833](https://github.com/richen604/hydenix/commit/b2e1833a43edc3bf66ce4a8e9eb94b506ece874d))
+* pyprland module options for hyprland ([ee858e9](https://github.com/richen604/hydenix/commit/ee858e9d5eaebc643c44c135ceea75b5a9dbb9f5))
+* qt5 eol. removed hydenix.sddm.theme, added sddm astronaut theme ([ed637f7](https://github.com/richen604/hydenix/commit/ed637f776422e828dd9e4ce4831ab2d4c81b5c73))
+* update-themes script provisioned ([59135a0](https://github.com/richen604/hydenix/commit/59135a041a8e24b0cdb04d3fc0d2ddd58b8218f2))
+* xdg terminals list ([3e9ee0e](https://github.com/richen604/hydenix/commit/3e9ee0e112cc5247f473eb01025e3ee4ef353f7e))
+
+
+### BREAKING CHANGES
+
+* - updated hyde to f246f2a
+- hyde now uses uwsm (`hydenix.hm.uwsm.enable` is true by default)
+- hydenix no longer uses hyde's sddm themes as they rely on deprecated qt5 libraries, `sddm-astronaut` is now used instead by default
+- <details><summary>hydenix template changes: (click to expand)</summary>
+
+  (`template/flake.nix`)
+
+  ```diff
+  diff --git a/template/flake.nix b/template/flake.nix
+  index 125f1e9..0ba0e9a 100644
+  --- a/template/flake.nix
+  +++ b/template/flake.nix
+  @@ -2,31 +2,35 @@
+    description = "template for hydenix";
+
+    inputs = {
+  -    # User's nixpkgs - for user packages
+  +    # Your nixpkgs
+      nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+  -    # Hydenix and its nixpkgs - kept separate to avoid conflicts
+  +    # Hydenix
+      hydenix = {
+        # Available inputs:
+        # Main: github:richen604/hydenix
+  -      # Dev: github:richen604/hydenix/dev
+        # Commit: github:richen604/hydenix/<commit-hash>
+  -      # Version: github:richen604/hydenix/v1.0.0
+  +      # Version: github:richen604/hydenix/v1.0.0 - note the version may not be compatible with this template
+        url = "github:richen604/hydenix";
+  +      # uncomment the below if you know what you're doing, hydenix updates nixos-unstable every week or so
+  +      # inputs.nixpkgs.follows = "nixpkgs";
+      };
+
+  -    # Nix-index-database - for comma and command-not-found
+  -    nix-index-database = {
+  -      url = "github:nix-community/nix-index-database";
+  +    # Home Manager
+  +    home-manager = {
+  +      url = "github:nix-community/home-manager";
+        inputs.nixpkgs.follows = "nixpkgs";
+      };
+  +
+  +    # Hardware Configuration's, used in ./configuration.nix. Feel free to remove if unused
+  +    nixos-hardware.url = "github:nixos/nixos-hardware/master";
+    };
+
+    outputs =
+      { ... }@inputs:
+     let
+  -      hydenixConfig = inputs.hydenix.inputs.hydenix-nixpkgs.lib.nixosSystem {
+  -        inherit (inputs.hydenix.lib) system;
+  +      system = "x86_64-linux";
+  +      hydenixConfig = inputs.nixpkgs.lib.nixosSystem {
+  +        inherit system;
+           specialArgs = {
+             inherit inputs;
+           };
+  @@ -38,5 +42,6 @@
+       in
+       {
+         nixosConfigurations.hydenix = hydenixConfig;
+  +      nixosConfigurations.default = hydenixConfig;
+       };
+   }
+  ```
+
+  (`template/configuration.nix`)
+
+  ```diff
+  --- a/template/configuration.nix
+  +++ b/template/configuration.nix
+  @@ -5,17 +5,12 @@
+  let
+    # Package configuration - sets up package system with proper overlays
+    # Most users won't need to modify this section
+  -  pkgs = import inputs.hydenix.inputs.hydenix-nixpkgs {
+  -    inherit (inputs.hydenix.lib) system;
+  +  system = "x86_64-linux";
+  +  pkgs = import inputs.nixpkgs {
+  +    inherit system;
+      config.allowUnfree = true;
+      overlays = [
+  -      inputs.hydenix.lib.overlays
+  -      (final: prev: {
+  -        userPkgs = import inputs.nixpkgs {
+  -          inherit (pkgs) system;
+  -          config.allowUnfree = true;
+  -        };
+  -      })
+  +      inputs.hydenix.overlays.default
+      ];
+    };
+  in
+  @@ -24,8 +19,8 @@ in
+
+   imports = [
+     # hydenix inputs - Required modules, don't modify unless you know what you're doing
+  -    inputs.hydenix.inputs.home-manager.nixosModules.home-manager
+  -    inputs.hydenix.lib.nixOsModules
+  +    inputs.home-manager.nixosModules.home-manager
+  +    inputs.hydenix.nixosModules.default
+       ./modules/system # Your custom system modules
+       ./hardware-configuration.nix # Auto-generated hardware config
+
+  @@ -33,17 +28,17 @@ in
+       # Run `lshw -short` or `lspci` to identify your hardware
+
+       # GPU Configuration (choose one):
+  -    # inputs.hydenix.inputs.nixos-hardware.nixosModules.common-gpu-nvidia # NVIDIA
+  -    # inputs.hydenix.inputs.nixos-hardware.nixosModules.common-gpu-amd # AMD
+  +    # inputs.nixos-hardware.nixosModules.common-gpu-nvidia # NVIDIA
+  +    # inputs.nixos-hardware.nixosModules.common-gpu-amd # AMD
+
+       # CPU Configuration (choose one):
+  -    # inputs.hydenix.inputs.nixos-hardware.nixosModules.common-cpu-amd # AMD CPUs
+  -    # inputs.hydenix.inputs.nixos-hardware.nixosModules.common-cpu-intel # Intel CPUs
+  +    # inputs.nixos-hardware.nixosModules.common-cpu-amd # AMD CPUs
+  +    # inputs.nixos-hardware.nixosModules.common-cpu-intel # Intel CPUs
+
+       # Additional Hardware Modules - Uncomment based on your system type:
+  -    # inputs.hydenix.inputs.nixos-hardware.nixosModules.common-hidpi # High-DPI displays
+  +    # inputs.nixos-hardware.nixosModules.common-hidpi # High-DPI displays
+  +    # inputs.nixos-hardware.nixosModules.common-pc-laptop # Laptops
+  +    # inputs.nixos-hardware.nixosModules.common-pc-ssd # SSD storage
+     ];
+
+     # If enabling NVIDIA, you will be prompted to configure hardware.nvidia
+  @@ -68,8 +63,7 @@ in
+         { ... }:
+         {
+           imports = [
+  -          inputs.hydenix.lib.homeModules
+  -          inputs.nix-index-database.hmModules.nix-index # Command-not-found and comma tool support
+  +          inputs.hydenix.homeModules.default
+             ./modules/hm # Your custom home-manager modules (configure hydenix.hm here!)
+           ];
+         };
+  ```
+
+</details>
+
 ## [4.10.1](https://github.com/richen604/hydenix/compare/v4.10.0...v4.10.1) (2025-09-14)
 
 
