@@ -34,8 +34,8 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "chore(themes): automated theme updates"
-          title: "chore(themes): Automated HyDE Theme Updates"
+          commit-message: "feat(themes): automated theme updates"
+          title: "feat(themes): Automated HyDE Theme Updates"
           body: |
             This PR updates the `sha256` for HyDE themes based on their specified `rev`.
             Automated by GitHub Actions.
