@@ -4,7 +4,7 @@ mkTheme rec {
   src = pkgs.fetchFromGitHub {
     owner = "jackpawlik1";
     repo = "Amethyst-Aura";
-    rev = "821eb5523afb5920b9305dd2dc9206958cedd6a0";
+    rev = "main";
     name = name;
     sha256 = "sha256-NjF0QQxqdYIxqv63Hgo9Waxa1arPfFXK65mRo0N9gvk=";
   };

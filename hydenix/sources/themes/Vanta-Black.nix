@@ -4,7 +4,7 @@ mkTheme rec {
   src = pkgs.fetchFromGitHub {
     owner = "rishav12s";
     repo = "Vanta-Black";
-    rev = "2ad0f0c041bd90479f4b5e94e139804c2264d8ae";
+    rev = "Vanta-Black";
     name = name;
     sha256 = "sha256-4UZSpJPIzs2ZLQMt1QQz7VoyDW4jiOWZ9Xp1yU4k4Zs=";
   };

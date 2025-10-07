@@ -4,7 +4,7 @@ mkTheme rec {
   src = pkgs.fetchFromGitHub {
     owner = "rishav12s";
     repo = "Oxo-Carbon";
-    rev = "815812951eba40f71f6f2871be4ff3bd5159cfc7";
+    rev = "Oxo-Carbon";
     name = name;
     sha256 = "sha256-w+7Gky7L2crF4F7myhA64fXgjoWulLb/hWBaI6OMwBo=";
   };

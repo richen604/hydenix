@@ -4,7 +4,7 @@ mkTheme rec {
   src = pkgs.fetchFromGitHub {
     owner = "HyDE-Project";
     repo = "hyde-gallery";
-    rev = "f8f6070ec27329c52f145a156dd61929781e2048";
+    rev = "Hack-the-Box";
     name = name;
     sha256 = "sha256-VMDs9fnXX0v7iGSftA19UXxANY1sRjrK5ipMsfjU7Tg=";
   };

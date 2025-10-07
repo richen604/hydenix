@@ -4,7 +4,7 @@ mkTheme rec {
   src = pkgs.fetchFromGitHub {
     owner = "abenezerw";
     repo = "Scarlet-Night";
-    rev = "5edc142b5fad20985ee4049ee497479bfe03776a";
+    rev = "main";
     name = name;
     sha256 = "sha256-+RNKfwc8mfgSnNifMcxlHyBTzDvY5DXAJeNKbJsD8AU=";
   };
