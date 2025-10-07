@@ -39,17 +39,8 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    # Create a combined theme package using symlinkJoin with only selected themes
-    home.packages = [
-      (pkgs.symlinkJoin {
-        name = "hydenix-themes";
-        paths = lib.filter (p: p != null) (map findThemeByName availableThemes);
-        meta = {
-          description = "Combined HyDE themes package";
-          platforms = pkgs.lib.platforms.all;
-        };
-      })
-    ];
+    # Convert theme names to their corresponding packages, filtering out missing ones
+    home.packages = lib.filter (p: p != null) (map findThemeByName availableThemes);
 
     # walks through the themes and creates symlinks in the hyde themes directory
     home.file =
