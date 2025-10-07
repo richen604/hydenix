@@ -6,9 +6,9 @@ pkgs.stdenv.mkDerivation {
   src = pkgs.fetchFromGitHub {
     owner = "HyDE-Project";
     repo = "hyde-gallery";
-    rev = "9d819748ed54e6b04e25a7909d774d48db8edd58";
+    rev = "8067df5d450294d3c477f5f40a804e1cafc5336f";
     name = "hyde-gallery";
-    sha256 = "sha256-tEsTnNgsNBwjHWTTPhyUXqdxcoVmxtwYkmMslc/eMWY=";
+    sha256 = "";
   };
 
   installPhase = ''
