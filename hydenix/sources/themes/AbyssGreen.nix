@@ -11,6 +11,5 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: AbyssGreen";
     homepage = "https://github.com/Itz-Abhishek-Tiwari/AbyssGreen";
-    priority = 10;
   };
 }

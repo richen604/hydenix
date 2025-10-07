@@ -11,6 +11,5 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: Rosé Pine";
     homepage = "https://github.com/HyDE-Project/hyde-themes/tree/Rose-Pine";
-    priority = 100;
   };
 }

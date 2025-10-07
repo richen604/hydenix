@@ -12,6 +12,5 @@ mkTheme rec {
     name = name;
     description = "HyDE Theme: Electra";
     homepage = "https://github.com/XBEAST1/Electra";
-    priority = 80;
   };
 }

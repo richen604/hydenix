@@ -11,6 +11,5 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: Greenify";
     homepage = "https://github.com/mahaveergurjar/Theme-Gallery/tree/Greenify";
-    priority = 10;
   };
 }

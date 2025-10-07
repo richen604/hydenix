@@ -11,6 +11,5 @@ mkTheme rec {
   meta = {
     description = "Better Catppuccin-Latte that fixes the inconsistencies of the official theme";
     homepage = "https://github.com/rishav12s/Cat-Latte";
-    priority = 10;
   };
 }

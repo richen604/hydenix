@@ -11,6 +11,5 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: Red Stone";
     homepage = "https://github.com/mahaveergurjar/Theme-Gallery/tree/Red-Stone";
-    priority = 10;
   };
 }

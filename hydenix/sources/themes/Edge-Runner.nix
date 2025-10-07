@@ -11,6 +11,5 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: Edge Runner";
     homepage = "https://github.com/HyDE-Project/hyde-themes/tree/Edge-Runner";
-    priority = 100;
   };
 }

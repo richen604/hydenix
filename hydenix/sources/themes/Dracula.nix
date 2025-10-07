@@ -11,6 +11,5 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: Dracula";
     homepage = "https://github.com/RAprogramm/HyDe-Themes/tree/Dracula";
-    priority = 10;
   };
 }

@@ -11,6 +11,5 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: Monokai";
     homepage = "https://github.com/mahaveergurjar/Theme-Gallery/tree/Monokai";
-    priority = 10;
   };
 }
