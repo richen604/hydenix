@@ -54,7 +54,7 @@
         "Tundra"
         "Tokyo Night"
         #FIXME: theme conflicts with material sakura that wont fix
-        # "Vanta Black"
+        "Vanta Black"
         "Windows 11"
 
         "Another World"
