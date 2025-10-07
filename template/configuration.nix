@@ -5,12 +5,17 @@
 let
   # Package configuration - sets up package system with proper overlays
   # Most users won't need to modify this section
-  system = "x86_64-linux";
-  pkgs = import inputs.nixpkgs {
-    inherit system;
+  pkgs = import inputs.hydenix.inputs.hydenix-nixpkgs {
+    inherit (inputs.hydenix.lib) system;
     config.allowUnfree = true;
     overlays = [
-      inputs.hydenix.overlays.default
+      inputs.hydenix.lib.overlays
+      (final: prev: {
+        userPkgs = import inputs.nixpkgs {
+          inherit (pkgs) system;
+          config.allowUnfree = true;
+        };
+      })
     ];
   };
 in
@@ -19,8 +24,8 @@ in
 
   imports = [
     # hydenix inputs - Required modules, don't modify unless you know what you're doing
-    inputs.home-manager.nixosModules.home-manager
-    inputs.hydenix.nixosModules.default
+    inputs.hydenix.inputs.home-manager.nixosModules.home-manager
+    inputs.hydenix.lib.nixOsModules
     ./modules/system # Your custom system modules
     ./hardware-configuration.nix # Auto-generated hardware config
 
@@ -28,17 +33,17 @@ in
     # Run `lshw -short` or `lspci` to identify your hardware
 
     # GPU Configuration (choose one):
-    # inputs.nixos-hardware.nixosModules.common-gpu-nvidia # NVIDIA
-    # inputs.nixos-hardware.nixosModules.common-gpu-amd # AMD
+    # inputs.hydenix.inputs.nixos-hardware.nixosModules.common-gpu-nvidia # NVIDIA
+    # inputs.hydenix.inputs.nixos-hardware.nixosModules.common-gpu-amd # AMD
 
     # CPU Configuration (choose one):
-    # inputs.nixos-hardware.nixosModules.common-cpu-amd # AMD CPUs
-    # inputs.nixos-hardware.nixosModules.common-cpu-intel # Intel CPUs
+    # inputs.hydenix.inputs.nixos-hardware.nixosModules.common-cpu-amd # AMD CPUs
+    # inputs.hydenix.inputs.nixos-hardware.nixosModules.common-cpu-intel # Intel CPUs
 
     # Additional Hardware Modules - Uncomment based on your system type:
-    # inputs.nixos-hardware.nixosModules.common-hidpi # High-DPI displays
-    # inputs.nixos-hardware.nixosModules.common-pc-laptop # Laptops
-    # inputs.nixos-hardware.nixosModules.common-pc-ssd # SSD storage
+    # inputs.hydenix.inputs.nixos-hardware.nixosModules.common-hidpi # High-DPI displays
+    # inputs.hydenix.inputs.nixos-hardware.nixosModules.common-pc-laptop # Laptops
+    # inputs.hydenix.inputs.nixos-hardware.nixosModules.common-pc-ssd # SSD storage
   ];
 
   # If enabling NVIDIA, you will be prompted to configure hardware.nvidia
@@ -63,7 +68,8 @@ in
       { ... }:
       {
         imports = [
-          inputs.hydenix.homeModules.default
+          inputs.hydenix.lib.homeModules
+          inputs.nix-index-database.hmModules.nix-index # Command-not-found and comma tool support
           ./modules/hm # Your custom home-manager modules (configure hydenix.hm here!)
         ];
       };

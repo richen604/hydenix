@@ -18,12 +18,22 @@
   - hyprlock
   - rofi
   - waybar
+- docs: remove doc for overlays on theme for now i think unless i can fix it
+  - adding the overlay causes `pkgs.hydenix.hyde` to disappear lol
 - feat: vscode-nix-ide part of editors, enabled by default
 - fix: i don't think .config/waybar/modules is supposed to be set anymore
 
 ## 5.0.0
 
+- fix: removed hydenix-inputs from template/configuration.nix
+- refactor: removed hydenix.lib to standardize outputs, hydenix nixOsModules to nixosModules
 - refactor: rename all overlays so there is no namespace nesting
+- fix: nix-index should be a module in hydenix only, its declared twice
+- fix: rename nix-index home-manager module whatever new name
+- feat: user now owns their nixosSystem, depreciated hydenix-nixpkgs.lib.nixosSystem
+- feat: hydenix follows its own nixpkgs, no userPkgs overlays, template hydenix follows nixpkgs by default
+  - update docs to reflect this, as users can remove
+- users own their own home-manager
 - feat: home-manager configuration in flake
 - feat: hydenix major option, show warnings on option for api updates
 

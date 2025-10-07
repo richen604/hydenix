@@ -3,44 +3,61 @@
 
   inputs = {
     # Hydenix's nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/a1f79a1770d05af18111fbbe2a3ab2c42c0f6cd0";
+    hydenix-nixpkgs.url = "github:nixos/nixpkgs/a1f79a1770d05af18111fbbe2a3ab2c42c0f6cd0";
+
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "hydenix-nixpkgs";
     };
-    nixos-hardware.url = "github:nixos/nixos-hardware/master";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     # Nix-index-database - for comma and command-not-found
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "hydenix-nixpkgs";
     };
+
     hyde = {
       url = "github:HyDE-Project/HyDE/f246f2a89b8e862b96042cb2b291b191289c2fde";
       flake = false;
     };
+
     # HyDE related binaries
     hyq = {
       url = "github:richen604/hyprquery";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "hydenix-nixpkgs";
     };
     hydectl = {
       url = "github:richen604/hydectl";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "hydenix-nixpkgs";
     };
     hyde-ipc = {
       url = "github:richen604/hyde-ipc";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "hydenix-nixpkgs";
     };
     hyde-config = {
       url = "github:richen604/hyde-config";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "hydenix-nixpkgs";
     };
+
   };
   outputs =
-    { ... }@inputs:
+    hydenix-inputs@{ hydenix-nixpkgs, ... }:
     let
       system = "x86_64-linux";
+
+      # Create lib attribute that template expects
+      lib = {
+        inherit system;
+        overlays = import ./hydenix/sources/overlay.nix hydenix-inputs;
+        nixOsModules = ./hydenix/modules/system;
+        homeModules = ./hydenix/modules/hm;
+      };
+
+      # Internal inputs for building packages and configurations
+      inputs = hydenix-inputs // {
+        inherit lib;
+      };
 
       defaultConfig = import ./lib/config {
         inherit inputs;
@@ -48,8 +65,8 @@
 
       # Create VM variant of the NixOS configuration
       vmConfig = import ./lib/vms/nixos-vm.nix {
-        inherit inputs;
         nixosConfiguration = defaultConfig;
+        inherit inputs;
       };
 
       demoVmConfig = import ./lib/vms/demo-vm.nix {
@@ -58,12 +75,15 @@
 
     in
     {
+      # Main API that template uses
+      # Will be depreciated in the next api update
+      inherit lib;
 
       # Direct module access
-      homeModules.default = import ./hydenix/modules/hm;
-      nixosModules.default = import ./hydenix/modules/system;
+      homeModules.default = ./hydenix/modules/hm;
+      nixosModules.default = ./hydenix/modules/system;
 
-      overlays.default = import ./hydenix/sources/overlay.nix { inherit inputs; };
+      overlays.default = import ./hydenix/sources/overlay.nix hydenix-inputs;
 
       templates.default = {
         path = ./template;
