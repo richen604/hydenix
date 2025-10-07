@@ -40,37 +40,39 @@ in
       (lib.mkIf cfg.hyprlock {
         ".config/hypr/hyprlock.conf" = {
           source = "${pkgs.hydenix.hyde}/Configs/.config/hypr/hyprlock.conf";
+          force = true;
         };
         ".config/hypr/hyprlock/theme.conf" = {
           source = "${pkgs.hydenix.hyde}/Configs/.config/hypr/hyprlock/theme.conf";
-          mutable = true;
-          force = true;
-        };
-        ".config/hypr/hyprlock/greetd-wallbash.conf" = {
-          source = "${pkgs.hydenix.hyde}/Configs/.config/hypr/hyprlock/greetd-wallbash.conf";
-          mutable = true;
           force = true;
         };
         ".config/hypr/hyprlock/Anurati.conf" = {
           source = "${pkgs.hydenix.hyde}/Configs/.config/hypr/hyprlock/Anurati.conf";
+          force = true;
         };
         ".config/hypr/hyprlock/Arfan on Clouds.conf" = {
           source = "${pkgs.hydenix.hyde}/Configs/.config/hypr/hyprlock/Arfan on Clouds.conf";
+          force = true;
         };
         ".config/hypr/hyprlock/IBM Plex.conf" = {
           source = "${pkgs.hydenix.hyde}/Configs/.config/hypr/hyprlock/IBM Plex.conf";
+          force = true;
         };
         ".config/hypr/hyprlock/SF Pro.conf" = {
           source = "${pkgs.hydenix.hyde}/Configs/.config/hypr/hyprlock/SF Pro.conf";
+          force = true;
         };
         ".config/hypr/hyprlock/IBM Xtented.conf" = {
           source = "${pkgs.hydenix.hyde}/Configs/.config/hypr/hyprlock/IBM Xtented.conf";
+          force = true;
         };
         ".config/hypr/hyprlock/greetd.conf" = {
           source = "${pkgs.hydenix.hyde}/Configs/.config/hypr/hyprlock/greetd.conf";
+          force = true;
         };
-        ".config/hypr/hyprlock/HyDE.conf" = {
-          source = "${pkgs.hydenix.hyde}/Configs/.config/hypr/hyprlock/HyDE.conf";
+        ".config/hypr/hyprlock/greetd-wallbash.conf" = {
+          source = "${pkgs.hydenix.hyde}/Configs/.config/hypr/hyprlock/greetd-wallbash.conf";
+          force = true;
         };
       })
 
