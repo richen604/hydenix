@@ -19,7 +19,7 @@ in
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
-      rofi # application launcher
+      rofi-wayland # application launcher
     ];
 
     home.file = {
