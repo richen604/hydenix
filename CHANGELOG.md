@@ -1,3 +1,30 @@
+# [4.11.0](https://github.com/richen604/hydenix/compare/v4.10.1...v4.11.0) (2025-10-07)
+
+
+### Bug Fixes
+
+* gtk4 theme works correctly on theme changes ([3ca07ac](https://github.com/richen604/hydenix/commit/3ca07ac612a31dfd882305ea0879caa138fdede0))
+* hyde bins import as pkgs, removed in hyde drv ([0f33c44](https://github.com/richen604/hydenix/commit/0f33c44048311bb26668d57d45caedbb375ea912))
+* new hyprland location ([277a7d7](https://github.com/richen604/hydenix/commit/277a7d760264932601594867c0de6673d945f2d8))
+* pyamdgpuinfo support for waybar modules [#151](https://github.com/richen604/hydenix/issues/151) ([d7ba79e](https://github.com/richen604/hydenix/commit/d7ba79eed42f3cfbd3ac8aad7956fd0673578d69))
+* removed unnecessary sound in vm ([b3de3ad](https://github.com/richen604/hydenix/commit/b3de3ad3a7a76e03c71830e8b1b12b4ee3c15f34))
+* rofi themes and launch fix in hyde drv ([21c8617](https://github.com/richen604/hydenix/commit/21c86179951f44e35e70f498b2c31d7448ecb51e))
+* theme correctly loads at boot with dconf ([c5bb23e](https://github.com/richen604/hydenix/commit/c5bb23ecb10a1eff7c791f428b29177fbd20cd7f))
+* themes correctly handle conflicts in arcs using symlinkJoin ([22699e6](https://github.com/richen604/hydenix/commit/22699e6c039adddf5fe6e0ad087c9f8f84b14714))
+* update nixpkgs input and fix rofi WIP ([#151](https://github.com/richen604/hydenix/issues/151)) ([5246331](https://github.com/richen604/hydenix/commit/524633123b0a2032d16b9f6d9b5f7bad8bf27040))
+
+
+### Features
+
+* greetd hyprlock ([0597f90](https://github.com/richen604/hydenix/commit/0597f90e59a7139166ea15ca8c6a268aaccabc54))
+* new themes ([abd911a](https://github.com/richen604/hydenix/commit/abd911a8f4d9c6e6495504fe094940892f4dc9fc))
+* new waybar modules ([419f5ff](https://github.com/richen604/hydenix/commit/419f5fff904af1a52614e23b5e6128ed306fe70b))
+* nixpkgs and hyde uwsm update wip ([dc277bb](https://github.com/richen604/hydenix/commit/dc277bb7c56daa1270d8573fd2c2994f6388c78d))
+* pyprland module options for hyprland ([6175f42](https://github.com/richen604/hydenix/commit/6175f42063dc292cc317ea29b1692ce7b49b47df))
+* qt5 eol. removed hydenix.sddm.theme, added sddm astronaut theme ([cb8d92d](https://github.com/richen604/hydenix/commit/cb8d92d7a6b135b2a6546c7fe4629bdce3195d8a))
+* update-themes script provisioned ([28a3cf1](https://github.com/richen604/hydenix/commit/28a3cf16e94ba7d02fb3bfd930f3d8e5b4c5c7c5))
+* xdg terminals list ([c8d5a84](https://github.com/richen604/hydenix/commit/c8d5a8443bf1f2d6f5eba426b84c84a3f5768630))
+
 ## [4.10.1](https://github.com/richen604/hydenix/compare/v4.10.0...v4.10.1) (2025-09-14)
 
 
