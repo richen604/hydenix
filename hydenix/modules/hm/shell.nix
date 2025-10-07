@@ -261,8 +261,8 @@ in
         set -g fish_greeting
 
         # Source Hyde configuration
-        source ${pkgs.hydenix.hyde}/Configs/.config/fish/conf.d/hyde.fish
-        source ${pkgs.hydenix.hyde}/Configs/.config/fish/user.fish
+        source ${pkgs.hyde}/Configs/.config/fish/conf.d/hyde.fish
+        source ${pkgs.hyde}/Configs/.config/fish/user.fish
 
         ${lib.optionalString cfg.starship.enable ''
           if type -q starship
@@ -349,62 +349,64 @@ in
     home.file = lib.mkMerge [
       (lib.mkIf cfg.zsh.enable {
         # Zsh configs
-        ".zshenv".source = "${pkgs.hydenix.hyde}/Configs/.zshenv";
-        ".config/zsh/completions/hyde-shell.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/completions/hyde-shell.zsh";
+        ".zshenv".source = "${pkgs.hyde}/Configs/.zshenv";
+        ".config/zsh/completions/hyde-shell.zsh".source =
+          "${pkgs.hyde}/Configs/.config/zsh/completions/hyde-shell.zsh";
         ".config/zsh/.p10k.zsh" = {
-          source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/.p10k.zsh";
+          source = "${pkgs.hyde}/Configs/.config/zsh/.p10k.zsh";
           enable = cfg.p10k.enable;
         };
-        ".config/zsh/completions/fzf.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/completions/fzf.zsh";
-        ".config/zsh/completions/hydectl.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/completions/hydectl.zsh";
-        ".config/zsh/functions/bat.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/functions/bat.zsh";
-        ".config/zsh/functions/bind_M_n_history.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/functions/bind_M_n_history.zsh";
-        ".config/zsh/functions/duf.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/functions/duf.zsh";
-        ".config/zsh/functions/error-handlers.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/functions/error-handlers.zsh";
-        ".config/zsh/functions/eza.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/functions/eza.zsh";
-        ".config/zsh/functions/fzf.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/functions/fzf.zsh";
-        ".config/zsh/functions/kb_help.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/functions/kb_help.zsh";
+        ".config/zsh/completions/fzf.zsh".source = "${pkgs.hyde}/Configs/.config/zsh/completions/fzf.zsh";
+        ".config/zsh/completions/hydectl.zsh".source =
+          "${pkgs.hyde}/Configs/.config/zsh/completions/hydectl.zsh";
+        ".config/zsh/functions/bat.zsh".source = "${pkgs.hyde}/Configs/.config/zsh/functions/bat.zsh";
+        ".config/zsh/functions/bind_M_n_history.zsh".source =
+          "${pkgs.hyde}/Configs/.config/zsh/functions/bind_M_n_history.zsh";
+        ".config/zsh/functions/duf.zsh".source = "${pkgs.hyde}/Configs/.config/zsh/functions/duf.zsh";
+        ".config/zsh/functions/error-handlers.zsh".source =
+          "${pkgs.hyde}/Configs/.config/zsh/functions/error-handlers.zsh";
+        ".config/zsh/functions/eza.zsh".source = "${pkgs.hyde}/Configs/.config/zsh/functions/eza.zsh";
+        ".config/zsh/functions/fzf.zsh".source = "${pkgs.hyde}/Configs/.config/zsh/functions/fzf.zsh";
+        ".config/zsh/functions/kb_help.zsh".source =
+          "${pkgs.hyde}/Configs/.config/zsh/functions/kb_help.zsh";
 
         # We are not including any of these configurations as they are part of the existing zsh options
-        # ".config/zsh/.zshenv".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/.zshenv";
-        # ".config/zsh/user.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/user.zsh";
-        # ".config/zsh/prompt.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/prompt.zsh";
-        # ".config/zsh/conf.d/hyde/terminal.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/conf.d/hyde/terminal.zsh";
-        # ".config/zsh/conf.d/00-hyde.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/conf.d/00-hyde.zsh";
-        # ".config/zsh/conf.d/hyde/env.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/conf.d/hyde/env.zsh";
-        # ".config/zsh/conf.d/hyde/prompt.zsh".source = "${pkgs.hydenix.hyde}/Configs/.config/zsh/conf.d/hyde/prompt.zsh";
+        # ".config/zsh/.zshenv".source = "${pkgs.hyde}/Configs/.config/zsh/.zshenv";
+        # ".config/zsh/user.zsh".source = "${pkgs.hyde}/Configs/.config/zsh/user.zsh";
+        # ".config/zsh/prompt.zsh".source = "${pkgs.hyde}/Configs/.config/zsh/prompt.zsh";
+        # ".config/zsh/conf.d/hyde/terminal.zsh".source = "${pkgs.hyde}/Configs/.config/zsh/conf.d/hyde/terminal.zsh";
+        # ".config/zsh/conf.d/00-hyde.zsh".source = "${pkgs.hyde}/Configs/.config/zsh/conf.d/00-hyde.zsh";
+        # ".config/zsh/conf.d/hyde/env.zsh".source = "${pkgs.hyde}/Configs/.config/zsh/conf.d/hyde/env.zsh";
+        # ".config/zsh/conf.d/hyde/prompt.zsh".source = "${pkgs.hyde}/Configs/.config/zsh/conf.d/hyde/prompt.zsh";
       })
       (lib.mkIf cfg.fish.enable {
         # Fish configs
         ".config/fish/completions/hyde-shell.fish".source =
-          "${pkgs.hydenix.hyde}/Configs/.config/fish/completions/hyde-shell.fish";
-        ".config/fish/conf.d/hyde.fish".source =
-          "${pkgs.hydenix.hyde}/Configs/.config/fish/conf.d/hyde.fish";
+          "${pkgs.hyde}/Configs/.config/fish/completions/hyde-shell.fish";
+        ".config/fish/conf.d/hyde.fish".source = "${pkgs.hyde}/Configs/.config/fish/conf.d/hyde.fish";
         ".config/fish/functions/bind_M_n_history.fish".source =
-          "${pkgs.hydenix.hyde}/Configs/.config/fish/functions/bind_M_n_history.fish";
+          "${pkgs.hyde}/Configs/.config/fish/functions/bind_M_n_history.fish";
         ".config/fish/functions/fzf/ffcd.fish".source =
-          "${pkgs.hydenix.hyde}/Configs/.config/fish/functions/fzf/ffcd.fish";
+          "${pkgs.hyde}/Configs/.config/fish/functions/fzf/ffcd.fish";
         ".config/fish/functions/fzf/ffch.fish".source =
-          "${pkgs.hydenix.hyde}/Configs/.config/fish/functions/fzf/ffch.fish";
+          "${pkgs.hyde}/Configs/.config/fish/functions/fzf/ffch.fish";
         ".config/fish/functions/fzf/ffec.fish".source =
-          "${pkgs.hydenix.hyde}/Configs/.config/fish/functions/fzf/ffec.fish";
+          "${pkgs.hyde}/Configs/.config/fish/functions/fzf/ffec.fish";
         ".config/fish/functions/fzf/ffe.fish".source =
-          "${pkgs.hydenix.hyde}/Configs/.config/fish/functions/fzf/ffe.fish";
-        ".config/fish/user.fish".source = "${pkgs.hydenix.hyde}/Configs/.config/fish/user.fish";
+          "${pkgs.hyde}/Configs/.config/fish/functions/fzf/ffe.fish";
+        ".config/fish/user.fish".source = "${pkgs.hyde}/Configs/.config/fish/user.fish";
       })
 
       # LSD configs - these are always included
       {
-        ".config/lsd/config.yaml".source = "${pkgs.hydenix.hyde}/Configs/.config/lsd/config.yaml";
-        ".config/lsd/icons.yaml".source = "${pkgs.hydenix.hyde}/Configs/.config/lsd/icons.yaml";
-        ".config/lsd/colors.yaml".source = "${pkgs.hydenix.hyde}/Configs/.config/lsd/colors.yaml";
+        ".config/lsd/config.yaml".source = "${pkgs.hyde}/Configs/.config/lsd/config.yaml";
+        ".config/lsd/icons.yaml".source = "${pkgs.hyde}/Configs/.config/lsd/icons.yaml";
+        ".config/lsd/colors.yaml".source = "${pkgs.hyde}/Configs/.config/lsd/colors.yaml";
       }
 
       (lib.mkIf cfg.starship.enable {
-        ".config/starship/powerline.toml".source =
-          "${pkgs.hydenix.hyde}/Configs/.config/starship/powerline.toml";
-        ".config/starship/starship.toml".source =
-          "${pkgs.hydenix.hyde}/Configs/.config/starship/starship.toml";
+        ".config/starship/powerline.toml".source = "${pkgs.hyde}/Configs/.config/starship/powerline.toml";
+        ".config/starship/starship.toml".source = "${pkgs.hyde}/Configs/.config/starship/starship.toml";
       })
     ];
   };

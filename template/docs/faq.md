@@ -13,7 +13,6 @@
     - [when should I upgrade?](#when-should-i-upgrade)
     - [how do I fix (nix error / system error / bug / etc)?](#how-do-i-fix-nix-error--system-error--bug--etc)
     - [common errors](#common-errors)
-      - [`error: hash mismatch in fixed-output derivation`](#error-hash-mismatch-in-fixed-output-derivation)
       - [`Existing file '...' is in the way of '...'`](#existing-file--is-in-the-way-of-)
     - [what are the module options?](#what-are-the-module-options)
     - [what if I want to customize hydenix?](#what-if-i-want-to-customize-hydenix)
@@ -124,45 +123,6 @@ please see the [troubleshooting](./troubleshooting.md) guide for more informatio
 or create an issue in the [hydenix GitHub repository](https://github.com/richen604/hydenix/issues).
 
 ### common errors
-
-#### `error: hash mismatch in fixed-output derivation`
-
-this error occurs when nix expects a specific hash for a downloaded file, but the actual file has a different hash due to upstream changes.
-
-these usually happen with themes as they are updated frequently.
-
-Example:
-
-```bash
-error: hash mismatch in fixed-output derivation '/nix/store/2s2n054di1wg8d3sw50wqhs10yg8svj0-Code-Garden.drv':
-         specified: sha256-ZAmxhz7MK24htAcPdnNMZF/K7Cw7vru80xZn+7yJgXQ=
-            got:    sha256-HHC15pPHJ+ylQ56yYysEoKjKYUAoye2WHmt4Q2vyffk=
-```
-
-**solution: override the package in configuration.nix**
-
-if I haven't updated this in the repo yet, add this overlay to your existing overlays in `configuration.nix` to fix the error:
-
-```nix
-overlays = [
-  inputs.hydenix.lib.overlays
-  # fix hash mismatch errors for catppuccin mocha
-  (final: prev: {
-    # replace 'hydenix.themes."catppuccin mocha"' with the actual failing package, for theme names check https://github.com/richen604/hydenix/blob/main/hydenix/sources/themes/default.nix
-    hydenix.themes."Catppuccin Mocha" = prev.hydenix.themes."Catppuccin Mocha".overrideAttrs (oldAttrs: {
-      src = prev.fetchFromGitHub {
-        # use the hash from error message under "got:"
-        sha256 = "HHC15pPHJ+ylQ56yYysEoKjKYUAoye2WHmt4Q2vyffk=";
-      };
-    });
-  })
-  (final: prev: {
-    userPkgs = import inputs.nixpkgs {
-      config.allowUnfree = true;
-    };
-  })
-];
-```
 
 #### `Existing file '...' is in the way of '...'`
 

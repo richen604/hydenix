@@ -26,7 +26,7 @@ in
       # stateful file, written by wallbash
       # .local/share/hyde/wallbash/theme/rofi.dcol
       ".config/rofi/theme.rasi" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/rofi/theme.rasi";
+        source = "${pkgs.hyde}/Configs/.config/rofi/theme.rasi";
         force = true;
         mutable = true;
       };
@@ -40,14 +40,14 @@ in
     home.file = {
 
       ".local/share/hyde/rofi/assets/" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.local/share/hyde/rofi/assets/";
+        source = "${pkgs.hyde}/Configs/.local/share/hyde/rofi/assets/";
         recursive = true;
         force = true;
         mutable = true;
       };
 
       ".local/share/hyde/rofi/themes/" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.local/share/hyde/rofi/themes/";
+        source = "${pkgs.hyde}/Configs/.local/share/hyde/rofi/themes/";
         recursive = true;
         force = true;
         mutable = true;

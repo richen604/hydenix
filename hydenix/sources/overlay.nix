@@ -14,15 +14,12 @@ let
     python-pyamdgpuinfo = callPackage ./python-pyamdgpuinfo.nix { };
     Tela-circle-dracula = callPackage ./Tela-circle-dracula.nix { };
     Bibata-Modern-Ice = callPackage ./Bibata-Modern-Ice.nix { };
-    hydenix = {
-      hyde = callPackage ./hyde.nix { inherit inputs; };
-      # Theme packages from the themes directory
-      themes = callPackage ./themes/default.nix { };
-      hyq = inputs.hyq.packages.${prev.system}.default;
-      hydectl = inputs.hydectl.packages.${prev.system}.default;
-      hyde-ipc = inputs.hyde-ipc.packages.${prev.system}.default;
-      hyde-config = inputs.hyde-config.packages.${prev.system}.default;
-    };
+    hyde = callPackage ./hyde.nix { inherit inputs; };
+    hydenix-themes = callPackage ./themes/default.nix { };
+    hyq = inputs.hyq.packages.${prev.system}.default;
+    hydectl = inputs.hydectl.packages.${prev.system}.default;
+    hyde-ipc = inputs.hyde-ipc.packages.${prev.system}.default;
+    hyde-config = inputs.hyde-config.packages.${prev.system}.default;
   };
 in
 packages
