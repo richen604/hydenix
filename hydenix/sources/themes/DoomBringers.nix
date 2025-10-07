@@ -11,6 +11,5 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: DoomBringers";
     homepage = "https://github.com/xaicat/DoomBringers";
-    priority = 10;
   };
 }

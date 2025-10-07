@@ -11,6 +11,5 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: Scarlet Night";
     homepage = "https://github.com/abenezerw/Scarlet-Night";
-    priority = 10;
   };
 }

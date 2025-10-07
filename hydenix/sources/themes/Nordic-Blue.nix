@@ -11,6 +11,5 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: Nordic Blue";
     homepage = "https://github.com/HyDE-Project/hyde-themes/tree/Nordic-Blue";
-    priority = 100;
   };
 }

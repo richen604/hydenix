@@ -11,6 +11,5 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: Mac OS";
     homepage = "https://github.com/HyDE-Project/hyde-gallery/tree/Mac-Os";
-    priority = 10;
   };
 }

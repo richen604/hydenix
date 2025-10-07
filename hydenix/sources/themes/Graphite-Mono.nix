@@ -11,6 +11,5 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: Graphite Mono";
     homepage = "https://github.com/HyDE-Project/hyde-themes/tree/Graphite-Mono";
-    priority = 90;
   };
 }
