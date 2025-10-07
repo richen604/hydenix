@@ -12,6 +12,5 @@ mkTheme rec {
     name = name;
     description = "HyDE Theme: Obsidian-Purple";
     homepage = "https://github.com/amit-0i/Obsidian-Purple";
-    priority = 90;
   };
 }

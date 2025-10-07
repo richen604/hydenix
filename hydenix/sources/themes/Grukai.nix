@@ -12,6 +12,5 @@ mkTheme rec {
     name = name;
     description = "HyDE Theme: Grukai";
     homepage = "https://github.com/amit-0i/Grukai";
-    priority = 100;
   };
 }

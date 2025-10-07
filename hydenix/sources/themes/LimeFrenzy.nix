@@ -11,6 +11,5 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: LimeFrenzy";
     homepage = "https://github.com/xaicat/LimeFrenzy";
-    priority = 100;
   };
 }

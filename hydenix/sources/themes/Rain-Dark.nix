@@ -11,6 +11,5 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: Rain Dark";
     homepage = "https://github.com/rishav12s/Rain-Dark";
-    priority = 10;
   };
 }

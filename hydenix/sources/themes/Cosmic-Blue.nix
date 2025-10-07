@@ -11,6 +11,5 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: Cosmic Blue";
     homepage = "https://github.com/Maroc02/Cosmic-Blue";
-    priority = 10;
   };
 }

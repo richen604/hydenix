@@ -11,6 +11,5 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: Solarized Dark";
     homepage = "https://github.com/rishav12s/Solarized-Dark";
-    priority = 10;
   };
 }

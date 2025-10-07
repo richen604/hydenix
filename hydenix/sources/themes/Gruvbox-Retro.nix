@@ -11,6 +11,5 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: Gruvbox Retro";
     homepage = "https://github.com/HyDE-Project/hyde-themes/tree/Gruvbox-Retro";
-    priority = 100;
   };
 }

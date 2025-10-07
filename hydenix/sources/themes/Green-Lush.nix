@@ -11,6 +11,5 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: Green Lush";
     homepage = "https://github.com/abenezerw/Green-Lush";
-    priority = 10;
   };
 }

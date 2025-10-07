@@ -11,6 +11,5 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: Frosted Glass";
     homepage = "https://github.com/HyDE-Project/hyde-themes/tree/Frosted-Glass";
-    priority = 100;
   };
 }
