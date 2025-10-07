@@ -1,16 +1,16 @@
 
 # todo
 
-## done
-
 ## now
 
 - feat: new themes to build
 
 ## next
 
+- fix: hydenix.hm.hyprland options with presets should by type str to allow for overrides, example should show default lists
 - feat: move hyprlock to hyprland module, swaylock should just be swaylock module
   - assertion to not have both enabled
+- feat: hyde config.toml options
 - feat: extending more options for feature parity with hyde
   - fastfetch
   - hyprlock
@@ -33,15 +33,9 @@
 - feat: user now owns their nixosSystem, depreciated hydenix-nixpkgs.lib.nixosSystem
 - feat: hydenix follows its own nixpkgs, no userPkgs overlays, template hydenix follows nixpkgs by default
   - update docs to reflect this, as users can remove
-- users own their own home-manager
-- feat: home-manager configuration in flake
-- feat: hydenix major option, show warnings on option for api updates
 
 ## backlog
 
-- fix: remove duplicate udisks2 setup
-- hm.hyprland should have more warnings related to config overrides, i think
-- feat: hyde config.toml options
 - complete demo video after 5.0
 - fix: wallbash for code
 - feat: assertions for common requirements

@@ -36,9 +36,6 @@ in
     ];
 
     home.file = {
-      ".config/xdg-terminals.list" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/xdg-terminals.list";
-      };
       ".config/kitty/hyde.conf" = {
         source = "${pkgs.hydenix.hyde}/Configs/.config/kitty/hyde.conf";
       };
