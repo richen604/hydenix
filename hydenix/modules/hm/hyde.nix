@@ -133,12 +133,6 @@ in
         force = true;
         mutable = true;
       };
-      ".local/share/wallbash/" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.local/share/wallbash/";
-        recursive = true;
-        force = true;
-        mutable = true;
-      };
       ".local/share/waybar/includes" = {
         source = "${pkgs.hydenix.hyde}/Configs/.local/share/waybar/includes";
         recursive = true;
