@@ -11,6 +11,5 @@ mkTheme rec {
   meta = {
     description = "Mac-OS inspired dark theme";
     homepage = "https://github.com/rishav12s/Monterey-Frost";
-    priority = 10;
   };
 }

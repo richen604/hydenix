@@ -11,6 +11,5 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: Synth Wave";
     homepage = "https://github.com/HyDE-Project/hyde-themes/tree/Synth-Wave";
-    priority = 100;
   };
 }

@@ -13,6 +13,5 @@ mkTheme rec {
     name = name;
     description = "HyDE Theme: Abyssal-Wave";
     homepage = "https://github.com/Itz-Abhishek-Tiwari/Abyssal-Wave";
-    priority = 10;
   };
 }

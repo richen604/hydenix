@@ -11,6 +11,5 @@ mkTheme rec {
   meta = {
     description = "HyDE Theme: Tokyo Night";
     homepage = "https://github.com/HyDE-Project/hyde-themes/tree/Tokyo-Night";
-    priority = 100;
   };
 }
