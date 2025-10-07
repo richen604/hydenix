@@ -28,6 +28,9 @@ nixosConfiguration.extendModules {
                 "-cpu host"
                 "-enable-kvm"
                 "-machine q35,accel=kvm"
+                "-device intel-iommu"
+                "-device ich9-intel-hda"
+                "-device hda-output"
               ];
             };
           };
@@ -73,7 +76,7 @@ nixosConfiguration.extendModules {
         ];
 
         # Enable verbose logging for home-manager
-        home-manager.verbose = true;
+        # home-manager.verbose = true;
       }
     )
   ];
