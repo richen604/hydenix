@@ -12,13 +12,6 @@ pkgs.stdenv.mkDerivation {
     # remove assets folder
     rm -rf Source/assets
 
-    rm -rf Configs/.local/lib/hyde/resetxdgportal.sh
-    rm -rf Configs/.local/bin/hydectl
-    rm -rf Configs/.local/bin/hyde-ipc
-    rm -rf Configs/.local/lib/hyde/hyde-config
-    rm -rf Configs/.local/lib/hyde/hyq
-    rm -rf Configs/.local/bin/hyq
-
     # Update waybar killall command in all HyDE files
     find . -type f -print0 | xargs -0 sed -i 's/killall waybar/killall .waybar-wrapped/g'
 

@@ -27,10 +27,6 @@ in
       kdePackages.kconfig # TODO: not sure if this is still needed
       wf-recorder # screen recorder for wlroots-based compositors such as sway
       python-pyamdgpuinfo
-      hydenix.hyq
-      hydenix.hydectl
-      hydenix.hyde-ipc
-      hydenix.hyde-config
     ];
 
     # ensures hyprland config is available in session as per hyde uwsm update
@@ -91,21 +87,39 @@ in
         executable = true;
       };
 
+      # TODO: requires nix-ld
+      ".local/bin/hydectl" = {
+        source = "${pkgs.hydenix.hydectl}/bin/hydectl";
+        executable = true;
+      };
+
+      ".local/bin/hyde-ipc" = {
+        source = "${pkgs.hydenix.hyde-ipc}/bin/hyde-ipc";
+        executable = true;
+      };
+
+      ".local/bin/hyq" = {
+        source = "${pkgs.hydenix.hyq}/bin/hyq";
+        executable = true;
+      };
+
       ".local/lib/hyde" = {
         source = "${pkgs.hydenix.hyde}/Configs/.local/lib/hyde";
         recursive = true;
         executable = true;
+      };
+
+      ".local/lib/hyde-config" = {
+        source = "${pkgs.hydenix.hyde-config}/bin/hyde-config";
+        executable = true;
+        # FIXME: this is a hack to make sure the hyde-config binary is copied after the .local/lib/hyde above
+        mutable = true;
         force = true;
       };
 
-      ".local/lib/hyde/resetxdgportal.sh" = {
-        text = ''
-          #!/usr/bin/env bash
-
-        '';
+      ".local/lib/hyde/globalcontrol.sh" = {
+        source = "${pkgs.hydenix.hyde}/Configs/.local/lib/hyde/globalcontrol.sh";
         executable = true;
-        mutable = true;
-        force = true;
       };
 
       ".local/share/fastfetch/presets/hyde" = {
@@ -192,5 +206,4 @@ in
       };
     };
   };
-
 }
