@@ -5,10 +5,11 @@
 
 ## now
 
-- refactor: rename all overlays so there is no namespace nesting
+- feat: new themes to build
 
 ## next
 
+- refactor: rename all overlays so there is no namespace nesting
 - feat: home-manager configuration in flake
 
 ## 5.0.0
@@ -24,7 +25,7 @@
   - waybar
 - fix: i don't think .config/waybar/modules is supposed to be set anymore
 - fix: remove duplicate udisks2 setup
-- hm.hyprland should have more warnings related to config overrides
+- hm.hyprland should have more warnings related to config overrides, i think
 - feat: hyde config.toml options
 - demo video? fix demo-vm
 - fix: wallbash for code
