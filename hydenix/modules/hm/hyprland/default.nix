@@ -50,7 +50,7 @@ in
 
     home.file = {
       ".local/share/hypr/" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.local/share/hypr/";
+        source = "${pkgs.hyde}/Configs/.local/share/hypr/";
         recursive = true;
       };
       ".config/hypr/hyprland.conf" =
@@ -61,7 +61,7 @@ in
           }
         else
           {
-            source = "${pkgs.hydenix.hyde}/Configs/.config/hypr/hyprland.conf";
+            source = "${pkgs.hyde}/Configs/.config/hypr/hyprland.conf";
             force = true;
           };
 

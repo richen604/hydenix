@@ -32,23 +32,23 @@ in
     ];
     home.file = {
       ".config/nwg-look/config" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/nwg-look/config";
+        source = "${pkgs.hyde}/Configs/.config/nwg-look/config";
       };
 
       # stateful files
       # TODO: might flash on initial theme change, unnecessary?
       ".config/gtk-3.0/settings.ini" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/gtk-3.0/settings.ini";
+        source = "${pkgs.hyde}/Configs/.config/gtk-3.0/settings.ini";
         force = true;
         mutable = true;
       };
       ".gtkrc-2.0" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.gtkrc-2.0";
+        source = "${pkgs.hyde}/Configs/.gtkrc-2.0";
         force = true;
         mutable = true;
       };
       ".config/xsettingsd/xsettingsd.conf" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/xsettingsd/xsettingsd.conf";
+        source = "${pkgs.hyde}/Configs/.config/xsettingsd/xsettingsd.conf";
         force = true;
         mutable = true;
       };
