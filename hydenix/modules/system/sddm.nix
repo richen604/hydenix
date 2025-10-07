@@ -15,13 +15,21 @@ in
       default = true;
       description = "Enable sddm module";
     };
+
+    theme = lib.mkOption {
+      type = lib.types.enum [
+        "Candy"
+        "Corners"
+      ];
+      default = "Candy";
+      description = "SDDM theme package to use";
+    };
   };
 
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [
       pkgs.hydenix.hyde
       pkgs.Bibata-Modern-Ice
-      pkgs.sddm-astronaut
     ];
 
     # Add this section to ensure cursor theme is properly loaded
@@ -32,17 +40,25 @@ in
 
     services.displayManager.sddm = {
       enable = true;
-      theme = "sddm-astronaut-theme";
+      package = pkgs.libsForQt5.sddm;
+      theme = pkgs.hydenix.hyde + "/share/sddm/themes/" + cfg.theme;
       wayland = {
         enable = true;
       };
-      extraPackages = with pkgs.kdePackages; [
-        qtsvg
-        qtmultimedia
-        qtvirtualkeyboard
+      extraPackages = with pkgs; [
+        libsForQt5.sddm
+        libsForQt5.qtsvg
+        libsForQt5.qtmultimedia
+        libsForQt5.qtvirtualkeyboard
+        libsForQt5.qtquickcontrols2
+        libsForQt5.qtgraphicaleffects
+        libsForQt5.qt5.qtwayland
+        hydenix.hyde
+        Bibata-Modern-Ice
       ];
       settings = {
         Theme = {
+          ThemeDir = "/run/current-system/sw/share/sddm/themes";
           CursorTheme = "Bibata-Modern-Ice";
           CursorSize = "24";
         };

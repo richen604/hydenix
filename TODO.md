@@ -3,12 +3,10 @@
 
 ## done
 
-- fix: qt5 eol. removed hydenix.sddm.theme, added sddm astronaut theme
-- ci: update nixpkgs update script to create only one branch and replace the other
-
 ## now
 
 - use pkgs.buildEnv with `ignoreCollisions=true;` for themes instead of meta.priority
+- ci: update nixpkgs update script to create only one branch and replace the other
 - feat: new themes to build
 
 ## next

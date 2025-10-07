@@ -19,6 +19,7 @@ in
 
   config = lib.mkIf cfg.enable {
 
+    #! we are using libsForQt5 because dolphin likes to break things like icons on qt6
     home.packages = with pkgs.kdePackages; [
       dolphin # KDE file manager
       qtimageformats # Image format support for Qt5

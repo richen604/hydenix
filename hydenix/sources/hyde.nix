@@ -66,6 +66,11 @@ pkgs.stdenv.mkDerivation {
     # BUILD GTK THEME
     mkdir -p $out/share/themes
     tar xzf ./Source/arcs/Gtk_Wallbash.tar.gz -C $out/share/themes
+
+    # BUILD SDDM THEME
+    mkdir -p $out/share/sddm/themes
+    tar xzf ./Source/arcs/Sddm_Candy.tar.gz -C $out/share/sddm/themes
+    tar xzf ./Source/arcs/Sddm_Corners.tar.gz -C $out/share/sddm/themes
   '';
 
   installPhase = ''

@@ -102,8 +102,10 @@ below are the default options for hydenix. they are in *object format* and any o
     hardware.enable = true; # enable hardware module
     network.enable = true; # enable network module
     nix.enable = true; # enable nix module
-    sddm.enable = true; # enable sddm module
-
+    sddm = {
+      enable = true; # enable sddm module
+      theme = "Candy" # or "Corners"
+    };
     system.enable = true; # enable system module
 
     # home-manager hydenix options
