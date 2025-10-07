@@ -173,15 +173,7 @@ in
                 "${config.xdg.dataHome}/waybar/modules/power-profiles-daemon.jsonc",
                 "${config.xdg.dataHome}/waybar/modules/image#hyde-menu.jsonc",
                 "${config.xdg.dataHome}/waybar/modules/custom-hyde-menu.jsonc",
-                "${config.xdg.dataHome}/waybar/modules/network#bandwidth.jsonc",
-                "${config.xdg.configHome}/waybar/modules/custom-mediaplayer.jsonc",
-                "${config.xdg.configHome}/waybar/modules/gamemode.jsonc",
-                "${config.xdg.configHome}/waybar/modules/group-eyecare.jsonc",
-                "${config.xdg.configHome}/waybar/modules/group-hide-tray.jsonc",
-                "${config.xdg.configHome}/waybar/modules/group-mediaplayer.jsonc",
-                "${config.xdg.configHome}/waybar/modules/group-volumecontrol.jsonc",
-                "${config.xdg.configHome}/waybar/modules/mpd.jsonc",
-                "${config.xdg.configHome}/waybar/modules/temperature.jsonc"
+                "${config.xdg.dataHome}/waybar/modules/network#bandwidth.jsonc"
             ],
             "wlr/taskbar#windows": {
                 "icon-size": 16.0,
