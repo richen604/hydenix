@@ -9,7 +9,7 @@ let
   cfg = config.hydenix.hm.theme;
 
   # Helper function to find a theme package by name, returns null if not found
-  findThemeByName = themeName: pkgs.hydenix.themes.${themeName} or null;
+  findThemeByName = themeName: pkgs.hydenix-themes.${themeName} or null;
 
   # Filter out themes that don't have corresponding packages
   availableThemes = lib.filter (themeName: findThemeByName themeName != null) cfg.themes;

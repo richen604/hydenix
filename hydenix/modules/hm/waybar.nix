@@ -56,28 +56,28 @@ in
       # Note: some of these may not work for NixOS
       # TODO: review waybar modules for nix compatibility
       ".config/waybar/modules" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules";
+        source = "${pkgs.hyde}/Configs/.config/waybar/modules";
         recursive = true;
       };
       ".config/waybar/layouts" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/layouts";
+        source = "${pkgs.hyde}/Configs/.config/waybar/layouts";
         recursive = true;
       };
       ".config/waybar/menus" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/menus";
+        source = "${pkgs.hyde}/Configs/.config/waybar/menus";
         recursive = true;
       };
       ".config/waybar/styles" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/styles";
+        source = "${pkgs.hyde}/Configs/.config/waybar/styles";
         recursive = true;
       };
       ".config/waybar/includes/border-radius.css" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/includes/border-radius.css";
+        source = "${pkgs.hyde}/Configs/.config/waybar/includes/border-radius.css";
         force = true;
         mutable = true;
       };
       ".config/waybar/includes/global.css" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/includes/global.css";
+        source = "${pkgs.hyde}/Configs/.config/waybar/includes/global.css";
         force = true;
         mutable = true;
       };
@@ -239,7 +239,7 @@ in
         mutable = true;
       };
       ".config/waybar/config.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/config.jsonc";
+        source = "${pkgs.hyde}/Configs/.config/waybar/config.jsonc";
         force = true;
         mutable = true;
       };
