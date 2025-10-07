@@ -8,9 +8,6 @@ on:
 jobs:
   update-themes:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -48,19 +45,10 @@ jobs:
           reviewers: ${{ github.actor }}
           add-paths: "hydenix/sources/themes/*.nix"
 
-      - name: Install GitHub CLI
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y gh
-
-      - name: Enable Auto-merge
-        if: steps.create_pr.outputs.pull-request-number
-        run: |
-          PR_NUMBER="${{ steps.create_pr.outputs.pull-request-number }}"
-          if [ -n "$PR_NUMBER" ]; then
-            gh pr merge --auto --rebase "$PR_NUMBER"
-          else
-            echo "::warning:: No pull request was created. Auto-merge skipped."
-          fi
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    # - name: Enable Auto-merge
+    #   if: steps.create_pr.outputs.pull-request-number
+    #   run: |
+    #     gh pr merge --auto --rebase "$PR_URL"
+    #   env:
+    #     PR_URL: ${{ steps.create_pr.outputs.pull-request-url }}
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
