@@ -32,7 +32,7 @@ in
           map (shader: {
             name = ".config/hypr/shaders/${shader}.frag";
             value = {
-              source = "${pkgs.hyde}/Configs/.config/hypr/shaders/${shader}.frag";
+              source = "${pkgs.hydenix.hyde}/Configs/.config/hypr/shaders/${shader}.frag";
             };
           }) standardShaders
         ))
@@ -40,7 +40,7 @@ in
         # Additional shader files
         {
           ".config/hypr/shaders/.compiled.cache.glsl" = {
-            source = "${pkgs.hyde}/Configs/.config/hypr/shaders/.compiled.cache.glsl";
+            source = "${pkgs.hydenix.hyde}/Configs/.config/hypr/shaders/.compiled.cache.glsl";
             force = true;
             mutable = true;
           };
@@ -57,7 +57,7 @@ in
             mutable = true;
           };
           ".config/hypr/shaders/wallbash.inc".source =
-            "${pkgs.hyde}/Configs/.config/hypr/shaders/wallbash.inc";
+            "${pkgs.hydenix.hyde}/Configs/.config/hypr/shaders/wallbash.inc";
         }
       ])
 

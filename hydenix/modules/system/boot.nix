@@ -67,7 +67,9 @@ in
               device = "nodev";
               useOSProber = true;
               theme =
-                pkgs.hyde + "/share/grub/themes/" + (if cfg.grubTheme == "Pochita" then "Pochita" else "Retroboot");
+                pkgs.hydenix.hyde
+                + "/share/grub/themes/"
+                + (if cfg.grubTheme == "Pochita" then "Pochita" else "Retroboot");
               extraConfig = cfg.grubExtraConfig;
             };
             efi.canTouchEfiVariables = true;

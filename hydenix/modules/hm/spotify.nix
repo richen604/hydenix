@@ -24,10 +24,10 @@ in
 
     home.file = {
       ".config/spotify-flags.conf" = {
-        source = "${pkgs.hyde}/Configs/.config/spotify-flags.conf";
+        source = "${pkgs.hydenix.hyde}/Configs/.config/spotify-flags.conf";
       };
       ".config/electron-flags.conf" = {
-        source = "${pkgs.hyde}/Configs/.config/electron-flags.conf";
+        source = "${pkgs.hydenix.hyde}/Configs/.config/electron-flags.conf";
       };
     };
   };

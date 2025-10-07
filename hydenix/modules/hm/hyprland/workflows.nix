@@ -30,7 +30,7 @@ in
             }
           else
             {
-              source = "${pkgs.hyde}/Configs/.config/hypr/workflows/${cfg.workflows.active}.conf";
+              source = "${pkgs.hydenix.hyde}/Configs/.config/hypr/workflows/${cfg.workflows.active}.conf";
               force = true;
               mutable = true;
             };
@@ -48,7 +48,7 @@ in
               }
             else
               {
-                source = "${pkgs.hyde}/Configs/.config/hypr/workflows/${workflow}.conf";
+                source = "${pkgs.hydenix.hyde}/Configs/.config/hypr/workflows/${workflow}.conf";
               };
         }) workflowPresets
       ))

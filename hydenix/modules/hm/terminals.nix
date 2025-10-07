@@ -37,10 +37,10 @@ in
 
     home.file = {
       ".config/xdg-terminals.list" = {
-        source = "${pkgs.hyde}/Configs/.config/xdg-terminals.list";
+        source = "${pkgs.hydenix.hyde}/Configs/.config/xdg-terminals.list";
       };
       ".config/kitty/hyde.conf" = {
-        source = "${pkgs.hyde}/Configs/.config/kitty/hyde.conf";
+        source = "${pkgs.hydenix.hyde}/Configs/.config/kitty/hyde.conf";
       };
       ".config/kitty/kitty.conf" = {
         text = ''
@@ -57,7 +57,7 @@ in
       # stateful file for kitty wallbash
 
       ".config/kitty/theme.conf" = {
-        source = "${pkgs.hyde}/Configs/.config/kitty/theme.conf";
+        source = "${pkgs.hydenix.hyde}/Configs/.config/kitty/theme.conf";
         force = true;
         mutable = true;
       };

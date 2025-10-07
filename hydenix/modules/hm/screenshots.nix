@@ -59,7 +59,7 @@ in
 
     home.file = lib.mkIf cfg.satty.enable {
       ".config/satty/config.toml" = {
-        source = "${pkgs.hyde}/Configs/.config/satty/config.toml";
+        source = "${pkgs.hydenix.hyde}/Configs/.config/satty/config.toml";
         force = true;
       };
     };

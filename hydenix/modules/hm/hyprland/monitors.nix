@@ -20,7 +20,7 @@ in
           }
         else
           {
-            source = "${pkgs.hyde}/Configs/.config/hypr/monitors.conf";
+            source = "${pkgs.hydenix.hyde}/Configs/.config/hypr/monitors.conf";
             force = true;
             mutable = true;
           };

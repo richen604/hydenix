@@ -20,7 +20,7 @@ in
         else
           {
             text = ''
-              ${lib.readFile "${pkgs.hyde}/Configs/.config/hypr/keybindings.conf"}
+              ${lib.readFile "${pkgs.hydenix.hyde}/Configs/.config/hypr/keybindings.conf"}
               ${cfg.keybindings.extraConfig}
             '';
             force = true;

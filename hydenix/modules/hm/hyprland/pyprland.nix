@@ -20,7 +20,7 @@ in
         else
           {
             text = ''
-              ${lib.readFile "${pkgs.hyde}/Configs/.config/hypr/pyprland.toml"}
+              ${lib.readFile "${pkgs.hydenix.hyde}/Configs/.config/hypr/pyprland.toml"}
               ${cfg.pyprland.extraConfig}
             '';
             force = true;

@@ -42,18 +42,18 @@ in
 
     home.file = {
       ".config/dolphinrc" = {
-        source = "${pkgs.hyde}/Configs/.config/dolphinrc";
+        source = "${pkgs.hydenix.hyde}/Configs/.config/dolphinrc";
       };
       ".config/baloofilerc" = {
-        source = "${pkgs.hyde}/Configs/.config/baloofilerc";
+        source = "${pkgs.hydenix.hyde}/Configs/.config/baloofilerc";
       };
       ".config/menus/applications.menu" = {
-        source = "${pkgs.hyde}/Configs/.config/menus/applications.menu";
+        source = "${pkgs.hydenix.hyde}/Configs/.config/menus/applications.menu";
       };
 
       # stateful file for themes
       ".config/kdeglobals" = {
-        source = "${pkgs.hyde}/Configs/.config/kdeglobals";
+        source = "${pkgs.hydenix.hyde}/Configs/.config/kdeglobals";
         force = true;
         mutable = true;
       };

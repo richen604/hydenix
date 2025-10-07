@@ -19,7 +19,7 @@ in
 
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [
-      pkgs.hyde
+      pkgs.hydenix.hyde
       pkgs.Bibata-Modern-Ice
       pkgs.sddm-astronaut
     ];
