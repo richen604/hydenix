@@ -66,10 +66,23 @@ in
       package = pkgs.hyprland;
       portalPackage = pkgs.xdg-desktop-portal-hyprland;
       enable = true;
-      withUWSM = true;
+      withUWSM = false;
     };
 
     programs.nix-ld.enable = true;
+
+    environment.pathsToLink = [
+      "/share/icons"
+      "/share/themes"
+      "/share/fonts"
+      "/share/xdg-desktop-portal"
+      "/share/applications"
+      "/share/mime"
+      "/share/wayland-sessions"
+      "/share/zsh"
+      "/share/bash-completion"
+      "/share/fish"
+    ];
 
     hardware.bluetooth = {
       enable = true;
@@ -84,10 +97,13 @@ in
 
     services = {
       dbus.enable = true;
-
       upower.enable = true;
       openssh.enable = true;
       libinput.enable = true;
+      udisks2 = {
+        enable = true;
+        mountOnMedia = true;
+      };
     };
 
     programs.dconf.enable = true;

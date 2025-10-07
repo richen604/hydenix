@@ -3,7 +3,7 @@
 
   inputs = {
     # Hydenix's nixpkgs
-    hydenix-nixpkgs.url = "github:nixos/nixpkgs/a1f79a1770d05af18111fbbe2a3ab2c42c0f6cd0";
+    hydenix-nixpkgs.url = "github:nixos/nixpkgs/12bd230118a1901a4a5d393f9f56b6ad7e571d01";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -18,7 +18,7 @@
     };
 
     hyde = {
-      url = "github:HyDE-Project/HyDE/f246f2a89b8e862b96042cb2b291b191289c2fde";
+      url = "github:HyDE-Project/HyDE/168287f2f10e95a4a9a623c955c7e08147c48472";
       flake = false;
     };
 
