@@ -29,7 +29,7 @@ jobs:
         run: nix flake update
       - name: Update flake.nix with new rev
         run: |
-          NEW_REV=$(jq -r '.nodes."nixpkgs".locked.rev' flake.lock)
+          NEW_REV=$(jq -r '.nodes."nixpkgs_2".locked.rev' flake.lock)
           if [ -n "$NEW_REV" ] && [ "$NEW_REV" != "null" ]; then
             sed -i 's|nixpkgs.url = "github:nixos/nixpkgs/[^"]*"|nixpkgs.url = "github:nixos/nixpkgs/'$NEW_REV'"|' flake.nix
           else
