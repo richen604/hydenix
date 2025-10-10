@@ -1,3 +1,10 @@
+## [5.0.1](https://github.com/richen604/hydenix/compare/v5.0.0...v5.0.1) (2025-10-10)
+
+
+### Bug Fixes
+
+* bump nixpkgs, fixes [#166](https://github.com/richen604/hydenix/issues/166) ([ae0a8cc](https://github.com/richen604/hydenix/commit/ae0a8ccebf84d92d8db8747a5ff17328c08b84e1))
+
 # [5.0.0](https://github.com/richen604/hydenix/compare/v4.10.1...v5.0.0) (2025-10-07)
 
 
