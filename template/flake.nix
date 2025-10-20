@@ -1,7 +1,7 @@
 {
   description = "template for hydenix";
 
-  inputs = {
+  inputs = rec {
     # Your nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
@@ -15,12 +15,6 @@
 
       # uncomment the below if you know what you're doing, hydenix updates nixos-unstable every week or so
       # inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # Home Manager
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Hardware Configuration's, used in ./configuration.nix. Feel free to remove if unused

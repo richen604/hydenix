@@ -21,7 +21,7 @@ in
 
   imports = [
     # hydenix inputs - Required modules, don't modify unless you know what you're doing
-    inputs.home-manager.nixosModules.home-manager
+    inputs.hydenix.inputs.home-manager.nixosModules.home-manager
     inputs.hydenix.nixosModules.default
     ./modules/system # Your custom system modules
     ./hardware-configuration.nix # Auto-generated hardware config
