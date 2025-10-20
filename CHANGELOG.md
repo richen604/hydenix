@@ -1,3 +1,10 @@
+## [5.0.2](https://github.com/richen604/hydenix/compare/v5.0.1...v5.0.2) (2025-10-20)
+
+
+### Bug Fixes
+
+* removed hm from template, follow hydenix hm. fixes [#169](https://github.com/richen604/hydenix/issues/169) ([f996c48](https://github.com/richen604/hydenix/commit/f996c488f1b00e6af329c2a9df8f383fa19b4c70))
+
 ## [5.0.1](https://github.com/richen604/hydenix/compare/v5.0.0...v5.0.1) (2025-10-10)
 
 
