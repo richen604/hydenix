@@ -13,14 +13,12 @@ in
     };
 
     name = lib.mkOption {
-      type = lib.types.nullOr lib.types.str;
-      default = null;
+      default = false;
       description = "Git user name";
     };
 
     email = lib.mkOption {
-      type = lib.types.nullOr lib.types.str;
-      default = null;
+      default = false;
       description = "Git user email";
     };
   };
@@ -29,9 +27,9 @@ in
 
     programs.git = {
       enable = true;
-      userName = cfg.name;
-      userEmail = cfg.email;
-      extraConfig = {
+      settings = {
+        user.name = cfg.name;
+        user.email = cfg.email;
         init.defaultBranch = "main";
         pull.rebase = false;
       };
