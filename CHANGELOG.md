@@ -1,3 +1,10 @@
+# [5.1.0](https://github.com/richen604/hydenix/compare/v5.0.3...v5.1.0) (2025-11-07)
+
+
+### Features
+
+* **shell:** source hyde shell functions ([29c9b8f](https://github.com/richen604/hydenix/commit/29c9b8fc07c92395e9683ee05400f7a0f935cb21))
+
 ## [5.0.3](https://github.com/richen604/hydenix/compare/v5.0.2...v5.0.3) (2025-11-07)
 
 
