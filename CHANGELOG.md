@@ -1,3 +1,11 @@
+## [5.0.3](https://github.com/richen604/hydenix/compare/v5.0.2...v5.0.3) (2025-11-07)
+
+
+### Bug Fixes
+
+* added checks to flake to catch inputs ([5088809](https://github.com/richen604/hydenix/commit/5088809dbdd353fec0590c6c9c1868b50f4b19a1))
+* update hyde-ipc, closes [#172](https://github.com/richen604/hydenix/issues/172) ([db042bd](https://github.com/richen604/hydenix/commit/db042bd3b6cbbde59b7017a5b055132625f2192a))
+
 ## [5.0.2](https://github.com/richen604/hydenix/compare/v5.0.1...v5.0.2) (2025-10-20)
 
 
