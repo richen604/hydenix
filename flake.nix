@@ -89,6 +89,13 @@
         hyde-config = inputs.hyde-config.packages.${system}.default;
       };
 
+      checks.${system} = {
+        hyq = inputs.self.packages.${system}.hyq;
+        hydectl = inputs.self.packages.${system}.hydectl;
+        hyde-ipc = inputs.self.packages.${system}.hyde-ipc;
+        hyde-config = inputs.self.packages.${system}.hyde-config;
+      };
+
       devShells.${system}.default = import ./lib/dev-shell.nix { inherit inputs; };
     };
 }
