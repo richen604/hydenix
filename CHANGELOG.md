@@ -1,3 +1,11 @@
+## [5.1.1](https://github.com/richen604/hydenix/compare/v5.1.0...v5.1.1) (2025-11-15)
+
+
+### Bug Fixes
+
+* prevent 2gb closure from hyde-ipc for ci ([aba01fd](https://github.com/richen604/hydenix/commit/aba01fd577307522751dc71ac387355690d0a02a))
+* removed webcord for insecure electron version ([ba80504](https://github.com/richen604/hydenix/commit/ba80504833a91d418126f7c664668a217fbb79c5))
+
 # [5.1.0](https://github.com/richen604/hydenix/compare/v5.0.3...v5.1.0) (2025-11-07)
 
 
