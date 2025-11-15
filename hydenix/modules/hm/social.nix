@@ -24,14 +24,6 @@ in
       };
     };
 
-    webcord = {
-      enable = lib.mkOption {
-        type = lib.types.bool;
-        default = true;
-        description = "Enable webcord module";
-      };
-    };
-
     vesktop = {
       enable = lib.mkOption {
         type = lib.types.bool;
@@ -44,7 +36,6 @@ in
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       (lib.mkIf cfg.discord.enable discord)
-      (lib.mkIf cfg.webcord.enable webcord)
       (lib.mkIf cfg.vesktop.enable vesktop)
     ];
 
