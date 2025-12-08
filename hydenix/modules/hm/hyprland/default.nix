@@ -28,7 +28,7 @@ in
       pkgs.hyprutils
       pkgs.hyprpicker
       pkgs.hyprcursor
-    ];
+    ] ++ cfg.plugins;
 
     home.activation.createHyprConfigs = lib.hm.dag.entryAfter [ "mutableGeneration" ] ''
       mkdir -p "$HOME/.config/hypr/animations"

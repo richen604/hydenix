@@ -29,6 +29,14 @@ in
       default = false;
       description = "Suppress warnings about configuration overrides";
     };
+    plugins = lib.mkOption {
+      type = lib.types.listOf lib.types.package;
+      default = [ ];
+      description = "List of Hyprland plugins to use";
+      example = lib.literalExpression ''
+        [ inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars ]
+      '';
+    };
 
     # Animation configurations
     animations = {

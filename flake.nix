@@ -36,6 +36,15 @@
       url = "github:richen604/hyde-config";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    
+    # Hyprland and its plugins
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+    };
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
   };
   outputs =
     { ... }@inputs:
